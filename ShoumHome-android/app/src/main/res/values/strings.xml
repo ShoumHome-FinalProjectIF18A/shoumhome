@@ -29,4 +29,12 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
+    <string name="app_name">DataKajianOnline</string>
+    <string-array name="ajmlKolom">
+        <item>Silahkan Pilih Jumlah Kolom</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
 </resources>
