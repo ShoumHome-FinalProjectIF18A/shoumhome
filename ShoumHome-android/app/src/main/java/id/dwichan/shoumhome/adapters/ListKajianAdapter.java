@@ -1,4 +1,4 @@
-package com.example.kajian;
+package id.dwichan.shoumhome.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.datakajianonline.R;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import id.dwichan.shoumhome.R;
 
 public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.MyHolder>{
     private Context context;

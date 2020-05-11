@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.beranda.BerandaFragment">
 
-    <TextView
-        android:layout_width="match_parent"
+    <Button
         android:layout_height="wrap_content"
-        android:text="Belum ada apa apa disini"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:layout_width="match_parent"
+        android:text="Kajian Online"
+        android:onClick="openKajianOnline" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

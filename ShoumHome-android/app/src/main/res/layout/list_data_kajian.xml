@@ -21,7 +21,9 @@
         android:textSize="18sp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/imageViewFoto"
-        android:text="Meningkatkan Keimanan dalam Kemajuan Teknologi" />
+        android:text="Meningkatkan Keimanan dalam Kemajuan Teknologi"
+        android:layout_toRightOf="@+id/imageViewFoto"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:id="@+id/textViewUstad"
@@ -31,7 +33,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/imageViewFoto"
-        android:text="Ustadz Abdul Somad" />
+        android:text="Ustadz Abdul Somad"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/imageViewFoto" />
 
     <TextView
         android:id="@+id/textViewLink"
@@ -41,6 +45,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/imageViewFoto"
-        android:text="....." />
+        android:text="....."
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/imageViewFoto" />
 
 </RelativeLayout>

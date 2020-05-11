@@ -40,6 +40,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activityHandler.KajianActivity"
+            android:icon="@mipmap/icon"
+            android:label="@string/title_activity_maps_result">
+            <intent-filter>
+                <action android:name=".KajianActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".activityHandler.SplashActivity"
             android:icon="@mipmap/icon" >

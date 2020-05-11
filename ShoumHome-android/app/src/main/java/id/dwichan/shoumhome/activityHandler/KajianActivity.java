@@ -1,22 +1,26 @@
-package com.example.kajian;
+package id.dwichan.shoumhome.activityHandler;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-import com.example.datadosenamikomfendi.R;
-
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+import id.dwichan.shoumhome.adapters.ListKajianAdapter;
+import id.dwichan.shoumhome.R;
+
+public class KajianActivity extends AppCompatActivity {
     ArrayList<String> mFoto = new ArrayList<>();
     ArrayList<String> mJudul = new ArrayList<>();
     ArrayList<String> mUstad = new ArrayList<>();
@@ -25,10 +29,29 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner spJmlKolom;
 
+    //buat di ActionBar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                break;
+        }
+        return true;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.kajian_main);
+
+        // fungsi Toolbar dan ActionBar
+        Toolbar tb = findViewById(R.id.toolbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         mFoto.add("data:image/webp;base64,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");
         mJudul.add("Judul    : ");

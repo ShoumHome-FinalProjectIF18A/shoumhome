@@ -114,4 +114,9 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public void openKajianOnline(View view) {
+        Intent i = new Intent(".KajianActivity");
+        startActivity(i);
+    }
 }
