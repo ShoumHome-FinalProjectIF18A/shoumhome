@@ -11,11 +11,11 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_beranda" />
 
-    <fragment
+    <activity
         android:id="@+id/nav_gallery"
-        android:name="id.dwichan.shoumhome.ui.pengaturan.GalleryFragment"
         android:label="@string/menu_settings"
-        tools:layout="@layout/fragment_pengaturan" />
+        android:name="id.dwichan.shoumhome.activityHandler.SettingsActivity"
+        tools:layout="@layout/settings_activity"/>
 
     <fragment
         android:id="@+id/nav_slideshow"

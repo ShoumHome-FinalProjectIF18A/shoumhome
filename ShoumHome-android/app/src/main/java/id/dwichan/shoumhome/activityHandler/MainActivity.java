@@ -1,10 +1,11 @@
-package id.dwichan.shoumhome;
+package id.dwichan.shoumhome.activityHandler;
 
 import android.app.Instrumentation;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -24,6 +25,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import javax.xml.transform.Result;
+
+import id.dwichan.shoumhome.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -110,10 +113,5 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-    public void showPengaturan(MenuItem item) {
-        Intent i = new Intent(".SettingsActivity");
-        startActivity(i);
     }
 }

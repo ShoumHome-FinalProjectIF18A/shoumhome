@@ -1,4 +1,8 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="" />
+    <PreferenceCategory app:title="" />
 
     <PreferenceCategory app:title="@string/display_header">
 
@@ -7,24 +11,58 @@
             app:entries="@array/theme_entries"
             app:entryValues="@array/theme_values"
             app:key="theme"
+            app:icon="@drawable/ic_brightness_medium_green_24dp"
             app:title="@string/theme_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="1"
+            app:entries="@array/map_type_entries"
+            app:entryValues="@array/map_type_values"
+            app:key="map_type"
+            app:icon="@drawable/ic_map_green_24dp"
+            app:title="Tampilan Google Maps"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory app:title="@string/sahur_header">
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+            app:key="sahurStatus"
+            app:icon="@drawable/ic_access_alarm_green_24dp"
+            app:title="@string/sahurStatus_title" />
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+        <SeekBarPreference
+            android:dependency="sahurStatus"
+            app:min="10"
+            app:key="durBefImsak"
+            android:max="150"
+            app:title="@string/duration_imsak"
+            app:summary="@string/duration_subtitle"
+            app:showSeekBarValue="true"/>
+
+        <Preference
+            android:selectable="false"
+            android:enabled="true"
+            android:summary="@string/alarm_message" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/location_title">
+
+        <Preference
+            app:defaultValue="-7.0,109.0"
+            app:key="defaultLocation"
+            app:icon="@drawable/ic_place_black_24dp"
+            app:title="@string/defaultLocation_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <Preference
+        android:selectable="false"
+        android:enabled="true"
+        android:summary="(c) 2020. ShoumHome Teams." />
 
 </PreferenceScreen>

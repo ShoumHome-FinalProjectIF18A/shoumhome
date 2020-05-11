@@ -16,17 +16,20 @@
 
     <!-- Preference Titles -->
     <string name="display_header">Tampilan</string>
-    <string name="sync_header">Sync</string>
+    <string name="sahur_header">Alarm Sahur</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
     <string name="theme_title">Tema</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="duration_imsak">Durasi sebelum imsak (menit)</string>
+    <string name="duration_subtitle">Jeda waktu untuk alarm sebelum sahur</string>
+    <string name="alarm_message">Catatan: Suara alarm akan mengikuti suara bawaan dari smarphone Anda.</string>
+    <string name="location_title">Lokasi</string>
+    <string name="title_activity_maps_result">Titik Koordinat</string>
+    <string name="title_activity_maps">Titik Koordinat</string>
+    <string name="defaultLocation_title">Atur Lokasi Utama</string>
+    <string name="sahurStatus_title">Aktifkan Alarm Sahur</string>
+    <string name="loc_succes_change">"Lokasi Utama berhasil diubah ke "</string>
 
 </resources>
