@@ -32,4 +32,12 @@
     <string name="sahurStatus_title">Aktifkan Alarm Sahur</string>
     <string name="loc_succes_change">"Lokasi Utama berhasil diubah ke "</string>
 
+    <string name="app_name">DataKajianOnline</string>
+    <string-array name="ajmlKolom">
+        <item>Silahkan Pilih Jumlah Kolom</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
 </resources>
