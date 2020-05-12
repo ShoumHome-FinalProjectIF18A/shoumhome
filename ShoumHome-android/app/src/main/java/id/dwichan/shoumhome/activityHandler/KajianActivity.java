@@ -47,6 +47,7 @@ public class KajianActivity extends AppCompatActivity {
 
         // fungsi Toolbar dan ActionBar
         Toolbar tb = findViewById(R.id.toolbar);
+        tb.setTitle("Kajian Online");
         setSupportActionBar(tb);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
