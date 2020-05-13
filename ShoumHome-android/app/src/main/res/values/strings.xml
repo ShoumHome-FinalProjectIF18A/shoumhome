@@ -38,4 +38,9 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="ajeniszakat">
+        <item>Beras</item>
+        <item>Uang</item>
+    </string-array>
+
 </resources>
