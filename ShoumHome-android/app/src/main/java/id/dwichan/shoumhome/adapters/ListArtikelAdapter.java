@@ -68,11 +68,8 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
 
     class Myartikel extends RecyclerView.ViewHolder{
         ImageView IVjudul;
-        TextView TVjudul,TVringkasan, TVustad, TVtanggal;
-        EditText like;
-        ImageButton IBlike;
+        TextView TVjudul,TVringkasan, TVustad, TVtanggal, like;
         RelativeLayout layout_list_artikel;
-
 
         public Myartikel(@NonNull View itemView) {
             super(itemView);
@@ -82,9 +79,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
             TVustad=itemView.findViewById(R.id.TV_Ustad);
             TVtanggal=itemView.findViewById(R.id.TV_Tanggal);
             like=itemView.findViewById(R.id.TV_Like);
-            IBlike=itemView.findViewById(R.id.I_Like);
             layout_list_artikel=itemView.findViewById(R.id.layout_list_artikel);
-
         }
     }
 }

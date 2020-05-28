@@ -4,11 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.beranda.BerandaFragment">
+
+    <include layout="@layout/fragment_layout_user" />
 
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="Kajian Online"
         android:onClick="openKajianOnline" />
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Artikel Islami"
+        android:onClick="openArtikelIslami" />
 </LinearLayout>

@@ -36,6 +36,10 @@ public class ArtikelActivity extends AppCompatActivity {
         super.onCreate(savedInstancesState);
         setContentView(R.layout.activity_artikel__islami);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Artikel Islami");
+
         mImageJudul.add("https://ypiaflash.com/muslim.or.id/wp-content/uploads/2010/08/sedekah-ajib-810x500.jpg");
         mJudul.add("Dahsyatnya Sedekah di Bulan Ramadhan");
         mRingkasan.add("Salah satu pintu yang dibuka oleh Allah untuk meraih keuntungan besar dari bulan Ramadhan adalah melalui sedekah. Islam sering menganjurkan umatnya untuk banyak bersedekah. Dan bulan Ramadhan, amalan ini menjadi lebih dianjurkan lagi. Dan demikianlah sepatutnya akhlak seorang mukmin, yaitu dermawan. Allah dan Rasul-Nya memerintahkan bahkan memberi contoh kepada umat Islam untuk menjadi orang yang dermawan serta pemurah ");

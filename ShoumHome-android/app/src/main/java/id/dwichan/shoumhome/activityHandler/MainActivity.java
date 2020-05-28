@@ -104,4 +104,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(".KajianActivity");
         startActivity(i);
     }
+
+    public void openArtikelIslami(View view) {
+        Intent i = new Intent(this, ArtikelActivity.class);
+        startActivity(i);
+    }
 }
