@@ -23,4 +23,15 @@
         <item>1</item>
         <item>3</item>
     </string-array>
+
+    <string-array name="ajmlKolom">
+        <item>Silahkan Pilih Jumlah Kolom</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="ajeniszakat">
+        <item>Beras</item>
+        <item>Uang</item>
+    </string-array>
 </resources>

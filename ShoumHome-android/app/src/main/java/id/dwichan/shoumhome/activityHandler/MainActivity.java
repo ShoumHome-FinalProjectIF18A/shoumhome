@@ -34,21 +34,6 @@ public class MainActivity extends AppCompatActivity {
     boolean doubleBackToExitPressedOnce = false;
     private SharedPreferences sharedPreferences;
 
-    private void setActTheme() {
-        String theme = sharedPreferences.getString("theme", "light");
-        switch(theme) {
-            case "dark":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                break;
-            case "light":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                break;
-            case "auto":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                break;
-        }
-    }
-
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {

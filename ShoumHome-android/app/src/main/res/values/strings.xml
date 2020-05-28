@@ -31,16 +31,7 @@
     <string name="defaultLocation_title">Atur Lokasi Utama</string>
     <string name="sahurStatus_title">Aktifkan Alarm Sahur</string>
     <string name="loc_succes_change">"Lokasi Utama berhasil diubah ke "</string>
+    <string name="warning_zakat">PERHATIAN !\n \n Zakat yang dikeluarkan per anggota keluarga adalah yang \n memenuhi syarat sebagai berikut : \n 1. Beragama Islam\n 2. Keadaan Merdeka (Tidak Menjadi Budak)\n 3. Baligh dan Berakal\n \n Zakat Fitrah ini wajib dibayarkan seorang Muslim Setahun Sekali pada Awal atau Akhir Bulan Ramadhan.</string>
 
-    <string-array name="ajmlKolom">
-        <item>Silahkan Pilih Jumlah Kolom</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="ajeniszakat">
-        <item>Beras</item>
-        <item>Uang</item>
-    </string-array>
 
 </resources>

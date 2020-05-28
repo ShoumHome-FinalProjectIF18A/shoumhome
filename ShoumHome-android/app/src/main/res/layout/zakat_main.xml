@@ -1,78 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activityHandler.zakatActivity"
     android:layout_width="match_parent"
-    android:padding="8dp"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <Button
         android:id="@+id/btzakatfitrah"
         android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Zakat Fitrah" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="215dp"
-        android:text="PERHATIAN !\n \n Zakat yang dikeluarkan per anggota keluarga adalah yang \n
-memenuhi syarat sebagai berikut : \n
-1. Beragama Islam\n
-2. Keadaan Merdeka (Tidak Menjadi Budak)\n
-3. Baligh dan Berakal\n
-\n
-Zakat Fitrah ini wajib dibayarkan seorang Muslim Setahun Sekali\n
-pada Awal atau Akhir Bulan Ramadhan.\n " />
+        android:text="Zakat Fitrah"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#E91E63"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btzakatfitrah">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/warning_zakat"
+            android:textColor="#ffffff"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="196dp" />
+
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="193dp"
-        android:layout_height="40dp"
-        android:text="Jumlah Anggota Keluarga : " />
+        android:layout_width="191dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:text="Jumlah Anggota Keluarga : "
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="393dp"
-        android:layout_height="wrap_content" />
+        android:layout_width="64dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:hint="3"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        android:gravity="end" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="193dp"
-        android:layout_height="40dp"
-        android:text="Harga Beras            : " />
+        android:layout_height="21dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Harga Beras : "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="393dp"
-        android:layout_height="wrap_content" />
+        android:layout_width="112dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:textAlignment="textEnd"
+        android:hint="10000"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:gravity="end" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="193dp"
-        android:layout_height="40dp"
-        android:text="Bentuk Zakat            : " />
+        android:layout_width="162dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:text="Bentuk Zakat : "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Spinner
         android:id="@+id/spjeniszakat"
-        android:entries="@"
+        android:layout_width="123dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/ajeniszakat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/editText1" />
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:gravity="center_horizontal"
+        android:text="Anda Perlu Membayar Zakat Fitrah Berupa Beras Sebanyak"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:text="Anda Perlu Membayar Zakat Fitrah Berupa Beras Sebanyak" />
+        android:layout_height="72dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:autoSizeMaxTextSize="100dp"
+        android:autoSizePresetSizes="48dp"
+        android:textStyle="bold"
+        android:text="7,5 kilogram!"
+        android:textAlignment="center"
+        android:textSize="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="393dp"
-        android:layout_height="104dp" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="orang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Rp"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text=",-/kg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
