@@ -110,6 +110,6 @@
 
     </LinearLayout>
 
-    <include layout="@layout/fragment_maps"/>
+    <include layout="@layout/fragment_maps" />
 
 </LinearLayout>
