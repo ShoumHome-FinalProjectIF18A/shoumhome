@@ -1,25 +1,19 @@
 package id.dwichan.shoumhome.activityHandler;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Spinner;
-
 import java.util.ArrayList;
 
-import id.dwichan.shoumhome.adapters.ListArtikelAdapter;
-import id.dwichan.shoumhome.adapters.ListKajianAdapter;
 import id.dwichan.shoumhome.R;
+import id.dwichan.shoumhome.adapters.ListArtikelAdapter;
 
 public class ArtikelActivity extends AppCompatActivity {
 
@@ -32,14 +26,31 @@ public class ArtikelActivity extends AppCompatActivity {
     ArrayList<String> mustad =new ArrayList<>();
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                break;
+        }
+        return true;
+    }
+
+
+
+    @Override
     protected void  onCreate(Bundle savedInstancesState){
         super.onCreate(savedInstancesState);
         setContentView(R.layout.activity_artikel__islami);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        setTitle("Artikel Islami");
+        // fungsi Toolbar dan ActionBar(back pd artikel)
+        Toolbar tb = findViewById(R.id.toolbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
+        setTitle("Artikel Islami");
         mImageJudul.add("https://ypiaflash.com/muslim.or.id/wp-content/uploads/2010/08/sedekah-ajib-810x500.jpg");
         mJudul.add("Dahsyatnya Sedekah di Bulan Ramadhan");
         mRingkasan.add("Salah satu pintu yang dibuka oleh Allah untuk meraih keuntungan besar dari bulan Ramadhan adalah melalui sedekah. Islam sering menganjurkan umatnya untuk banyak bersedekah. Dan bulan Ramadhan, amalan ini menjadi lebih dianjurkan lagi. Dan demikianlah sepatutnya akhlak seorang mukmin, yaitu dermawan. Allah dan Rasul-Nya memerintahkan bahkan memberi contoh kepada umat Islam untuk menjadi orang yang dermawan serta pemurah ");
