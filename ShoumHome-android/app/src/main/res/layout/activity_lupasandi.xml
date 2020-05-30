@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activityHandler.LupaSandiActivity">
+
+    <ImageView
+        android:id="@+id/nama_slogan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/nama_slogan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <TextView
+        android:id="@+id/textlupa_sandi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nama_slogan2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center_horizontal"
+        android:text="Lupa Kata Sandi?"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="295dp" />
+
+    <EditText
+        android:id="@+id/etemail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/textlupa_sandi"
+        android:layout_centerHorizontal="true"
+        android:hint="E-mail"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <EditText
+        android:id="@+id/etotp"
+        android:layout_width="172dp"
+        android:layout_height="54dp"
+        android:layout_below="@id/etemail"
+        android:layout_centerHorizontal="true"
+        android:hint="Kode OTP"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="413dp" />
+
+    <Button
+        android:id="@+id/btn_kembali"
+        android:layout_width="138dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/etotp"
+        android:backgroundTint="#00BFFF"
+        android:fontFamily="sans-serif-light"
+        android:text="Kembali"
+        android:textAllCaps="false"
+        android:textColor="@color/wrnputih"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="554dp" />
+
+    <Button
+        android:id="@+id/btn_verifikasi"
+        android:layout_width="136dp"
+        android:layout_height="43dp"
+        android:layout_below="@id/btn_kembali"
+        android:backgroundTint="#00BFFF"
+        android:fontFamily="sans-serif-light"
+        android:text="Verifikasi"
+        android:textAllCaps="false"
+        android:textColor="@color/wrnputih"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="236dp"
+        tools:layout_editor_absoluteY="555dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -66,6 +66,31 @@
             android:layout_below="@id/etusername"
             android:layout_centerHorizontal="true"/>
 
+        <CheckBox
+            android:id="@+id/showPass"
+            android:layout_width="300dp"
+            android:layout_height="20dp"
+            android:textSize="12sp"
+            android:textColor="#2DA131"
+            android:layout_below="@id/etpassword"
+            android:text="Show Password" />
+
+        <TextView
+            android:id="@+id/textlupasandi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lupa Kata Sandi?"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#2DA131"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@id/logImage"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="18dp"
+            android:gravity="center_horizontal"
+            android:layout_alignParentRight="true" />
+
         <Button
             android:id="@+id/btn_login"
             android:layout_width="300dp"
