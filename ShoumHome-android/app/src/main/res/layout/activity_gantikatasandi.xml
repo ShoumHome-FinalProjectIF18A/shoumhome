@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activityHandler.LupaSandiActivity">
+    tools:context=".activityHandler.GantiSandiActivity">
 
     <ImageView
-        android:id="@+id/nama_slogan2"
+        android:id="@+id/nama_slogan4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/nama_slogan"
@@ -18,15 +18,15 @@
         app:layout_constraintVertical_bias="0.115" />
 
     <TextView
-        android:id="@+id/textlupa_sandi"
+        android:id="@+id/textganti_sandi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nama_slogan2"
+        android:layout_below="@id/nama_slogan4"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:fontFamily="sans-serif-light"
         android:gravity="center_horizontal"
-        android:text="Lupa Kata Sandi?"
+        android:text="Ganti Kata Sandi Baru Sekarang"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -35,12 +35,12 @@
         tools:layout_editor_absoluteY="263dp" />
 
     <EditText
-        android:id="@+id/etemail"
+        android:id="@+id/etsandi"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_below="@id/textlupa_sandi"
+        android:layout_below="@id/textganti_sandi"
         android:layout_centerHorizontal="true"
-        android:hint="E-mail"
+        android:hint="Kata Sandi"
         android:inputType="textPersonName"
         android:textSize="14sp"
         tools:ignore="MissingConstraints"
@@ -48,46 +48,32 @@
         tools:layout_editor_absoluteY="345dp" />
 
     <EditText
-        android:id="@+id/etotp"
-        android:layout_width="172dp"
-        android:layout_height="54dp"
-        android:layout_below="@id/etemail"
+        android:id="@+id/etulang_sandi"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/etsandi"
         android:layout_centerHorizontal="true"
-        android:hint="Kode OTP"
+        android:hint="Ulangi Kata Sandi"
         android:inputType="textPersonName"
         android:textSize="14sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="413dp" />
+        tools:layout_editor_absoluteY="419dp" />
 
     <Button
-        android:id="@+id/btn_kembali"
-        android:layout_width="138dp"
-        android:layout_height="44dp"
-        android:layout_below="@id/etotp"
-        android:backgroundTint="#00BFFF"
-        android:fontFamily="sans-serif-light"
-        android:text="Kembali"
-        android:textAllCaps="false"
-        android:textColor="@color/wrnputih"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="554dp" />
-
-    <Button
-        android:id="@+id/btn_verifikasi"
+        android:id="@+id/btn_lanjut"
         android:layout_width="136dp"
         android:layout_height="43dp"
-        android:layout_below="@id/btn_kembali"
+        android:layout_below="@id/etulang_sandi"
         android:backgroundTint="#00BFFF"
         android:fontFamily="sans-serif-light"
-        android:text="Verifikasi"
+        android:text="Lanjut"
         android:textAllCaps="false"
         android:textColor="@color/wrnputih"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="236dp"
         tools:layout_editor_absoluteY="555dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
