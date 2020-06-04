@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LayarUtama">
+
+    <ImageView
+        android:id="@+id/IVlayarutama"
+        android:layout_width="330dp"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/nama_slogan"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="232dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnMasuk"
+        android:layout_width="319dp"
+        android:layout_height="51dp"
+        android:background="@color/warna_background_button"
+        android:text="Masuk ke ShoumHoum!"
+        android:textAllCaps="false"
+        android:textColor="@color/warna_tulisan_button"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="44dp"
+        android:textSize="18dp"
+        tools:layout_editor_absoluteY="483dp" />
+
+    <Button
+        android:id="@+id/btnDaftar"
+        android:layout_width="323dp"
+        android:layout_height="50dp"
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        android:background="@color/warna_background_button"
+        android:textColor="@color/warna_tulisan_button"
+        android:text="Belum punya akun? Daftar disini!"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="559dp"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
