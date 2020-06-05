@@ -1,8 +1,10 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="" />
-    <PreferenceCategory app:title="" />
+    <Preference
+        app:key="first"
+        app:isPreferenceVisible="false"
+        app:defaultValue="false" />
 
     <PreferenceCategory app:title="@string/display_header">
 

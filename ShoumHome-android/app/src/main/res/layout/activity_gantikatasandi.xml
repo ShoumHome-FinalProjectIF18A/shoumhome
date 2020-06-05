@@ -69,7 +69,7 @@
         android:fontFamily="sans-serif-light"
         android:text="Lanjut"
         android:textAllCaps="false"
-        android:textColor="@color/wrnputih"
+        android:textColor="@color/putih"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="236dp"

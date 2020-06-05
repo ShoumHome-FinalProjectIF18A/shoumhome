@@ -4,9 +4,11 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="Judul">#000000</color>
-    <color name="wrnputih">#F6F5F5</color>
+    <color name="putih">#F6F5F5</color>
     <color name="hitm">#000000</color>
     <color name="warna_tulisan_button">#FFFCFC</color>
     <color name="warna_background_button">#3588CA</color>
     <color name="hitam">#000000</color>
+    <color name="biru">#001297</color>
+    <color name="abuabu">#5A5A5A</color>
 </resources>
