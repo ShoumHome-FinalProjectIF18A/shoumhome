@@ -1,5 +1,6 @@
 package id.shoumhome.android.activityHandler;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -27,6 +29,10 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    Context getAppContext() {
+        return this.getApplicationContext();
     }
 
     @Override
@@ -50,6 +56,19 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        switch(sp.getString("theme", "auto")) {
+            case "auto":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                break;
+            case "light":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case "dark":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+        }
+
         super.onBackPressed();
     }
 
@@ -59,20 +78,20 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
-            Preference theme = (Preference) findPreference("theme");
-            theme.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) { Toast.makeText(getActivity().getApplicationContext(), "Kamu perlu menjalankan ulang aplikasi ini untuk menerapkan perubahannya!", Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-            });
+//            Preference theme = (Preference) findPreference("theme");
+//            theme.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+//                @Override
+//                public boolean onPreferenceChange(Preference preference, Object newValue) { Toast.makeText(getActivity().getApplicationContext(), "Kamu perlu menjalankan ulang aplikasi ini untuk menerapkan perubahannya!", Toast.LENGTH_SHORT).show();
+//                    return true;
+//                }
+//            });
 
             Preference defaultLocation = (Preference) findPreference("defaultLocation");
             defaultLocation.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     SharedPreferences pf = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-                    String i = pf.getString("defaultLocation", "0.0,0.0");
+                    String i = pf.getString("defaultLocation", "-7.0,109.0");
 
                     // Buat parmeter untuk dilemparkan ke MapsResultActivity
                     Intent ii = new Intent(".MapsResultActivity");

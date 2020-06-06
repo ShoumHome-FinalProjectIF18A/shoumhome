@@ -1,5 +1,6 @@
 package id.shoumhome.android.ui.beranda;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import id.shoumhome.android.R;
+import id.shoumhome.android.activityHandler.ArtikelActivity;
 
 public class BerandaFragment extends Fragment {
 
@@ -17,4 +19,5 @@ public class BerandaFragment extends Fragment {
 
         return root;
     }
+
 }
