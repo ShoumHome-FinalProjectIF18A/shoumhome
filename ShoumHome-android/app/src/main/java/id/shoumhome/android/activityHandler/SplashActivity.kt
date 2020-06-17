@@ -37,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
                         val home = Intent(this@SplashActivity, MainActivity::class.java)
                         startActivity(home)
                     } else {
-                        val login = Intent(this@SplashActivity, LayarUtama::class.java)
+                        val login = Intent(this@SplashActivity, LayarUtamaActivity::class.java)
                         startActivity(login)
                     }
                 }

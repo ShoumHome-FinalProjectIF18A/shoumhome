@@ -8,7 +8,7 @@ import android.view.View;
 
 import id.shoumhome.android.R;
 
-public class Menu_Daftar1 extends AppCompatActivity {
+public class DaftarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +17,7 @@ public class Menu_Daftar1 extends AppCompatActivity {
     }
 
     public void kembali_ke_layar_utama(View view) {
-        Intent i = new Intent(this, LayarUtama.class);
-        startActivity(i);
+        super.onBackPressed(); // diperbaiki, ini biar activity nya gak bertumpuk dalam memory
     }
 
     public void lanjut_ke_login(View view) {

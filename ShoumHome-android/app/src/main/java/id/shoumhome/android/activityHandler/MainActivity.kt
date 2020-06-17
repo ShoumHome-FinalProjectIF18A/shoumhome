@@ -5,11 +5,10 @@ import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import androidx.preference.PreferenceManager
+import android.os.Parcelable
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -19,15 +18,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.preference.PreferenceManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import id.shoumhome.android.DataSessionHandler
 import id.shoumhome.android.R
 
 class MainActivity : AppCompatActivity() {
     private var mAppBarConfiguration: AppBarConfiguration? = null
     var doubleBackToExitPressedOnce = false
     private val sharedPreferences: SharedPreferences? = null
+    private var session: DataSessionHandler? = null
 
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -39,29 +41,41 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Inisialisasi variabel
+        session = intent.getParcelableExtra("session")
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
         val fab = findViewById<FloatingActionButton>(R.id.fab)
+        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+
+        // Buat actionbar yang berisi toolbar
+        setSupportActionBar(toolbar)
+
+        // Floating Action Button
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
                 .build()
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration!!)
         NavigationUI.setupWithNavController(navigationView, navController)
-
+        val headerView = navigationView?.getHeaderView(0)
+        val txtUsername: TextView? = headerView?.findViewById(R.id.txtNamaUser2)
+        val txtEmail: TextView? = headerView?.findViewById(R.id.txtEmail)
+        txtUsername?.text = session?.nama_lengkap
+        txtEmail?.text = session?.email
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -77,6 +91,12 @@ class MainActivity : AppCompatActivity() {
             "light" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             "dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
+        // Ambil parameter dari data sebelumnya
+
+        // bug
+//        val txtUsername2: TextView = findViewById(R.id.txtNamaUser2)
+//        txtUsername2.text = session?.nama_lengkap?: ""
+
         super.onResume()
     }
 

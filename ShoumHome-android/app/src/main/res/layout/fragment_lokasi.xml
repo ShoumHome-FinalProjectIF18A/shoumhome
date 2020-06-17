@@ -10,8 +10,7 @@
     <ImageView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/ic_place_place_48"
-        android:backgroundTint="?attr/color" />
+        android:src="@drawable/ic_place_place_48" />
 
     <LinearLayout
         android:layout_width="match_parent"

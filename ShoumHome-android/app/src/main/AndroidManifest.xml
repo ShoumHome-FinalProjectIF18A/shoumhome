@@ -17,13 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".activityHandler.PilihPenjualActivity"></activity>
-        <activity android:name="id.dwichan.shoumhome.btn_langkah"></activity>
         <activity android:name=".activityHandler.IntroActivity" />
-        <activity android:name=".Menu_Daftar2" />
-        <activity android:name=".activityHandler.Menu_Daftar1" />
-        <activity android:name=".activityHandler.LayarUtama" />
+        <activity android:name=".activityHandler.DaftarActivity" />
+        <activity android:name=".activityHandler.LayarUtamaActivity" />
         <activity android:name=".activityHandler.ArtikelActivity" />
-        <activity android:name=".Menu_Daftar1" /> <!-- <service -->
+        <activity android:name=".activityHandler.LoginActivity" /> <!-- <service -->
         <!-- android:name=".AlarmService" -->
         <!-- android:enabled="true" -->
         <!-- android:exported="false" -->
