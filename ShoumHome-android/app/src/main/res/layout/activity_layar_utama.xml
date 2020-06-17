@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LayarUtama">
+    tools:context=".activityHandler.LayarUtama">
 
     <ImageView
         android:id="@+id/IVlayarutama"
@@ -19,6 +19,7 @@
 
     <Button
         android:id="@+id/btnMasuk"
+        android:onClick="masuk_ke_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -28,21 +29,21 @@
         android:textAllCaps="false"
         android:textColor="@color/warna_tulisan_button"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="44dp"
-        android:textSize="18dp"
-        tools:layout_editor_absoluteY="483dp" />
+        android:textSize="18dp" />
 
     <Button
         android:id="@+id/btnDaftar"
-        android:layout_width="323dp"
-        android:layout_height="50dp"
-        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:onClick="masuk_ke_daftar"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:textSize="18dp"
-        android:background="@color/warna_background_button"
+        android:textAllCaps="false"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bt_aksi"
         android:textColor="@color/warna_tulisan_button"
         android:text="Belum punya akun? Daftar disini!"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="559dp"
         tools:ignore="MissingConstraints" />
 
 </LinearLayout>

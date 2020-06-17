@@ -19,8 +19,8 @@
         <activity android:name="id.dwichan.shoumhome.btn_langkah"></activity>
         <activity android:name=".activityHandler.IntroActivity" />
         <activity android:name=".Menu_Daftar2" />
-        <activity android:name=".Menu_Daftar1" />
-        <activity android:name=".LayarUtama" />
+        <activity android:name=".activityHandler.Menu_Daftar1" />
+        <activity android:name=".activityHandler.LayarUtama" />
         <activity android:name=".activityHandler.ArtikelActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
