@@ -105,7 +105,7 @@ class IntroActivity : AppIntro2() {
             putBoolean("first", true)
             commit()
         }
-        val home = Intent(this@IntroActivity, MainActivity::class.java)
+        val home = Intent(this@IntroActivity, LayarUtama::class.java)
         startActivity(home)
         finish()
     }
