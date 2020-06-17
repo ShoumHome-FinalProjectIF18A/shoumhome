@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".activityHandler.PilihPenjualActivity"></activity>
+        <activity android:name="id.dwichan.shoumhome.btn_langkah"></activity>
         <activity android:name=".activityHandler.IntroActivity" />
         <activity android:name=".Menu_Daftar2" />
         <activity android:name=".Menu_Daftar1" />

@@ -9,6 +9,6 @@ public class Menu_Daftar1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu__daftar1);
+        setContentView(R.layout.activity_daftar);
     }
 }

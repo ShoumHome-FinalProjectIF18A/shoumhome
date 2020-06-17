@@ -35,7 +35,7 @@
             android:text="Login"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="#2DA131"
+            android:textColor="#000000"
             android:textAlignment="center"
             android:fontFamily="sans-serif-light"
             android:layout_alignParentEnd="true"
@@ -52,7 +52,7 @@
             android:inputType="textPersonName"
             android:textSize="14sp"
             android:textColor="@color/hitm"
-            android:textColorHint="#2DA131"
+            android:textColorHint="#000000"
             android:layout_below="@id/textlogin"
             android:layout_centerHorizontal="true"/>
 
@@ -65,7 +65,7 @@
             android:inputType="textPassword"
             android:textSize="14sp"
             android:textColor="@color/hitm"
-            android:textColorHint="#2DA131"
+            android:textColorHint="#000000"
             android:layout_below="@id/etusername"
             android:layout_centerHorizontal="true"/>
 
@@ -74,7 +74,7 @@
             android:layout_width="300dp"
             android:layout_height="20dp"
             android:textSize="12sp"
-            android:textColor="#2DA131"
+            android:textColor="#000000"
             android:layout_below="@id/etpassword"
             android:text="Show Password" />
 
@@ -85,7 +85,7 @@
             android:text="Lupa Kata Sandi?"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="#2DA131"
+            android:textColor="#000000"
             android:textAlignment="center"
             android:fontFamily="sans-serif-light"
             android:layout_alignParentEnd="true"
@@ -99,22 +99,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="Login"
-            android:backgroundTint="#2DA131"
+            android:background="?attr/colorPrimary"
             android:fontFamily="sans-serif-light"
-            android:textColor="@color/putih"
+            android:textColor="@color/hitam"
             android:textStyle="bold"
             android:textAllCaps="false"
             android:layout_below="@id/etpassword"
             />
 
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_kembali1"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:text="Register"
+            android:text="Kembali"
+            android:background="?attr/colorPrimary"
             android:fontFamily="sans-serif-light"
-            android:textColor="@color/putih"
+            android:textColor="@color/hitam"
             android:textStyle="bold"
             android:textAllCaps="false"
             android:layout_below="@id/btn_login"
