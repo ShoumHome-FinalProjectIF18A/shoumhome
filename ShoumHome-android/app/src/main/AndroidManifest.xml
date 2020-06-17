@@ -16,11 +16,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name="id.shoumhome.android.activityHandler.IntroActivity"></activity>
-        <activity android:name="id.shoumhome.android.Menu_Daftar2" />
-        <activity android:name="id.shoumhome.android.Menu_Daftar1" />
-        <activity android:name="id.shoumhome.android.LayarUtama" />
-        <activity android:name="id.shoumhome.android.activityHandler.ArtikelActivity" />
+        <activity android:name="id.dwichan.shoumhome.btn_langkah"></activity>
+        <activity android:name=".activityHandler.IntroActivity" />
+        <activity android:name=".Menu_Daftar2" />
+        <activity android:name=".Menu_Daftar1" />
+        <activity android:name=".LayarUtama" />
+        <activity android:name=".activityHandler.ArtikelActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -34,7 +35,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="id.shoumhome.android.activityHandler.MapsResultActivity"
+            android:name=".activityHandler.MapsResultActivity"
             android:icon="@mipmap/icon"
             android:label="@string/title_activity_maps_result">
             <intent-filter>
@@ -44,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="id.shoumhome.android.activityHandler.KajianActivity"
+            android:name=".activityHandler.KajianActivity"
             android:icon="@mipmap/icon"
             android:label="@string/title_activity_maps_result">
             <intent-filter>
@@ -54,7 +55,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="id.shoumhome.android.activityHandler.SplashActivity"
+            android:name=".activityHandler.SplashActivity"
             android:icon="@mipmap/icon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,7 +64,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="id.shoumhome.android.activityHandler.SettingsActivity"
+            android:name=".activityHandler.SettingsActivity"
             android:icon="@mipmap/icon"
             android:label="@string/title_activity_settings">
             <intent-filter>
@@ -73,7 +74,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="id.shoumhome.android.activityHandler.MainActivity"
+            android:name=".activityHandler.MainActivity"
             android:icon="@mipmap/icon"
             android:label="@string/title_activity_main" />
     </application>
