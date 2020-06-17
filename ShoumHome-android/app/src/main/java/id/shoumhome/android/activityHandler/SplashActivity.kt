@@ -32,8 +32,14 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed({
             when (sharedPreferences!!.getBoolean("first", false)) {
                 true -> {
-                    val home = Intent(this@SplashActivity, MainActivity::class.java)
-                    startActivity(home)
+                    if (!sharedPreferences!!.getString("username", "null").equals("null") ||
+                            !sharedPreferences!!.getString("password", "").equals("")) {
+                        val home = Intent(this@SplashActivity, MainActivity::class.java)
+                        startActivity(home)
+                    } else {
+                        val login = Intent(this@SplashActivity, LayarUtama::class.java)
+                        startActivity(login)
+                    }
                 }
                 false -> {
                     val intro = Intent(this@SplashActivity, IntroActivity::class.java)

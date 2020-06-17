@@ -96,6 +96,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(i)
     }
 
-    fun openMakanMinum(view: View?) {}
+    fun openMakanMinum(view: View?) {
+        val i = Intent(this@MainActivity, PilihPenjualActivity::class.java)
+        startActivity(i)
+    }
     fun openLokasiMasjid(view: View) {}
 }

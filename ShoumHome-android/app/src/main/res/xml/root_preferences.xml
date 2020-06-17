@@ -6,6 +6,16 @@
         app:isPreferenceVisible="false"
         app:defaultValue="false" />
 
+    <Preference
+        app:key="username"
+        app:isPreferenceVisible="false"
+        android:defaultValue="null" />
+
+    <Preference
+        app:key="password"
+        app:isPreferenceVisible="false"
+        android:defaultValue="" />
+
     <PreferenceCategory app:title="@string/display_header">
 
         <ListPreference
