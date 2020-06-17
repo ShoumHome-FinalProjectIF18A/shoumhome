@@ -1,8 +1,10 @@
-package id.shoumhome.android;
+package id.shoumhome.android.activityHandler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import id.shoumhome.android.R;
 
 public class LayarUtama extends AppCompatActivity {
 

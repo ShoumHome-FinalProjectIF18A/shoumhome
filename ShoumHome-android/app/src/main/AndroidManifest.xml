@@ -21,7 +21,7 @@
         <activity android:name=".activityHandler.IntroActivity" />
         <activity android:name=".Menu_Daftar2" />
         <activity android:name=".Menu_Daftar1" />
-        <activity android:name=".LayarUtama" />
+        <activity android:name=".activityHandler.LayarUtama" />
         <activity android:name=".activityHandler.ArtikelActivity" /> <!-- <service -->
         <!-- android:name=".AlarmService" -->
         <!-- android:enabled="true" -->
