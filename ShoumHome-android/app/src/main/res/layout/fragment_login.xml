@@ -26,7 +26,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingBottom="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -37,22 +37,22 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="18dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="sans-serif-light"
             android:gravity="center_horizontal"
             android:text="Masuk"
             android:textAlignment="center"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/textlogin"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/bg_edittext"
             android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:layout_marginBottom="10dp">
+            android:paddingRight="25dp">
 
             <EditText
                 android:id="@+id/etusername"
@@ -61,33 +61,33 @@
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/transparent"
                 android:hint="Username"
-                android:singleLine="true"
-                android:maxLines="1"
                 android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:textSize="14sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/textlogin"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/bg_edittext"
             android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:layout_marginBottom="10dp">
+            android:paddingRight="25dp">
 
             <EditText
                 android:id="@+id/etpassword"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
                 android:background="@android:color/transparent"
                 android:hint="Password"
+                android:imeOptions="actionDone"
                 android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:textSize="14sp" />
 
         </RelativeLayout>
@@ -114,42 +114,6 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/btn_kembali1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="getBack"
-            android:background="@drawable/bt_aksi"
-            android:fontFamily="sans-serif-light"
-            android:text="Kembali"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="prosesLogin"
-            android:background="@drawable/bt_aksi"
-            android:fontFamily="sans-serif-light"
-            android:text="Login"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
