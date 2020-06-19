@@ -8,47 +8,87 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageViewFoto"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@android:drawable/presence_video_busy" />
+        android:id="@+id/Image_Judul"
+        android:layout_width="382dp"
+        android:layout_height="177dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/foto" />
 
     <TextView
-        android:id="@+id/textViewJudul"
+        android:id="@+id/TextView_Judul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Image_Judul"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_toEndOf="@+id/imageViewFoto"
-        android:text="Meningkatkan Keimanan dalam Kemajuan Teknologi"
-        android:layout_toRightOf="@+id/imageViewFoto"
-        android:layout_marginLeft="8dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Judul    : Menuju Ramadhan Penuh Berkah"
+        android:textColor="@color/Judul"
+        android:textSize="17dp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textViewUstad"
+        android:id="@+id/TextView_Ustadz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewJudul"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/imageViewFoto"
-        android:text="Ustadz Abdul Somad"
-        android:layout_marginLeft="8dp"
-        android:layout_toRightOf="@+id/imageViewFoto" />
+        android:layout_below="@+id/TextView_Judul"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="235dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Ustadz : K.H Abdul Somad"
+        android:textColor="@color/Judul"
+        android:textSize="17dp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textViewLink"
+        android:id="@+id/TextView_Link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewUstad"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/imageViewFoto"
-        android:text="....."
-        android:layout_marginLeft="8dp"
-        android:layout_toRightOf="@+id/imageViewFoto" />
+        android:layout_below="@+id/TextView_Ustadz"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Link      : "
+        android:textColor="@color/Judul"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TextView_Tanggal"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextView_Link"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="305dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="1 Februari 2020"
+        android:textSize="12dp" />
 
 </RelativeLayout>
