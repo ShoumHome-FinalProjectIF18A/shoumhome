@@ -19,12 +19,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <Spinner
-        android:id="@+id/spJumlahKolom"
-        android:entries="@array/ajmlKolom"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"/>
+        android:textSize="15dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="Cari Judul Kajian atau Nama Ustadz"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recDataKajian"
