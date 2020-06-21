@@ -77,4 +77,8 @@
         android:enabled="true"
         android:summary="(c) 2020. ShoumHome Teams." />
 
+    <Preference
+        android:key="logout"
+        android:title="Keluar dari ShoumHome" />
+
 </PreferenceScreen>

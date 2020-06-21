@@ -1,6 +1,7 @@
 package id.shoumhome.android.activityHandler;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
@@ -78,15 +80,38 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
-//            Preference theme = (Preference) findPreference("theme");
-//            theme.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-//                @Override
-//                public boolean onPreferenceChange(Preference preference, Object newValue) { Toast.makeText(getActivity().getApplicationContext(), "Kamu perlu menjalankan ulang aplikasi ini untuk menerapkan perubahannya!", Toast.LENGTH_SHORT).show();
-//                    return true;
-//                }
-//            });
-
             Preference defaultLocation = (Preference) findPreference("defaultLocation");
+            Preference logout = (Preference) findPreference("logout");
+            logout.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    AlertDialog.Builder ab = new AlertDialog.Builder(getActivity().getApplicationContext());
+                    ab.setTitle("Keluar?");
+                    ab.setMessage("Yakin ingin keluar dari ShoumHome?");
+                    ab.setPositiveButton("Ya, saya ingin keluar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Context context;
+                            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+                            sp.edit().putString("username", "");
+                            sp.edit().putString("password", "");
+                            sp.edit().commit();
+
+                            Intent i = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                            startActivity(i);
+                        }
+                    });
+                    ab.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // nothing
+                        }
+                    });
+                    ab.create().show();
+                    return false;
+                }
+            });
             defaultLocation.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {

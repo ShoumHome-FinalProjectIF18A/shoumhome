@@ -69,20 +69,33 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void prosesLogin(View view) {
+        // TODO:
+        // Koneksi Firebase dibubuhi disini
+
         //set username dan password dengan "admin"
         String username = etusername.getText().toString();
         String password = etpassword.getText().toString();
+
+        // TODO:
+        // Gunakan query pencarian disini
+
+
+        // TODO:
+        // Verifikasi user disini
         if (username.equals("admin") && password.equals("1234")) {
             //jika login berhasil
             Toast.makeText(getApplicationContext(), "Selamat datang di ShoumHome!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
 
             // parameter
+            // TODO:
+            // Tulis identitas session pengguna disini
             DataSessionHandler dsh = new DataSessionHandler();
             dsh.setUsername(username);
             dsh.setPassword(password);
             dsh.setNama_lengkap("Dwi Candra Permana");
             dsh.setEmail("dwichan@outlook.com");
+            // sampai sini
 
             intent.putExtra("session", dsh);
 
@@ -93,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             //jika login gagal
             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
             builder.setMessage("Username atau Password Anda salah!")
-                    .setNegativeButton("Retry", null).create().show();
+                    .setNegativeButton("Coba lagi", null).create().show();
         }
     }
 

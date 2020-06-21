@@ -9,4 +9,5 @@ data class DataSessionHandler(
         var password: String = "",
         var nama_lengkap: String = "",
         var email: String = "") : Parcelable {
+
 }
