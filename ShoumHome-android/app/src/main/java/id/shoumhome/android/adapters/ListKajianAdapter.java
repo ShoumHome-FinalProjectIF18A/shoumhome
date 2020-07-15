@@ -23,15 +23,15 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
     ArrayList<String> mFoto = new ArrayList<>();
     ArrayList<String> mJudul = new ArrayList<>();
     ArrayList<String> mUstad = new ArrayList<>();
-    ArrayList<String> mLink = new ArrayList<>();
+    ArrayList<String> mKeterangan = new ArrayList<>();
     ArrayList<String> mTanggal = new ArrayList<>();
 
-    public ListKajianAdapter(Context context, ArrayList<String> mFoto, ArrayList<String> mJudul, ArrayList<String> mUstad, ArrayList<String> mLink, ArrayList<String> mTanggal) {
+    public ListKajianAdapter(Context context, ArrayList<String> mFoto, ArrayList<String> mJudul, ArrayList<String> mUstad, ArrayList<String> mKeterangan, ArrayList<String> mTanggal) {
         this.context = context;
         this.mFoto = mFoto;
         this.mJudul = mJudul;
         this.mUstad = mUstad;
-        this.mLink = mLink;
+        this.mKeterangan = mKeterangan;
         this.mTanggal = mTanggal;
     }
 
@@ -48,7 +48,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
         Glide.with(context).asBitmap().load(mFoto.get(position)).into(holder.imageViewFoto);
         holder.TextViewJudul.setText(mJudul.get(position));
         holder.TextViewUstad.setText(mUstad.get(position));
-        holder.TextViewLink.setText(mLink.get(position));
+        holder.TextViewKeterangan.setText(mKeterangan.get(position));
         holder.TextViewTanggal.setText(mTanggal.get(position));
 
         holder.layout_data_kajian.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +66,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
 
     class MyHolder extends RecyclerView.ViewHolder{
         ImageView imageViewFoto;
-        TextView TextViewJudul,TextViewUstad,TextViewLink,TextViewTanggal;
+        TextView TextViewJudul,TextViewUstad,TextViewKeterangan,TextViewTanggal;
         RelativeLayout layout_data_kajian;
 
         public MyHolder(@NonNull View itemView) {
@@ -74,7 +74,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
             imageViewFoto=itemView.findViewById(R.id.Image_Judul);
             TextViewJudul=itemView.findViewById(R.id.TextView_Judul);
             TextViewUstad=itemView.findViewById(R.id.TextView_Ustadz);
-            TextViewLink=itemView.findViewById(R.id.TextView_Link);
+            TextViewKeterangan=itemView.findViewById(R.id.TextView_Keterangan);
             TextViewTanggal=itemView.findViewById(R.id.TextView_Tanggal);
             layout_data_kajian=itemView.findViewById(R.id.layout_data_kajian);
         }

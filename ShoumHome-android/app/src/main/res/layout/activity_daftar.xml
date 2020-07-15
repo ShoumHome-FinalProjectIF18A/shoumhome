@@ -27,7 +27,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:maxLines="2"
-        android:text="Ayo bergabung bersama Shoum Home!"
+        android:text="@string/join_with_shoumhome"
         android:textAllCaps="false"
         android:textColor="@color/hitam"
         android:textSize="18dp"

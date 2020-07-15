@@ -38,4 +38,9 @@
     <string name="app_intro_back_button">Kembali</string>
     <string name="app_intro_done_button">Selesai</string>
     <string name="your_location">Lokasimu:</string>
+    <string name="example_title">Untukmu yang Sedang Mencari Ketenangan Jiwa</string>
+    <string name="join_with_shoumhome">Ayo bergabung bersama Shoum Home!</string>
+    <string name="example_ustads">Ustadz K H Abdul Somad</string>
+    <string name="example_keterangan">LIVE</string>
+    <string name="example_tanggal">1/02/2020 18.00</string>
 </resources>
