@@ -65,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/atas">
 
             <Button
+                android:id="@+id/btnAlarm"
                 android:layout_gravity="left"
                 android:layout_width="0dp"
                 android:layout_marginRight="10dp"

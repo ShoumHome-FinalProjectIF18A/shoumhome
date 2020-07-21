@@ -1,16 +1,12 @@
 package id.shoumhome.android.activityHandler
 
 import android.content.Intent
-import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.os.Parcelable
 import android.view.Menu
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
@@ -28,7 +24,6 @@ import id.shoumhome.android.R
 class MainActivity : AppCompatActivity() {
     private var mAppBarConfiguration: AppBarConfiguration? = null
     var doubleBackToExitPressedOnce = false
-    private val sharedPreferences: SharedPreferences? = null
     private var session: DataSessionHandler? = null
 
     override fun onBackPressed() {

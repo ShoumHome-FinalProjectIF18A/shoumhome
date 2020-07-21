@@ -38,29 +38,6 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sahur_header">
-
-        <SwitchPreferenceCompat
-            app:key="sahurStatus"
-            app:icon="@drawable/ic_access_alarm_green_24dp"
-            app:title="@string/sahurStatus_title" />
-
-        <SeekBarPreference
-            android:dependency="sahurStatus"
-            app:min="10"
-            app:key="durBefImsak"
-            android:max="150"
-            app:title="@string/duration_imsak"
-            app:summary="@string/duration_subtitle"
-            app:showSeekBarValue="true"/>
-
-        <Preference
-            android:selectable="false"
-            android:enabled="true"
-            android:summary="@string/alarm_message" />
-
-    </PreferenceCategory>
-
     <PreferenceCategory app:title="@string/location_title">
 
         <Preference

@@ -16,7 +16,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".activityHandler.PilihPenjualActivity"></activity>
+        <activity android:name=".AlarmActivity"></activity>
+        <activity android:name=".activityHandler.AlarmManagerActivity" />
+        <activity android:name=".activityHandler.PilihPenjualActivity" />
         <activity android:name=".activityHandler.IntroActivity" />
         <activity android:name=".activityHandler.DaftarActivity" />
         <activity android:name=".activityHandler.LayarUtamaActivity" />
