@@ -1,9 +1,7 @@
-package id.shoumhome.android.activityHandler;
+package id.shoumhome.android.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -11,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import id.shoumhome.android.R;
 
-public class zakatActivity extends AppCompatActivity {
+public class ZakatActivity extends AppCompatActivity {
     EditText input_pertama, input_kedua;
     TextView hasil;
     Spinner spjeniszakat;
@@ -20,7 +18,7 @@ public class zakatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zakat_main);
+        setContentView(R.layout.activity_zakat);
 
         input_pertama = (EditText) findViewById(R.id.editText);
         input_kedua = (EditText) findViewById(R.id.editText1);

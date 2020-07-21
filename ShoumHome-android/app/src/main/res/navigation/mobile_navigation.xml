@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="id.shoumhome.android.ui.beranda.BerandaFragment"
+        android:name="id.shoumhome.android.fragments.BerandaFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_beranda" />
 
     <activity
         android:id="@+id/nav_gallery"
         android:label="@string/menu_settings"
-        android:name="id.shoumhome.android.activityHandler.SettingsActivity"
-        tools:layout="@layout/settings_activity"/>
+        android:name="id.shoumhome.android.activity.SettingsActivity"
+        tools:layout="@layout/activity_settings"/>
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="id.shoumhome.android.ui.slideshow.SlideshowFragment"
+        android:name="id.shoumhome.android.fragments.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

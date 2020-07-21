@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/fragment_layout_user" />
+        <include layout="@layout/content_fragment_beranda" />
 
         <LinearLayout
             android:layout_width="match_parent"

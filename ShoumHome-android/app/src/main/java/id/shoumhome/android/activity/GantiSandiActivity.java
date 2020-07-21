@@ -1,4 +1,4 @@
-package id.shoumhome.android.activityHandler;
+package id.shoumhome.android.activity;
 
 import android.widget.Button;
 import android.widget.EditText;

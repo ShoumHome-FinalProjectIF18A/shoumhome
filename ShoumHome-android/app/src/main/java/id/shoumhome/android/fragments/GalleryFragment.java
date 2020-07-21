@@ -1,4 +1,4 @@
-package id.shoumhome.android.ui.pengaturan;
+package id.shoumhome.android.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

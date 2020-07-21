@@ -1,9 +1,8 @@
-package id.shoumhome.android.activityHandler;
+package id.shoumhome.android.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.KeyEvent;
@@ -29,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_main);
+        setContentView(R.layout.activity_login);
 
         btnlogin = (Button) findViewById(R.id.btn_login);
         btnkembali = (Button) findViewById(R.id.btn_kembali);

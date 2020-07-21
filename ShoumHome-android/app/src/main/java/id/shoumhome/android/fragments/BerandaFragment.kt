@@ -1,4 +1,4 @@
-package id.shoumhome.android.ui.beranda
+package id.shoumhome.android.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import id.shoumhome.android.activityHandler.AlarmManagerActivity
+import id.shoumhome.android.activity.AlarmManagerActivity
 import id.shoumhome.android.DataSessionHandler
 import id.shoumhome.android.R
 

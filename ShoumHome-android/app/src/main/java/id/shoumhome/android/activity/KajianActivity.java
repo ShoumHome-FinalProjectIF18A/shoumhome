@@ -1,4 +1,4 @@
-package id.shoumhome.android.activityHandler;
+package id.shoumhome.android.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;

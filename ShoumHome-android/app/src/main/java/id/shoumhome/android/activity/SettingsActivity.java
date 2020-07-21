@@ -1,4 +1,4 @@
-package id.shoumhome.android.activityHandler;
+package id.shoumhome.android.activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -40,7 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
+        setContentView(R.layout.activity_settings);
 
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
