@@ -5,12 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-<<<<<<< HEAD
     android:padding="10dp"
     tools:context=".activityHandler.DaftarActivity">
-=======
     tools:context=".activity.DaftarActivity">
->>>>>>> 7d7261619e3853b243b63e19a97ae6acdca9a5b6
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -41,8 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
-<<<<<<< HEAD
-=======
     <TextView
         android:id="@+id/tvDaftar"
         android:layout_width="wrap_content"
@@ -58,7 +53,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="194dp" />
->>>>>>> 7d7261619e3853b243b63e19a97ae6acdca9a5b6
 
     </ScrollView>
 
