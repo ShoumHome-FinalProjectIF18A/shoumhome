@@ -1,2 +1,3 @@
+include ':shoumhome:ustadz'
 rootProject.name='ShoumHome'
 include ':app'
