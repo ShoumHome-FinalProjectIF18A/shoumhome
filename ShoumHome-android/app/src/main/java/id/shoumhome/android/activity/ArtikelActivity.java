@@ -1,4 +1,4 @@
-package id.shoumhome.android.activityHandler;
+package id.shoumhome.android.activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;

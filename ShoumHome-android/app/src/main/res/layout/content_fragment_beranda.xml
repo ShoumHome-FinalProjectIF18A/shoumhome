@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activityHandler.MainActivity">
+    tools:context=".activity.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/atas"
@@ -65,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/atas">
 
             <Button
+                android:id="@+id/btnAlarm"
                 android:layout_gravity="left"
                 android:layout_width="0dp"
                 android:layout_marginRight="10dp"

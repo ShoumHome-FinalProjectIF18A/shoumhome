@@ -1,4 +1,4 @@
-package id.shoumhome.android.activityHandler;
+package id.shoumhome.android.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,7 +39,7 @@ public class MapsResultActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.maps_result_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_maps_result, menu);
         return true;
     }
 

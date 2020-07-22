@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -66,7 +67,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
     class Myartikel extends RecyclerView.ViewHolder{
         ImageView IVjudul;
         TextView TVjudul,TVringkasan, TVustad, TVtanggal, like;
-        RelativeLayout layout_list_artikel;
+        ConstraintLayout layout_list_artikel;
 
         public Myartikel(@NonNull View itemView) {
             super(itemView);

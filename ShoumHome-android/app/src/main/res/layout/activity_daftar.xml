@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
+    android:padding="10dp"
     tools:context=".activityHandler.DaftarActivity">
+=======
+    tools:context=".activity.DaftarActivity">
+>>>>>>> 7d7261619e3853b243b63e19a97ae6acdca9a5b6
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/ivDaftar"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/nama_slogan"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/ivDaftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/nama_slogan"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+<<<<<<< HEAD
+=======
     <TextView
         android:id="@+id/tvDaftar"
         android:layout_width="wrap_content"
@@ -27,7 +50,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:maxLines="2"
-        android:text="Ayo bergabung bersama Shoum Home!"
+        android:text="@string/join_with_shoumhome"
         android:textAllCaps="false"
         android:textColor="@color/hitam"
         android:textSize="18dp"
@@ -35,149 +58,57 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="194dp" />
+>>>>>>> 7d7261619e3853b243b63e19a97ae6acdca9a5b6
 
+    </ScrollView>
 
-        <EditText
-            android:id="@+id/etNama"
-            android:layout_width="@dimen/etLebar"
-            android:layout_height="@dimen/etTinggi"
-            android:ems="10"
-            android:hint="Nama Lengkap"
-            android:layout_marginTop="15dp"
-            android:inputType="textPersonName"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btKembali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bt_aksi"
+            android:onClick="kembali_ke_layar_utama"
+            android:text="Kembali"
             android:textAllCaps="false"
+            android:textColor="@color/warna_tulisan_button"
             android:textSize="18dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="32dp" />
+            android:textStyle="bold"
+            tools:ignore="OnClick" />
 
-    <EditText
-        android:id="@+id/etNomor"
-        android:layout_width="@dimen/etLebar"
-        android:layout_height="@dimen/etTinggi"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Nomor Ponsel"
-        android:textAllCaps="false"
-        android:textSize="18dp"
-        tools:layout_editor_absoluteX="32dp"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/etTanggal"
-        android:layout_width="@dimen/etLebar"
-        android:layout_height="@dimen/etTinggi"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="18dp"
-        android:textAllCaps="false"
-        android:hint="Tanggal Lahir"
-        tools:layout_editor_absoluteX="32dp"
-        tools:ignore="MissingConstraints" />
-
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="@dimen/etLebar"
-            android:layout_height="@dimen/etTinggi"
-            android:ems="10"
-            android:hint="E-mail"
-            android:inputType="textEmailAddress"
+        <Button
+            android:id="@+id/btLanjut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bt_aksi"
+            android:onClick="lanjut_ke_login"
+            android:text="Lanjut"
             android:textAllCaps="false"
+            android:textColor="@color/warna_tulisan_button"
             android:textSize="18dp"
+            android:textStyle="bold"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="32dp" />
-
-
-    <EditText
-        android:id="@+id/etKataSandi"
-        android:layout_width="@dimen/etLebar"
-        android:layout_height="@dimen/etTinggi"
-        android:ems="10"
-        android:hint="Kata Sandi"
-        android:inputType="textPassword"
-        android:textAllCaps="false"
-        android:textSize="18dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <EditText
-        android:id="@+id/etUlangKataSandi"
-        android:layout_width="@dimen/etLebar"
-        android:layout_height="@dimen/etTinggi"
-        android:ems="10"
-        android:hint="Ulangi kata sandi"
-        android:inputType="textPassword"
-        android:textAllCaps="false"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp" />
-
-
-        <TextView
-            android:id="@+id/tvSK"
-            android:layout_width="225dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="20dp"
-            android:text="Syarat dan Ketentuan"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="485dp" />
-
-    <CheckBox
-        android:id="@+id/cbSK"
-        android:layout_width="@dimen/etLebar"
-        android:layout_height="@dimen/etTinggi"
-        android:text="Saya menyetujui Syarat dan Ketentuan yang berlaku."
-        tools:layout_editor_absoluteX="32dp"
-        tools:ignore="MissingConstraints" />
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btKembali"
-                android:onClick="kembali_ke_layar_utama"
-                android:layout_width="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bt_aksi"
-                android:text="Kembali"
-                android:textAllCaps="false"
-                android:textColor="@color/warna_tulisan_button"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                tools:ignore="OnClick" />
-
-            <Button
-                android:id="@+id/btLanjut"
-                android:onClick="lanjut_ke_login"
-                android:layout_width="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bt_aksi"
-                android:text="Lanjut"
-                android:textAllCaps="false"
-                android:textColor="@color/warna_tulisan_button"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="230dp"
-                tools:layout_editor_absoluteY="577dp" />
-
-        </LinearLayout>
+            tools:layout_editor_absoluteX="230dp"
+            tools:layout_editor_absoluteY="577dp" />
 
 
     </LinearLayout>
 
 
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

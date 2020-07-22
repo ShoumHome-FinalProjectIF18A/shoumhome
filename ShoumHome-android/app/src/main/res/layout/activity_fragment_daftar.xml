@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="id.shoumhome.android.fragment_daftar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52">
+
+        <TextView
+            android:id="@+id/tvDaftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:maxLines="2"
+            android:text="Ayo bergabung bersama Shoum Home!"
+            android:textAllCaps="false"
+            android:textColor="@color/hitam"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.426"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_edittext"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etUsername_daftar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:width="400dp"
+                android:height="60dp"
+                android:layout_marginLeft="25dp"
+                android:background="@android:color/transparent"
+                android:hint="Username"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_edittext"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etNoTelp_daftar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:width="400dp"
+                android:height="60dp"
+                android:layout_marginLeft="25dp"
+                android:background="@android:color/transparent"
+                android:hint="Nomor Ponsel"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_edittext"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/etTTL"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:width="400dp"
+                android:height="60dp"
+                android:layout_marginLeft="25dp"
+                android:background="@android:color/transparent"
+                android:hint="Tanggal Lahir"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:padding="4dp"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_edittext"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:width="400dp"
+                android:height="60dp"
+                android:layout_marginLeft="25dp"
+                android:background="@android:color/transparent"
+                android:hint="E-mail"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:padding="4dp"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_edittext"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/etKataSandi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:width="400dp"
+                android:height="60dp"
+                android:layout_marginLeft="25dp"
+                android:background="@android:color/transparent"
+                android:hint="KataSandi"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:padding="4dp"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_edittext"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/etUlangiKataSandi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:width="400dp"
+                android:height="60dp"
+                android:layout_marginLeft="25dp"
+                android:background="@android:color/transparent"
+                android:hint="Ulangi Kata Sandi"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:padding="4dp"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvSK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="2"
+            android:text="Syarat dan Ketentuan"
+            android:textAllCaps="false"
+            android:textColor="@color/hitam"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+
+        <CheckBox
+            android:id="@+id/cbSK"
+            android:layout_width="@dimen/etLebar"
+            android:layout_height="@dimen/etTinggi"
+            android:text="Saya menyetujui Syarat dan Ketentuan yang berlaku."
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSK"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

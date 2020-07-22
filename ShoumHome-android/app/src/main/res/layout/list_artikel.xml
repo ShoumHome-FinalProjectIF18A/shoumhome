@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/layout_list_artikel"
@@ -10,29 +10,25 @@
     <ImageView
         android:id="@+id/I_Judul"
         android:layout_width="403dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="8dp"
         android:layout_height="180dp"
-        android:src="@drawable/foto" />
+        android:src="@drawable/foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/TV_Judul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="21dp"
         android:layout_below="@+id/I_Judul"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="Judul"
-        android:textColor="@color/Judul"
         android:textSize="17dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/I_Judul" />
 
     <TextView
         android:id="@+id/TV_Ringkasan"
@@ -43,15 +39,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:maxLines="2"
         android:ellipsize="end"
+        android:maxLines="2"
         android:text="Berisi ringkasan artikel"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Judul" />
 
     <ImageView
         android:id="@+id/I_Like"
@@ -60,9 +53,9 @@
         android:layout_below="@+id/TV_Ringkasan"
         android:layout_alignStart="@+id/TV_Ringkasan"
         android:layout_alignLeft="@+id/TV_Ringkasan"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan"
         app:srcCompat="@android:drawable/star_big_on" />
 
 
@@ -71,14 +64,13 @@
         android:layout_width="100dp"
         android:layout_height="27dp"
         android:layout_below="@+id/TV_Ringkasan"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
-        android:textSize="12dp"
         android:layout_toEndOf="@+id/I_Like"
         android:layout_toRightOf="@+id/I_Like"
         android:hint="hint"
-        android:text="200 suka" />
+        android:text="200 suka"
+        android:textSize="12dp"
+        app:layout_constraintStart_toEndOf="@+id/I_Like"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan" />
 
     <TextView
         android:id="@+id/TV_Tanggal"
@@ -87,15 +79,12 @@
         android:layout_alignEnd="@+id/TV_Ringkasan"
         android:layout_alignRight="@+id/TV_Ringkasan"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:textSize="12dp"
         android:layout_toEndOf="@+id/TV_Like"
         android:layout_toRightOf="@+id/TV_Like"
-        android:text="12 desember 2019" />
+        android:text="12 desember 2019"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan" />
 
     <TextView
         android:id="@+id/TV_Ustad"
@@ -104,13 +93,11 @@
         android:layout_below="@+id/TV_Tanggal"
         android:layout_alignEnd="@+id/TV_Ringkasan"
         android:layout_alignRight="@+id/TV_Ringkasan"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
         android:layout_toEndOf="@+id/TV_Like"
         android:layout_toRightOf="@+id/TV_Like"
         android:text="Oleh K.H Abdul Somad"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Tanggal" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
