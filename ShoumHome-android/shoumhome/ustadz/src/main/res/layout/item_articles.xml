@@ -26,8 +26,8 @@
 
             <ImageView
                 android:id="@+id/img_kajian"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:src="@drawable/icon"
                 android:contentDescription="@string/icon_kajian" />
 
@@ -35,40 +35,29 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/img_kajian"
+                android:layout_below="@+id/img_kajian"
                 android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@string/example_kajian_title"
+                android:maxLines="2"
+                android:text="@string/example_article_title"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_mosque_address"
+                android:id="@+id/tv_text_less"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title"
-                android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/img_kajian"
                 android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@string/example_mosque" />
-
-            <TextView
-                android:id="@+id/tv_ket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_mosque_address"
-                android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/img_kajian"
-                android:text="@string/example_keterangan" />
+                android:maxLines="2"
+                android:text="@string/example_text" />
 
             <TextView
                 android:id="@+id/tv_due"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@id/tv_mosque_address"
+                android:layout_below="@id/tv_text_less"
                 android:text="@string/example_tanggal" />
 
         </RelativeLayout>

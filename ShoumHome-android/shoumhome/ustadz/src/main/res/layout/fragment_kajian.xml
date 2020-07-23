@@ -31,20 +31,20 @@
         android:layout_height="50dp"
         android:layout_margin="16dp"
         android:background="@drawable/bg_edittext"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/et_search_kajian"
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"
             android:hint="@string/search_kajian"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true"
@@ -64,5 +64,33 @@
         app:layout_anchorGravity="bottom|end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/progressMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pullToRefresh">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="16dp"
+            android:text="@string/load_data"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

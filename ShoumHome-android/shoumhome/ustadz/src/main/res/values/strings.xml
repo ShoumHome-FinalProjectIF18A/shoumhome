@@ -1,4 +1,7 @@
 <resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="server">http://192.168.8.100/shoumhome-webserver/</string> <!-- must end with / -->
+
     <string name="app_name">ShoumHome! Ustadz</string>
     <string name="app_version">1.0 (2020)</string>
     <string name="title_activity_main">Beranda</string>
@@ -6,18 +9,20 @@
     <string name="tab_article">ARTIKEL</string>
     <string name="tab_kajian">KAJIAN</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="copyright">© 2020. ShoumHome Teams.</string>
     <string name="add_post">Tambah Post</string>
     <string name="add_kajian">Tambah Kajian</string>
-    <string name="untukmu_yang_sedang_dalam_pelukan">Untukmu yang sedang dalam pelukan</string>
-    <string name="example_ustads">Ust. Fendi Riawan, LLC., MA.</string>
+    <string name="example_kajian_title">Untukmu yang sedang dalam pelukan</string>
+    <string name="example_ustadz">Ust. Fendi Riawan, LLC., MA.</string>
     <string name="example_keterangan">LIVE</string>
     <string name="example_tanggal">12 Januari 2020</string>
-    <string name="search_kajian">Cari kajian...</string>
+    <string name="search_kajian">Cari kajian…</string>
     <string name="icon_kajian">icon kajian</string>
-    <string name="search_post">Cari artikel...</string>
+    <string name="search_post">Cari artikel…</string>
     <string name="versinya">versinya</string>
     <string name="logo">logo</string>
+    <string name="load_data">Mohon menunggu, kami sedang memuat data…</string>
+    <string name="example_mosque">Masjid Fatimatuzzahra</string>
+    <string name="example_article_title">Hukum memberikan zakat kepada kaum dhuafa secara online</string>
+    <string name="example_text">Lorem ipsum dolor sit amet, consectetur adispicing elit. Hapunten salajengna</string>
 </resources>
