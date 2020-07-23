@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
-import id.shoumhome.android.ustadz.R
 
 class SplashActivity : AppCompatActivity() {
     private var sharedPreferences: SharedPreferences? = null

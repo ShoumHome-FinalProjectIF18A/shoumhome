@@ -1,7 +1,7 @@
 package id.shoumhome.android.ustadz
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import id.shoumhome.android.ustadz.pager.MainPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*

@@ -1,7 +1,7 @@
 package id.shoumhome.android.ustadz
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class ReadArticleActivity : AppCompatActivity() {
 

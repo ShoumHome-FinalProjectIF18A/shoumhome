@@ -1,6 +1,5 @@
 package id.shoumhome.android.ustadz.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import id.shoumhome.android.ustadz.R
-import id.shoumhome.android.ustadz.SplashActivity
 import id.shoumhome.android.ustadz.items.Kajian
 import kotlinx.android.synthetic.main.item_kajian.view.*
 
-class KajianAdapter: RecyclerView.Adapter<KajianAdapter.KajianHolder>() {
+class KajianAdapter : RecyclerView.Adapter<KajianAdapter.KajianHolder>() {
 
     private val mData = ArrayList<Kajian>()
 
@@ -23,11 +21,9 @@ class KajianAdapter: RecyclerView.Adapter<KajianAdapter.KajianHolder>() {
         notifyDataSetChanged()
     }
 
-    fun getData(): ArrayList<Kajian> = mData
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KajianAdapter.KajianHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_kajian, parent,false)
+                .inflate(R.layout.item_kajian, parent, false)
         return KajianHolder(view)
     }
 
@@ -37,7 +33,7 @@ class KajianAdapter: RecyclerView.Adapter<KajianAdapter.KajianHolder>() {
         holder.bind(mData[position])
     }
 
-    inner class KajianHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class KajianHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(kajian: Kajian) {
             with(itemView) {
                 val mosqueOrAddress = if (kajian.place.equals("Di Tempat")) kajian.address else kajian.mosque

@@ -2,6 +2,7 @@ package id.shoumhome.android.ustadz.viewmodels
 
 import android.content.Context
 import android.os.Looper
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,21 +13,21 @@ import com.loopj.android.http.RequestParams
 import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
 import id.shoumhome.android.ustadz.R
-import id.shoumhome.android.ustadz.adapters.KajianAdapter
-import id.shoumhome.android.ustadz.items.Kajian
+import id.shoumhome.android.ustadz.adapters.ArticleAdapter
+import id.shoumhome.android.ustadz.items.Article
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class KajianViewModel : ViewModel() {
+class ArticleViewModel : ViewModel() {
 
-    private var listKajian = MutableLiveData<ArrayList<Kajian>>()
+    private var listArticle = MutableLiveData<ArrayList<Article>>()
 
-    fun setKajian(context: Context, searchQuery: String = ""): String? {
+    fun setArticle(context: Context, searchQuery: String = ""): String? {
         var ret: String? = null
-        val url = context.resources.getString(R.string.server) + "api/kajian"
-        val listItems = ArrayList<Kajian>()
+        val url = context.resources.getString(R.string.server) + "api/articles"
+        val listItems = ArrayList<Article>()
         val client = SyncHttpClient()
 
         // Request Parameters
@@ -34,7 +35,7 @@ class KajianViewModel : ViewModel() {
         params.put("read", "0")
         params.put("ustadz_mode", "1")
         params.put("ustadz_id", "admin") // replace admin with Ustadz ID
-        params.put("q", searchQuery)
+        params.put("query", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
@@ -42,28 +43,33 @@ class KajianViewModel : ViewModel() {
                 val resultObject = JSONObject(result)
                 val list = resultObject.getJSONArray("data")
 
+                Log.d("Isi", result)
+
                 for (i in 0 until list.length()) {
-                    val kajianJSONObject = list.getJSONObject(i)
-                    val kajian = Kajian()
+                    val articleJSONObject = list.getJSONObject(i)
+                    val article = Article()
 
-                    with(kajianJSONObject) {
-                        kajian.id = this.getString("id")
-                        kajian.title = this.getString("kajian_title")
-                        kajian.place = this.getString("place")
-                        kajian.address = this.getString("address")
-                        kajian.mosque = this.getString("mosque_name")
+                    with(articleJSONObject) {
+                        article.id = this.getString("id")
+                        article.title = this.getString("title")
+                        article.content = this.getString("content")
+                        article.hasImg = this.getString("has_img")!!.toBoolean()
 
-                        val date = this.getString("date_due")
+                        if (article.hasImg) {
+                            val extension = this.getString("extension")
+                            article.imgUrl = context.resources.getString(R.string.server) + "assets/articles/${article.id}.$extension"
+                        }
+
+                        val date = this.getString("post_date")
                         val dateDue = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(date)!!
                         val dateDueFormatted = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault()).format(dateDue)
 
-                        kajian.date = dateDueFormatted
-                        kajian.imgResource = this.getString("img_resource")
+                        article.post_date = dateDueFormatted
                     }
-                    listItems.add(kajian)
+                    listItems.add(article)
                     //adapter.notifyDataSetChanged()
                 }
-                listKajian.postValue(listItems)
+                listArticle.postValue(listItems)
                 ret = null
             }
 
@@ -79,10 +85,10 @@ class KajianViewModel : ViewModel() {
         return ret
     }
 
-    fun setKajianAsync(context: Context, adapter: KajianAdapter, searchQuery: String = ""): Boolean {
+    fun setArticleAsync(context: Context, adapter: ArticleAdapter, searchQuery: String = ""): Boolean {
         var ret = false
-        val url = context.resources.getString(R.string.server) + "api/kajian"
-        val listItems = ArrayList<Kajian>()
+        val url = context.resources.getString(R.string.server) + "api/articles"
+        val listItems = ArrayList<Article>()
         val client = AsyncHttpClient()
 
         // Request Parameters
@@ -90,7 +96,7 @@ class KajianViewModel : ViewModel() {
         params.put("read", "0")
         params.put("ustadz_mode", "1")
         params.put("ustadz_id", "admin") // replace admin with Ustadz ID
-        params.put("q", searchQuery)
+        params.put("query", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
@@ -98,28 +104,33 @@ class KajianViewModel : ViewModel() {
                 val resultObject = JSONObject(result)
                 val list = resultObject.getJSONArray("data")
 
+                Log.d("Isi", result)
+
                 for (i in 0 until list.length()) {
-                    val kajianJSONObject = list.getJSONObject(i)
-                    val kajian = Kajian()
+                    val articleJSONObject = list.getJSONObject(i)
+                    val article = Article()
 
-                    with(kajianJSONObject) {
-                        kajian.id = this.getString("id")
-                        kajian.title = this.getString("kajian_title")
-                        kajian.place = this.getString("place")
-                        kajian.address = this.getString("address")
-                        kajian.mosque = this.getString("mosque_name")
+                    with(articleJSONObject) {
+                        article.id = this.getString("id")
+                        article.title = this.getString("title")
+                        article.content = this.getString("content")
+                        article.hasImg = this.getString("has_img")!!.toBoolean()
 
-                        val date = this.getString("date_due")
+                        if (article.hasImg) {
+                            val extension = this.getString("extension")
+                            article.imgUrl = context.resources.getString(R.string.server) + "assets/articles/${article.id}.$extension"
+                        }
+
+                        val date = this.getString("post_date")
                         val dateDue = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(date)!!
                         val dateDueFormatted = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault()).format(dateDue)
 
-                        kajian.date = dateDueFormatted
-                        kajian.imgResource = this.getString("img_resource")
+                        article.post_date = dateDueFormatted
                     }
-                    listItems.add(kajian)
+                    listItems.add(article)
                     adapter.notifyDataSetChanged()
                 }
-                listKajian.postValue(listItems)
+                listArticle.postValue(listItems)
                 ret = true
             }
 
@@ -132,8 +143,8 @@ class KajianViewModel : ViewModel() {
         return ret
     }
 
-    fun getKajian(): LiveData<ArrayList<Kajian>> {
-        return listKajian
+    fun getArticle(): LiveData<ArrayList<Article>> {
+        return listArticle
     }
 
 }

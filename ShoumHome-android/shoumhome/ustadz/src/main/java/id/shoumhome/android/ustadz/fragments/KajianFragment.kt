@@ -1,11 +1,12 @@
 package id.shoumhome.android.ustadz.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 class KajianFragment : Fragment() {
 
@@ -44,14 +46,16 @@ class KajianFragment : Fragment() {
         rv_info.adapter = kajianAdapter
 
         pullToRefresh.setOnRefreshListener {
-            GlobalScope.launch (Dispatchers.Main) {
-                val deferredStatus = async (Dispatchers.IO) {
-                    kajianViewModel.setUsers(requireActivity().applicationContext,
+            GlobalScope.launch(Dispatchers.Main) {
+                val deferredStatus = async(Dispatchers.IO) {
+                    kajianViewModel.setKajian(requireActivity().applicationContext,
                             et_search_kajian.text.toString())
                 }
                 val status = deferredStatus.await()
-                if (!status) {
+                if (status != null) {
                     pullToRefresh.isRefreshing = false
+                    val parse = JSONObject(status)
+                    Toast.makeText(context, parse.getString("message"), Toast.LENGTH_SHORT).show()
                 } else {
                     pullToRefresh.isRefreshing = false
                     kajianAdapter.notifyDataSetChanged()
@@ -60,10 +64,24 @@ class KajianFragment : Fragment() {
         }
 
         et_search_kajian.setOnEditorActionListener { v, actionId, event ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH)
-                kajianViewModel.setUsersAsync(requireActivity().applicationContext,
-                        kajianAdapter,
-                        et_search_kajian.text.toString())
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                progressMessage.visibility = View.VISIBLE
+                GlobalScope.launch(Dispatchers.Main) {
+                    val deferredStatus = async(Dispatchers.IO) {
+                        kajianViewModel.setKajian(requireActivity().applicationContext,
+                                et_search_kajian.text.toString())
+                    }
+                    val status = deferredStatus.await()
+                    if (status != null) {
+                        progressMessage.visibility = View.GONE
+                        val parse = JSONObject(status)
+                        Toast.makeText(context, parse.getString("message"), Toast.LENGTH_SHORT).show()
+                    } else {
+                        progressMessage.visibility = View.GONE
+                        kajianAdapter.notifyDataSetChanged()
+                    }
+                }
+            }
 
             true
         }
@@ -76,6 +94,6 @@ class KajianFragment : Fragment() {
                 progressMessage.visibility = View.GONE
             }
         })
-        kajianViewModel.setUsersAsync(requireActivity().applicationContext, kajianAdapter,"")
+        kajianViewModel.setKajianAsync(requireActivity().applicationContext, kajianAdapter, "")
     }
 }

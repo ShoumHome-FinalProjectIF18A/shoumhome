@@ -9,7 +9,7 @@ import id.shoumhome.android.ustadz.R
 import id.shoumhome.android.ustadz.fragments.ArticlesFragment
 import id.shoumhome.android.ustadz.fragments.KajianFragment
 
-class MainPagerAdapter(private val context: Context, fm: FragmentManager): FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class MainPagerAdapter(private val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     @StringRes
     private val TAB_TITLES = intArrayOf(

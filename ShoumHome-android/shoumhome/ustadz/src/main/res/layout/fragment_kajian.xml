@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ArticlesFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -42,14 +42,14 @@
             android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
+            android:autofillHints=""
             android:background="@android:color/transparent"
             android:hint="@string/search_kajian"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true"
-            android:textSize="14sp"
-            android:autofillHints="" />
+            android:textSize="14sp" />
 
     </RelativeLayout>
 
@@ -68,7 +68,7 @@
     <RelativeLayout
         android:id="@+id/progressMessage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@android:color/white"
         android:padding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"

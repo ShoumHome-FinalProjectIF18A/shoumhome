@@ -1,6 +1,6 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="server">http://192.168.8.100/shoumhome-webserver/</string> <!-- must end with / -->
+    <string name="server">https://dwichan.intermediaamikom.org/</string> <!-- must end with / -->
 
     <string name="app_name">ShoumHome! Ustadz</string>
     <string name="app_version">1.0 (2020)</string>
