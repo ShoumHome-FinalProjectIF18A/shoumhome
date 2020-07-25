@@ -85,3 +85,4 @@ lint/tmp/
 # lint/reports/
 ~$oumHome.docx
 ShoumHome-android/.idea/workspace.xml~
+ShoumHome-android/.idea/render.experimental.xml
