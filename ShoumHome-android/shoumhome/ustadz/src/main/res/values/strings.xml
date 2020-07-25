@@ -25,4 +25,16 @@
     <string name="example_mosque">Masjid Fatimatuzzahra</string>
     <string name="example_article_title">Hukum memberikan zakat kepada kaum dhuafa secara online</string>
     <string name="example_text">Lorem ipsum dolor sit amet, consectetur adispicing elit. Hapunten salajengna</string>
+    <string name="example_likes">1200 suka</string>
+    <string name="example_post_date">12 Jan 2020 04:10:15</string>
+    <string name="post_date">Post Date</string>
+    <string name="likes">suka</string>
+    <string name="post_picture">Post Picture</string>
+    <string name="edit">Ubah</string>
+    <string name="delete">Hapus</string>
+    <string name="warning">warning</string>
+    <string name="example_error_message">Oops! Error\n\n[404] Not Found</string>
+    <string name="refresh">Segarkan</string>
+    <string name="read_article">Baca Artikel</string>
+    <string name="example_id">1</string>
 </resources>

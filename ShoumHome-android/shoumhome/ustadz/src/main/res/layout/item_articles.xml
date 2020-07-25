@@ -11,7 +11,7 @@
     android:paddingRight="8dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_item_kajian"
+        android:id="@+id/cv_item_article"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="4dp"
@@ -25,17 +25,23 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/img_article"
+                android:id="@+id/imgArticle"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:contentDescription="@string/icon_kajian"
                 android:src="@drawable/icon" />
-
+            <!--
+            <TextView
+                android:id="@+id/tvArticleId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/example_id" />
+            -->
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_article"
+                android:layout_below="@+id/imgArticle"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@string/example_article_title"

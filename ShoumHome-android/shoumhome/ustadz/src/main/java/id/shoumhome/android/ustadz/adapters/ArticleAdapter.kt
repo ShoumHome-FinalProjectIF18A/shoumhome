@@ -1,12 +1,13 @@
 package id.shoumhome.android.ustadz.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.shoumhome.android.ustadz.R
+import id.shoumhome.android.ustadz.ReadArticleActivity
 import id.shoumhome.android.ustadz.items.Article
 import kotlinx.android.synthetic.main.item_articles.view.*
 
@@ -39,21 +40,25 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleHolder>() {
                 val title = article.title
                 val content = article.content
                 val postDate = article.post_date
+                val id = article.id
 
+                // tvArticleId.text = id
                 tv_title.text = title
                 tv_text_less.text = content
                 tv_post_date.text = postDate
 
                 if (!article.hasImg) {
-                    img_article.visibility = View.GONE
+                    imgArticle.visibility = View.GONE
                 } else {
                     Glide.with(context)
                             .load(article.imgUrl)
-                            .into(img_article)
+                            .into(imgArticle)
                 }
 
                 setOnClickListener {
-                    Toast.makeText(context, article.title, Toast.LENGTH_SHORT).show()
+                    val i = Intent(context, ReadArticleActivity::class.java)
+                    i.putExtra(ReadArticleActivity.EXTRA_ARTICLE_ID, id)
+                    context.startActivity(i)
                 }
             }
         }

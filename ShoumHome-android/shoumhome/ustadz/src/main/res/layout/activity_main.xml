@@ -18,9 +18,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:titleTextColor="@android:color/white" />
+            android:layout_height="?attr/actionBarSize" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -34,9 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBar"
         app:tabIndicatorAnimationDuration="50"
-        app:tabIndicatorColor="#F6CD39"
-        app:tabSelectedTextColor="#F6CD39"
-        app:tabTextColor="@android:color/white" />
+        app:tabIndicatorColor="#001FBD"
+        app:tabSelectedTextColor="#001FBD" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
