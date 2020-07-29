@@ -52,6 +52,23 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="article_title">Judul Artikel</string>
-    <string name="article_content">Isi Artikel...</string>
+    <string name="article_content">Isi Artikel…</string>
     <string name="save">Simpan</string>
+    <string name="update">Perbarui</string>
+    <string name="add_article">Buat Artikel Baru</string>
+    <string name="update_article">Perbarui Artikel</string>
+    <string name="save_please_wait">Mohon tunggu, kami sedang melakukan proses penyimpanan artikel baru…</string>
+    <string name="update_please_wait">Mohon tunggu, kami sedang melakukan proses perubahan artikel terkini…</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="cancel">Batalkan</string>
+    <string name="save_success">Berhasil menyimpan artikel baru!</string>
+    <string name="title_must_fill">Judul Artikel tidak boleh kosong!</string>
+    <string name="content_must_fill">Isi Artikel wajib terisi!</string>
+    <string name="sure">Yakin?</string>
+    <string name="delete_message">"Yakin Anda ingin menghapus artikel "</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="delete_success_message">Berhasil menghapus artikel!</string>
+    <string name="update_error">Terjadi kesalahan saat memuat data! Kemungkinan artikel ini telah dihapus.</string>
+    <string name="update_success">Berhasil memperbarui artikel!</string>
 </resources>

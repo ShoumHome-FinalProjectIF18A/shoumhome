@@ -20,6 +20,10 @@ class ShowKajianViewModel : ViewModel() {
     private val mData = MutableLiveData<Map<String, Any?>>()
 
     fun setKajian(context: Context, id: String): Map<String, Any?> {
+        try {
+            Looper.prepare()
+        } catch (e: Exception) {
+        }
         val resultMap = mutableMapOf<String, Any?>()
         val url = context.resources.getString(R.string.server) + "api/kajian"
         val client = SyncHttpClient()
@@ -73,10 +77,6 @@ class ShowKajianViewModel : ViewModel() {
             }
 
             override fun onFailure(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?, error: Throwable?) {
-                try {
-                    Looper.prepare()
-                } catch (e: Exception) {
-                }
                 resultMap["status"] = false
                 resultMap["code"] = statusCode
                 resultMap["message"] = error?.message + " id: $id"

@@ -1,5 +1,7 @@
 package id.shoumhome.android.ustadz.adapters
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,7 @@ import kotlinx.android.synthetic.main.item_articles.view.*
 class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleHolder>() {
 
     private var mData = ArrayList<Article>()
+    private lateinit var mContext: Context
 
     fun setData(article: ArrayList<Article>) {
         mData.clear()
@@ -22,6 +25,7 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleAdapter.ArticleHolder {
+        mContext = parent.context
         val view = LayoutInflater.from(parent.context).inflate(
                 R.layout.item_articles, parent, false
         )
@@ -58,7 +62,9 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleHolder>() {
                 setOnClickListener {
                     val i = Intent(context, ReadArticleActivity::class.java)
                     i.putExtra(ReadArticleActivity.EXTRA_ARTICLE_ID, id)
-                    context.startActivity(i)
+                    
+                    // FIXME: 30/07/2020 Not autorefreshed after deleting some articles.
+                    (mContext as Activity).startActivityForResult(i, ReadArticleActivity.RESULT_DELETE)
                 }
             }
         }

@@ -24,6 +24,10 @@ class KajianViewModel : ViewModel() {
     private var listKajian = MutableLiveData<ArrayList<Kajian>>()
 
     fun setKajian(context: Context, searchQuery: String = ""): String? {
+        try {
+            Looper.prepare()
+        } catch (e: Exception) {
+        }
         var ret: String? = null
         val url = context.resources.getString(R.string.server) + "api/kajian"
         val listItems = ArrayList<Kajian>()
@@ -68,10 +72,6 @@ class KajianViewModel : ViewModel() {
             }
 
             override fun onFailure(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?, error: Throwable?) {
-                try {
-                    Looper.prepare()
-                } catch (e: Exception) {
-                }
                 error?.printStackTrace()
                 ret = "${responseBody?.let { String(it) }}"
             }
