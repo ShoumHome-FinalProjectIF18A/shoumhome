@@ -1,4 +1,4 @@
-package id.shoumhome.android.ustadz.items
+package id.shoumhome.android.ustadz.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

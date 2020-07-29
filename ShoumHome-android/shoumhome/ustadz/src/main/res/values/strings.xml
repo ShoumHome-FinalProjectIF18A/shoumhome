@@ -36,5 +36,22 @@
     <string name="example_error_message">Oops! Error\n\n[404] Not Found</string>
     <string name="refresh">Segarkan</string>
     <string name="read_article">Baca Artikel</string>
+    <string name="view_kajian">Lihat Kajian</string>
     <string name="example_id">1</string>
+    <string name="example_address">Jalan Panjang No. 8A Jakarta Pusat 12345</string>
+    <string name="by">oleh</string>
+    <string name="on_stage">Di Tempat</string>
+    <string name="timestamp_announce">Waktu Pengumuman</string>
+    <string name="timestamp_due">Waktu Pelaksanaan</string>
+    <string name="description">Deskripsi:</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="play_video">Play Video</string>
+    <string name="login_as_ustadz">Masuk sebagai Ustadz</string>
+    <string name="username">Username</string>
+    <string name="show_password">Lihat Password</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="article_title">Judul Artikel</string>
+    <string name="article_content">Isi Artikel...</string>
+    <string name="save">Simpan</string>
 </resources>

@@ -14,7 +14,8 @@ import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
 import id.shoumhome.android.ustadz.R
 import id.shoumhome.android.ustadz.adapters.ArticleAdapter
-import id.shoumhome.android.ustadz.items.Article
+import id.shoumhome.android.ustadz.models.Article
+import id.shoumhome.android.ustadz.preferences.CredentialPreference
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,6 +26,7 @@ class ArticleViewModel : ViewModel() {
     private var listArticle = MutableLiveData<ArrayList<Article>>()
 
     fun setArticle(context: Context, searchQuery: String = ""): String? {
+        val credential = CredentialPreference(context)
         var ret: String? = null
         val url = context.resources.getString(R.string.server) + "api/articles"
         val listItems = ArrayList<Article>()
@@ -34,7 +36,7 @@ class ArticleViewModel : ViewModel() {
         val params = RequestParams()
         params.put("read", "0")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("query", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {

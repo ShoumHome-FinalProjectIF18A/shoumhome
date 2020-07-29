@@ -15,7 +15,7 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ReadArticleViewModels : ViewModel() {
+class ReadArticleViewModel : ViewModel() {
 
     private val mData = MutableLiveData<Map<String, Any?>>()
 

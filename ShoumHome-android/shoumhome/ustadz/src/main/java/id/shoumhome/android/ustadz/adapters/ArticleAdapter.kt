@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.shoumhome.android.ustadz.R
 import id.shoumhome.android.ustadz.ReadArticleActivity
-import id.shoumhome.android.ustadz.items.Article
+import id.shoumhome.android.ustadz.models.Article
 import kotlinx.android.synthetic.main.item_articles.view.*
 
 class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleHolder>() {

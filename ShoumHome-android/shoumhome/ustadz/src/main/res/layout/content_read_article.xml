@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:paddingBottom="24dp"
+        android:autoLink="all"
         android:text="@string/example_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

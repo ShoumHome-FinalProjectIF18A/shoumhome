@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReadArticleActivity">
+    tools:context=".ShowKajianActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <include layout="@layout/content_read_article" />
+            <include layout="@layout/content_show_kajian" />
 
         </ScrollView>
 

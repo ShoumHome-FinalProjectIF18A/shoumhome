@@ -13,7 +13,7 @@ import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
 import id.shoumhome.android.ustadz.R
 import id.shoumhome.android.ustadz.adapters.KajianAdapter
-import id.shoumhome.android.ustadz.items.Kajian
+import id.shoumhome.android.ustadz.models.Kajian
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*

@@ -1,5 +1,6 @@
 package id.shoumhome.android.ustadz
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,7 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import id.shoumhome.android.ustadz.viewmodels.ReadArticleViewModels
+import id.shoumhome.android.ustadz.viewmodels.ReadArticleViewModel
 import kotlinx.android.synthetic.main.activity_read_article.*
 import kotlinx.android.synthetic.main.content_read_article.*
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
 
 class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var readArticleViewModels: ReadArticleViewModels
+    private lateinit var readArticleViewModel: ReadArticleViewModel
     private var id: String = ""
 
     companion object {
@@ -43,9 +44,9 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.title = resources.getString(R.string.read_article)
 
         // MVVM dengan Read Article
-        readArticleViewModels = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
-                .get(ReadArticleViewModels::class.java)
-        readArticleViewModels.getArticle().observe(this, Observer {
+        readArticleViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+                .get(ReadArticleViewModel::class.java)
+        readArticleViewModel.getArticle().observe(this, Observer {
             if (it["status"] == true) {
                 tvArticleTitle.text = it["title"].toString()
                 if (it["hasImg"] == true) {
@@ -72,7 +73,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
         // ambil data artikel secara asinkron
-        readArticleViewModels.setArticleAsync(this, id)
+        readArticleViewModel.setArticleAsync(this, id)
 
         // pullToRefresh
         pullToRefresh.setOnRefreshListener {
@@ -81,7 +82,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
             progressMessage.visibility = View.VISIBLE
             GlobalScope.launch(Dispatchers.Main) {
                 val deferredArticles = async(Dispatchers.IO) {
-                    id.let { readArticleViewModels.setArticle(applicationContext, it) }
+                    id.let { readArticleViewModel.setArticle(applicationContext, it) }
                 }
                 val it = deferredArticles.await()
                 if (it["status"] == true) {
@@ -114,6 +115,10 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> super.onBackPressed()
+            R.id.menuEdit -> {
+                val i = Intent(this, AddUpdateArticleActivity::class.java)
+                startActivity(i)
+            }
         }
         return true
     }
@@ -126,7 +131,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
                 progressMessage.visibility = View.VISIBLE
                 GlobalScope.launch(Dispatchers.Main) {
                     val deferredArticles = async(Dispatchers.IO) {
-                        id.let { readArticleViewModels.setArticle(applicationContext, it) }
+                        id.let { readArticleViewModel.setArticle(applicationContext, it) }
                     }
                     val it = deferredArticles.await()
                     if (it["status"] == true) {
@@ -159,7 +164,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_read_article, menu)
+        menuInflater.inflate(R.menu.menu_article_kajian, menu)
         return true
     }
 }
