@@ -62,7 +62,7 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleHolder>() {
                 setOnClickListener {
                     val i = Intent(context, ReadArticleActivity::class.java)
                     i.putExtra(ReadArticleActivity.EXTRA_ARTICLE_ID, id)
-                    
+
                     // FIXME: 30/07/2020 Not autorefreshed after deleting some articles.
                     (mContext as Activity).startActivityForResult(i, ReadArticleActivity.RESULT_DELETE)
                 }

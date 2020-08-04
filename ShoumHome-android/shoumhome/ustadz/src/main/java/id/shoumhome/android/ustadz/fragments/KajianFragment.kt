@@ -1,5 +1,6 @@
 package id.shoumhome.android.ustadz.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import id.shoumhome.android.ustadz.AddUpdateKajianActivity
 import id.shoumhome.android.ustadz.R
 import id.shoumhome.android.ustadz.adapters.KajianAdapter
 import id.shoumhome.android.ustadz.viewmodels.KajianViewModel
@@ -95,5 +97,36 @@ class KajianFragment : Fragment() {
             }
         })
         kajianViewModel.setKajianAsync(requireActivity().applicationContext, kajianAdapter, "")
+
+        fab_add_kajian.setOnClickListener {
+            val i = Intent(activity?.applicationContext, AddUpdateKajianActivity::class.java)
+            startActivityForResult(i, AddUpdateKajianActivity.RESULT_SAVE)
+        }
+    }
+
+    private fun fetchKajian() {
+        progressMessage.visibility = View.VISIBLE
+        GlobalScope.launch(Dispatchers.Main) {
+            val deferredStatus = async(Dispatchers.IO) {
+                kajianViewModel.setKajian(requireActivity().applicationContext,
+                        et_search_kajian.text.toString())
+            }
+            val status = deferredStatus.await()
+            if (status != null) {
+                progressMessage.visibility = View.GONE
+                val parse = JSONObject(status)
+                Toast.makeText(context, parse.getString("message"), Toast.LENGTH_SHORT).show()
+            } else {
+                progressMessage.visibility = View.GONE
+                kajianAdapter.notifyDataSetChanged()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (resultCode) {
+            AddUpdateKajianActivity.RESULT_SAVE -> fetchKajian()
+        }
     }
 }

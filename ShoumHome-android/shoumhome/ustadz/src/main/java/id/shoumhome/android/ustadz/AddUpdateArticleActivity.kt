@@ -70,7 +70,7 @@ class AddUpdateArticleActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_add_update_article, menu)
+        menuInflater.inflate(R.menu.menu_add_update, menu)
         return true
     }
 

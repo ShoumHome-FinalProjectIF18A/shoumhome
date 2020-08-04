@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddUpdateArticleActivity"></activity>
+        <activity android:name=".AddUpdateKajianActivity"></activity>
+        <activity android:name=".AddUpdateArticleActivity" />
         <activity android:name=".ShowKajianActivity" />
         <activity android:name=".ReadArticleActivity" />
         <activity android:name=".MainActivity">
