@@ -62,10 +62,10 @@ public class MapsResultActivity extends AppCompatActivity {
         final Bundle bundle = getIntent().getExtras();
 
         // Inisialisasi Variabel
-        tvAlamat = (TextView) findViewById(R.id.tvAlamat);
-        tvKodePos = (TextView) findViewById(R.id.tvKodePos);
-        tvLintang = (TextView) findViewById(R.id.tvLintang);
-        tvBujur = (TextView) findViewById(R.id.tvBujur);
+        tvAlamat = findViewById(R.id.tvAlamat);
+        tvKodePos = findViewById(R.id.tvKodePos);
+        tvLintang = findViewById(R.id.tvLintang);
+        tvBujur = findViewById(R.id.tvBujur);
 
         // Inisialisasi SharedPreferences
         sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -83,6 +83,7 @@ public class MapsResultActivity extends AppCompatActivity {
 
         // ini untuk bagian Google Maps API
         SupportMapFragment smf = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert smf != null;
         smf.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
@@ -90,6 +91,7 @@ public class MapsResultActivity extends AppCompatActivity {
                     mMap = googleMap;
 
                     // Konversi
+                    assert bundle != null;
                     String[] ss = String.valueOf(bundle.getString("defaultLocation")).split(",");
                     float[] LatLong = {Float.parseFloat(ss[0]), Float.parseFloat(ss[1])};
                     //mMap.setMapType(mMap.MAP_TYPE_HYBRID); (4)
@@ -98,7 +100,10 @@ public class MapsResultActivity extends AppCompatActivity {
 
                     // Add a marker in location and move the camera
                     LatLng location = new LatLng(LatLong[0], LatLong[1]);
-                    List<Address> addresses = geocoder.getFromLocation(location.latitude, location.longitude,1 );
+                    List<Address> addresses = geocoder.getFromLocation(
+                            location.latitude,
+                            location.longitude,
+                            1);
                     address = addresses.get(0).getAddressLine(0); //0 to obtain first possible address
                     city = addresses.get(0).getLocality();
                     state = addresses.get(0).getAdminArea();
