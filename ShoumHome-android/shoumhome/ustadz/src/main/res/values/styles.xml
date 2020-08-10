@@ -6,4 +6,6 @@
         <item name="colorPrimaryDark">#00CCFF</item>
     </style>
 
+    <style name="MosqueChooserDialog" parent="Theme.MaterialComponents.DayNight.Dialog" />
+
 </resources>

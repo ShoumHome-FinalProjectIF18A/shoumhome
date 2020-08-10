@@ -11,6 +11,7 @@ import com.loopj.android.http.RequestParams
 import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
 import id.shoumhome.android.ustadz.R
+import id.shoumhome.android.ustadz.preferences.CredentialPreference
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,13 +27,14 @@ class ReadArticleViewModel : ViewModel() {
         }
         val resultMap = mutableMapOf<String, Any?>()
         val url = context.resources.getString(R.string.server) + "api/articles"
+        val credential = CredentialPreference(context)
         val client = SyncHttpClient()
 
         // RequestParameter
         val params = RequestParams()
         params.put("read", "1")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("article", id)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
@@ -77,13 +79,14 @@ class ReadArticleViewModel : ViewModel() {
     fun setArticleAsync(context: Context, id: String): Map<String, Any?> {
         val resultMap = mutableMapOf<String, Any?>()
         val url = context.resources.getString(R.string.server) + "api/articles"
+        val credential = CredentialPreference(context)
         val client = AsyncHttpClient()
 
         // RequestParameter
         val params = RequestParams()
         params.put("read", "1")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("article", id)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {

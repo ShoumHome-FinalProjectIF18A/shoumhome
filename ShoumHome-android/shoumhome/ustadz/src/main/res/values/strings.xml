@@ -37,7 +37,7 @@
     <string name="refresh">Segarkan</string>
     <string name="read_article">Baca Artikel</string>
     <string name="view_kajian">Lihat Kajian</string>
-    <string name="example_id">1</string>
+    <string name="example_id">-1</string>
     <string name="example_address">Jalan Panjang No. 8A Jakarta Pusat 12345</string>
     <string name="by">oleh</string>
     <string name="on_stage">Di Tempat</string>
@@ -81,16 +81,28 @@
     <string name="youtube_link">URL YouTube…</string>
     <string name="mosque_null">0</string>
     <string name="mosque_name_null">- Silakan tentukan masjidnya -</string>
-    <string name="more">...</string>
+    <string name="choose">Pilih…</string>
     <string name="address">Alamat</string>
+    <string name="next">Lanjut</string>
+    <string name="search">Cari</string>
+    <string name="choose_mosque">Pilih Masjid</string>
+    <string name="search_mosque">Cari masjid…</string>
+    <string name="mosque_note">Catatan: Masjid yang muncul disini hanyalah masjid yang sudah didaftarkan ke akun ini!</string>
+    <string name="back">Kembali</string>
+    <string name="kajian_address_empty">Alamat wajib diisi!</string>
+    <string name="kajian_yt_link_empty">URL Youtube wajib diisi!</string>
+    <string name="kajian_title_empty">Judul Kajian wajib diisi!</string>
+    <string name="kajian_mosque_empty">Silakan pilih masjid yang dijadikan patokan lokasi kajian atau sumber informasi kajian!</string>
+    <string name="kajian_desc_empty">Deskripsi Kajian wajib diisi!</string>
+    <string name="date_due">Tanggal Pelaksanaan</string>
+    <string name="time_due">Dilaksanakan pada jam</string>
+    <string name="choose_time_due">Tentukan Waktu Pelaksanaan</string>
+    <string name="choose_date_due">Tentukan Tanggal Pelaksanaan</string>
+    <string name="kajian_due_empty">Mohon tentukan tanggal pelaksanaan dan waktu pelaksanaan!</string>
+    <string name="add_kajian_success">Berhasil menyimpan kajian terbaru!</string>
     <string-array name="kajian_category_entries">
         <item>Di Tempat</item>
         <item>Video</item>
         <item>Siaran Langsung/Live Streaming</item>
-    </string-array>
-    <string-array name="kajian_category_values" translatable="false">
-        <item>Di Tempat</item>
-        <item>Video</item>
-        <item>Live Streaming</item>
     </string-array>
 </resources>
