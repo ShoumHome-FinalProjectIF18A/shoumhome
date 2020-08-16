@@ -11,9 +11,9 @@ import com.loopj.android.http.AsyncHttpResponseHandler
 import com.loopj.android.http.RequestParams
 import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
-import id.shoumhome.android.ustadz.R
-import id.shoumhome.android.ustadz.adapters.KajianAdapter
-import id.shoumhome.android.ustadz.models.Kajian
+import id.shoumhome.android.R
+import id.shoumhome.android.adapters.ListKajianAdapter
+import id.shoumhome.android.models.Kajian
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -79,7 +79,7 @@ class KajianViewModel : ViewModel() {
         return ret
     }
 
-    fun setKajianAsync(context: Context, adapter: KajianAdapter, searchQuery: String = ""): Boolean {
+    fun setKajianAsync(context: Context, adapter: ListKajianAdapter, searchQuery: String = ""): Boolean {
         var ret = false
         val url = context.resources.getString(R.string.server) + "api/kajian"
         val listItems = ArrayList<Kajian>()

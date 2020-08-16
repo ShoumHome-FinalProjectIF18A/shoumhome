@@ -3,6 +3,7 @@ package id.shoumhome.android.viewmodels
 import android.content.Context
 import android.os.Looper
 import android.util.Log
+import android.widget.ListAdapter
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,10 +13,10 @@ import com.loopj.android.http.AsyncHttpResponseHandler
 import com.loopj.android.http.RequestParams
 import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
-import id.shoumhome.android.ustadz.R
-import id.shoumhome.android.ustadz.adapters.ArticleAdapter
-import id.shoumhome.android.ustadz.models.Article
-import id.shoumhome.android.ustadz.preferences.CredentialPreference
+import id.shoumhome.android.R
+import id.shoumhome.android.models.Article
+import id.shoumhome.android.adapters.ListArtikelAdapter
+
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -30,7 +31,6 @@ class ArticleViewModel : ViewModel() {
             Looper.prepare()
         } catch (e: Exception) {
         }
-        val credential = CredentialPreference(context)
         var ret: String? = null
         val url = context.resources.getString(R.string.server) + "api/articles"
         val listItems = ArrayList<Article>()
@@ -40,7 +40,6 @@ class ArticleViewModel : ViewModel() {
         val params = RequestParams()
         params.put("read", "0")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("query", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
@@ -87,7 +86,7 @@ class ArticleViewModel : ViewModel() {
         return ret
     }
 
-    fun setArticleAsync(context: Context, adapter: ArticleAdapter, searchQuery: String = ""): Boolean {
+    fun setArticleAsync(context: Context, adapter: ListArtikelAdapter, searchQuery: String = ""): Boolean {
         var ret = false
         val url = context.resources.getString(R.string.server) + "api/articles"
         val listItems = ArrayList<Article>()
