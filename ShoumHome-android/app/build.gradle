@@ -51,6 +51,7 @@ dependencies {
     implementation 'com.github.AppIntro:AppIntro:6.0.0'
 
     implementation "androidx.gridlayout:gridlayout:1.0.0"
-
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation 'com.github.ahmedeltaher:Azan:3.0'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
 }
