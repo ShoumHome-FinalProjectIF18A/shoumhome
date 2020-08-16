@@ -1,6 +1,8 @@
 package id.shoumhome.android.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import id.shoumhome.android.R;
+import id.shoumhome.android.activity.KajianActivity;
+import id.shoumhome.android.activity.LoginActivity;
+import id.shoumhome.android.activity.MoveKajian;
+import id.shoumhome.android.activity.ShowKajianActivity;
 
 public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.MyHolder>{
     private Context context;
@@ -44,17 +50,19 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
         Glide.with(context).asBitmap().load(mFoto.get(position)).into(holder.imageViewFoto);
         holder.TextViewJudul.setText(mJudul.get(position));
         holder.TextViewUstad.setText(mUstad.get(position));
         holder.TextViewKeterangan.setText(mKeterangan.get(position));
         holder.TextViewTanggal.setText(mTanggal.get(position));
 
+
         holder.layout_data_kajian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,  mJudul.get(position).toString(), Toast.LENGTH_SHORT).show();
+                Intent KajianIntent = new Intent(holder.itemView.getContext(), ShowKajianActivity.class);
+                ((Activity) holder.itemView.getContext()).startActivity(KajianIntent);
             }
         });
     }
@@ -64,13 +72,15 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
         return mJudul.size();
     }
 
-    static class MyHolder extends RecyclerView.ViewHolder{
+    class MyHolder extends RecyclerView.ViewHolder{
+        View view;
         ImageView imageViewFoto;
         TextView TextViewJudul,TextViewUstad,TextViewKeterangan,TextViewTanggal;
         RelativeLayout layout_data_kajian;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
+            view = itemView;
             imageViewFoto=itemView.findViewById(R.id.Image_Judul);
             TextViewJudul=itemView.findViewById(R.id.TextView_Judul);
             TextViewUstad=itemView.findViewById(R.id.TextView_Ustadz);

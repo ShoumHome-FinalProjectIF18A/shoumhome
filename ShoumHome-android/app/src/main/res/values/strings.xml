@@ -65,4 +65,6 @@
     <string name="description">Deskripsi:</string>
     <string name="by">oleh</string>
     <string name="post_picture">Post Picture</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="server">https://dwichan.intermediamaikom.org/</string>
 </resources>
