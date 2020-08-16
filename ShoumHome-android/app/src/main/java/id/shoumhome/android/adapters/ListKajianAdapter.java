@@ -39,7 +39,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_data_kajian,parent,false);
-        MyHolder holder=new MyHolder(view);
+        MyHolder holder= new MyHolder(view);
         return holder;
     }
 
@@ -64,7 +64,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
         return mJudul.size();
     }
 
-    class MyHolder extends RecyclerView.ViewHolder{
+    static class MyHolder extends RecyclerView.ViewHolder{
         ImageView imageViewFoto;
         TextView TextViewJudul,TextViewUstad,TextViewKeterangan,TextViewTanggal;
         RelativeLayout layout_data_kajian;

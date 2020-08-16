@@ -1,6 +1,8 @@
 package id.shoumhome.android.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,10 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import id.shoumhome.android.R;
+import id.shoumhome.android.activity.ArtikelActivity;
+import id.shoumhome.android.activity.LoginActivity;
+import id.shoumhome.android.activity.MoveArticle;
+import id.shoumhome.android.activity.ReadArticleActivity;
 
 public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.Myartikel> {
 
@@ -48,7 +54,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Myartikel holder, int position) {
+    public void onBindViewHolder(@NonNull final Myartikel holder, int position) {
         Glide.with(context).asBitmap().load(mImageJudul.get(position)).into(holder.IVjudul);
         holder.TVjudul.setText(mJudul.get(position));
         holder.TVringkasan.setText(mRingkasan.get(position));
@@ -56,6 +62,13 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
         holder.TVtanggal.setText(mtanggal.get(position));
         holder.TVustad.setText(mustad.get(position));
 
+        holder.layout_list_artikel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent artikelIntent = new Intent(holder.itemView.getContext(), ReadArticleActivity.class);
+                ((Activity) holder.itemView.getContext()).startActivity(artikelIntent);
+            }
+        });
 
     }
 
@@ -65,19 +78,22 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
     }
 
     class Myartikel extends RecyclerView.ViewHolder{
+        View view;
         ImageView IVjudul;
         TextView TVjudul,TVringkasan, TVustad, TVtanggal, like;
-        ConstraintLayout layout_list_artikel;
+        RelativeLayout layout_list_artikel;
 
         public Myartikel(@NonNull View itemView) {
             super(itemView);
+            view = itemView;
             IVjudul=itemView.findViewById(R.id.I_Judul);
             TVjudul=itemView.findViewById(R.id.TV_Judul);
             TVringkasan=itemView.findViewById(R.id.TV_Ringkasan);
-            TVustad=itemView.findViewById(R.id.TV_Ustad);
+            TVustad=itemView.findViewById(R.id.TV_Ustadz);
             TVtanggal=itemView.findViewById(R.id.TV_Tanggal);
             like=itemView.findViewById(R.id.TV_Like);
             layout_list_artikel=itemView.findViewById(R.id.layout_list_artikel);
         }
+
     }
 }

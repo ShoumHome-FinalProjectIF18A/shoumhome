@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,97 +7,114 @@
     android:id="@+id/layout_list_artikel"
     android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/I_Judul"
-        android:layout_width="403dp"
-        android:layout_height="180dp"
-        android:src="@drawable/foto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/TV_Judul"
-        android:layout_width="45dp"
-        android:layout_height="21dp"
-        android:layout_below="@+id/I_Judul"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="8dp"
-        android:text="Judul"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/I_Judul" />
-
-    <TextView
-        android:id="@+id/TV_Ringkasan"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_item_note"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TV_Judul"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:text="Berisi ringkasan artikel"
-        android:textSize="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Judul" />
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp"
+        app:cardUseCompatPadding="true">
 
-    <ImageView
-        android:id="@+id/I_Like"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:layout_below="@+id/TV_Ringkasan"
-        android:layout_alignStart="@+id/TV_Ringkasan"
-        android:layout_alignLeft="@+id/TV_Ringkasan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan"
-        app:srcCompat="@android:drawable/star_big_on" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/I_Judul"
+                android:layout_width="403dp"
+                android:layout_height="180dp"
+                android:src="@drawable/foto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/TV_Judul"
+                android:layout_width="45dp"
+                android:layout_height="21dp"
+                android:layout_below="@+id/I_Judul"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="8dp"
+                android:text="Judul"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/I_Judul" />
+
+            <TextView
+                android:id="@+id/TV_Ringkasan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TV_Judul"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Berisi ringkasan artikel"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TV_Judul" />
+
+            <ImageView
+                android:id="@+id/I_Like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TV_Ringkasan"
+                android:layout_alignStart="@+id/TV_Ringkasan"
+                android:layout_alignLeft="@+id/TV_Ringkasan"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan"
+                app:srcCompat="@drawable/ic_baseline_thumb_up_24" />
 
 
-    <TextView
-        android:id="@+id/TV_Like"
-        android:layout_width="100dp"
-        android:layout_height="27dp"
-        android:layout_below="@+id/TV_Ringkasan"
-        android:layout_toEndOf="@+id/I_Like"
-        android:layout_toRightOf="@+id/I_Like"
-        android:hint="hint"
-        android:text="200 suka"
-        android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/I_Like"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan" />
+            <TextView
+                android:id="@+id/TV_Like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TV_Ringkasan"
+                android:layout_toEndOf="@+id/I_Like"
+                android:layout_toRightOf="@+id/I_Like"
+                android:hint="hint"
+                android:text="200 suka"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                app:layout_constraintStart_toEndOf="@+id/I_Like"
+                app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan" />
 
-    <TextView
-        android:id="@+id/TV_Tanggal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/TV_Ringkasan"
-        android:layout_alignRight="@+id/TV_Ringkasan"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/TV_Like"
-        android:layout_toRightOf="@+id/TV_Like"
-        android:text="12 desember 2019"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan" />
+            <TextView
+                android:id="@+id/TV_Tanggal"
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TV_Ringkasan"
+                android:layout_alignRight="@+id/TV_Ringkasan"
+                android:text="12 desember 2019"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan" />
 
-    <TextView
-        android:id="@+id/TV_Ustad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TV_Tanggal"
-        android:layout_alignEnd="@+id/TV_Ringkasan"
-        android:layout_alignRight="@+id/TV_Ringkasan"
-        android:layout_toEndOf="@+id/TV_Like"
-        android:layout_toRightOf="@+id/TV_Like"
-        android:text="Oleh K.H Abdul Somad"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Tanggal" />
+            <TextView
+                android:id="@+id/TV_Ustadz"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TV_Tanggal"
+                android:layout_alignEnd="@id/TV_Ringkasan"
+                android:layout_alignRight="@id/TV_Ringkasan"
+                android:layout_alignParentEnd="true"
+                android:gravity="right"
+                android:layout_toRightOf="@id/TV_Like"
+                android:text="Oleh K.H.Abdul Somad"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/TV_Tanggal" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

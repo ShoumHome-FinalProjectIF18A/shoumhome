@@ -1,7 +1,10 @@
 package id.shoumhome.android.activity;
 
+import android.app.NotificationChannel;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -24,12 +27,16 @@ public class ArtikelActivity extends AppCompatActivity {
     ArrayList<String> mlike =new ArrayList<>();
     ArrayList<String> mtanggal =new ArrayList<>();
     ArrayList<String> mustad =new ArrayList<>();
+    private NotificationChannel v;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 super.onBackPressed();
+                break;
+            case R.id.I_Judul:
+
                 break;
         }
         return true;
@@ -49,6 +56,10 @@ public class ArtikelActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+
+
+
 
         setTitle("Artikel Islami");
         mImageJudul.add("https://ypiaflash.com/muslim.or.id/wp-content/uploads/2010/08/sedekah-ajib-810x500.jpg");
@@ -81,4 +92,8 @@ public class ArtikelActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
-}
+
+
+
+    }
+

@@ -41,19 +41,19 @@
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/Image_Judul" />
 
-        <TextView
-            android:id="@+id/TextView_Ustadz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/TextView_Judul"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/Image_Judul"
-            android:text="@string/example_ustads"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/Image_Judul" />
+            <TextView
+                android:id="@+id/TextView_Ustadz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextView_Judul"
+                android:layout_marginStart="113dp"
+                android:layout_marginLeft="113dp"
+                android:layout_marginTop="52dp"
+                android:layout_toEndOf="@+id/Image_Judul"
+                android:layout_toRightOf="@+id/Image_Judul"
+                android:text="@string/example_ustads" />
 
-        <TextView
+            <TextView
             android:id="@+id/TextView_Keterangan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

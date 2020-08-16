@@ -111,8 +111,8 @@ public class KajianActivity extends AppCompatActivity {
         mKeterangan.add("VIDEO");
         mTanggal.add("27/4/2020 13.00");
 
-        recyclerView = (RecyclerView)findViewById(R.id.recDataKajian);
-        ListKajianAdapter adapter = new ListKajianAdapter(this,mFoto,mJudul,mUstad,mKeterangan,mTanggal);
+        recyclerView = (RecyclerView) findViewById(R.id.recDataKajian);
+        ListKajianAdapter adapter = new ListKajianAdapter(this, mFoto, mJudul, mUstad, mKeterangan, mTanggal);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
