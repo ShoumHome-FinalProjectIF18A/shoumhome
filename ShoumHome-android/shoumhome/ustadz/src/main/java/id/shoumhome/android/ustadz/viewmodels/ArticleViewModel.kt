@@ -89,6 +89,7 @@ class ArticleViewModel : ViewModel() {
 
     fun setArticleAsync(context: Context, adapter: ArticleAdapter, searchQuery: String = ""): Boolean {
         var ret = false
+        val credential = CredentialPreference(context)
         val url = context.resources.getString(R.string.server) + "api/articles"
         val listItems = ArrayList<Article>()
         val client = AsyncHttpClient()
@@ -97,7 +98,7 @@ class ArticleViewModel : ViewModel() {
         val params = RequestParams()
         params.put("read", "0")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("query", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {

@@ -14,6 +14,7 @@ import cz.msebera.android.httpclient.Header
 import id.shoumhome.android.ustadz.R
 import id.shoumhome.android.ustadz.adapters.KajianAdapter
 import id.shoumhome.android.ustadz.models.Kajian
+import id.shoumhome.android.ustadz.preferences.CredentialPreference
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,6 +29,7 @@ class KajianViewModel : ViewModel() {
             Looper.prepare()
         } catch (e: Exception) {
         }
+        val credential = CredentialPreference(context)
         var ret: String? = null
         val url = context.resources.getString(R.string.server) + "api/kajian"
         val listItems = ArrayList<Kajian>()
@@ -37,7 +39,7 @@ class KajianViewModel : ViewModel() {
         val params = RequestParams()
         params.put("read", "0")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("q", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
@@ -55,7 +57,8 @@ class KajianViewModel : ViewModel() {
                         kajian.title = this.getString("kajian_title")
                         kajian.place = this.getString("place")
                         kajian.address = this.getString("address")
-                        kajian.mosque = this.getString("mosque_name")
+                        kajian.mosqueId = this.getString("mosque_id")
+                        kajian.mosqueName = this.getString("mosque_name")
 
                         val date = this.getString("date_due")
                         val dateDue = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(date)!!
@@ -81,6 +84,7 @@ class KajianViewModel : ViewModel() {
 
     fun setKajianAsync(context: Context, adapter: KajianAdapter, searchQuery: String = ""): Boolean {
         var ret = false
+        val credential = CredentialPreference(context)
         val url = context.resources.getString(R.string.server) + "api/kajian"
         val listItems = ArrayList<Kajian>()
         val client = AsyncHttpClient()
@@ -89,7 +93,7 @@ class KajianViewModel : ViewModel() {
         val params = RequestParams()
         params.put("read", "0")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("q", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
@@ -107,7 +111,8 @@ class KajianViewModel : ViewModel() {
                         kajian.title = this.getString("kajian_title")
                         kajian.place = this.getString("place")
                         kajian.address = this.getString("address")
-                        kajian.mosque = this.getString("mosque_name")
+                        kajian.mosqueId = this.getString("mosque_id")
+                        kajian.mosqueName = this.getString("mosque_name")
 
                         val date = this.getString("date_due")
                         val dateDue = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(date)!!

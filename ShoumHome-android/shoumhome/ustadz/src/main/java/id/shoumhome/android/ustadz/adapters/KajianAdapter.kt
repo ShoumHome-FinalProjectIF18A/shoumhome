@@ -37,7 +37,7 @@ class KajianAdapter : RecyclerView.Adapter<KajianAdapter.KajianHolder>() {
     inner class KajianHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(kajian: Kajian) {
             with(itemView) {
-                val mosqueOrAddress = if (kajian.place.equals("Di Tempat")) kajian.address else kajian.mosque
+                val mosqueOrAddress = if (kajian.place.equals("Di Tempat")) kajian.address else kajian.mosqueName
                 tv_title.text = kajian.title
                 tv_ket.text = kajian.place
                 tv_due.text = kajian.date

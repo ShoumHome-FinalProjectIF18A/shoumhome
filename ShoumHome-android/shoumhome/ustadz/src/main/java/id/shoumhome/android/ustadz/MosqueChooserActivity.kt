@@ -14,13 +14,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.shoumhome.android.ustadz.adapters.MosqueChooserAdapter
-import id.shoumhome.android.ustadz.viewmodels.MosqueChooserViewModel
+import id.shoumhome.android.ustadz.viewmodels.MosqueListViewModel
 import kotlinx.android.synthetic.main.activity_mosque_chooser.*
 
 class MosqueChooserActivity : AppCompatActivity() {
 
     private lateinit var mosqueChooserAdapter: MosqueChooserAdapter
-    private lateinit var mosqueChooserViewModel: MosqueChooserViewModel
+    private lateinit var mosqueChooserViewModel: MosqueListViewModel
     private var isUstadzOnly = true
 
     companion object {
@@ -51,8 +51,8 @@ class MosqueChooserActivity : AppCompatActivity() {
 
         // penerapan mvvm
         mosqueChooserViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
-                .get(MosqueChooserViewModel::class.java)
-        mosqueChooserViewModel.getArticle().observe(this, Observer {
+                .get(MosqueListViewModel::class.java)
+        mosqueChooserViewModel.getMosque().observe(this, Observer {
             // ini saat list berhasil di load
             if (it != null) {
                 progressMessage.visibility = View.GONE

@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.shoumhome.android.ustadz.AddUpdateKajianActivity
 import id.shoumhome.android.ustadz.R
+import id.shoumhome.android.ustadz.ShowKajianActivity
 import id.shoumhome.android.ustadz.adapters.KajianAdapter
 import id.shoumhome.android.ustadz.viewmodels.KajianViewModel
 import kotlinx.android.synthetic.main.fragment_kajian.*
@@ -124,9 +125,10 @@ class KajianFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
         when (resultCode) {
             AddUpdateKajianActivity.RESULT_SAVE -> fetchKajian()
+            ShowKajianActivity.RESULT_DELETE -> fetchKajian()
         }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

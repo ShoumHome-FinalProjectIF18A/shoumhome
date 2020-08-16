@@ -11,6 +11,7 @@ import com.loopj.android.http.RequestParams
 import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
 import id.shoumhome.android.ustadz.R
+import id.shoumhome.android.ustadz.preferences.CredentialPreference
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -24,6 +25,7 @@ class ShowKajianViewModel : ViewModel() {
             Looper.prepare()
         } catch (e: Exception) {
         }
+        val credential = CredentialPreference(context)
         val resultMap = mutableMapOf<String, Any?>()
         val url = context.resources.getString(R.string.server) + "api/kajian"
         val client = SyncHttpClient()
@@ -32,7 +34,7 @@ class ShowKajianViewModel : ViewModel() {
         val params = RequestParams()
         params.put("read", "1")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username)
         params.put("kajian", id)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
@@ -45,6 +47,7 @@ class ShowKajianViewModel : ViewModel() {
                 with (kajianJsonObject) {
                     val title = this.getString("kajian_title")
                     val ustadzName = this.getString("ustadz_name")
+                    val mosqueId = this.getString("mosque_id")
                     val mosqueName = this.getString("mosque_name")
                     val address = this.getString("address")
                     val category = this.getString("place")
@@ -64,6 +67,7 @@ class ShowKajianViewModel : ViewModel() {
                     resultMap["id"] = id
                     resultMap["title"] = title
                     resultMap["ustadz_name"] = ustadzName
+                    resultMap["mosque_id"] = mosqueId
                     resultMap["mosque_name"] = mosqueName
                     resultMap["address"] = address
                     resultMap["category"] = category
@@ -72,6 +76,7 @@ class ShowKajianViewModel : ViewModel() {
                     resultMap["img_resource"] = imgResource
                     resultMap["date_announce"] = dateAnnounceFormatted
                     resultMap["date_due"] = dateDueFormatted
+                    resultMap["date_due_unformatted"] = dateDue
                     mData.postValue(resultMap)
                 }
             }
@@ -88,6 +93,7 @@ class ShowKajianViewModel : ViewModel() {
     }
 
     fun setKajianAsync(context: Context, id: String): Map<String, Any?> {
+        val credential = CredentialPreference(context)
         val resultMap = mutableMapOf<String, Any?>()
         val url = context.resources.getString(R.string.server) + "api/kajian"
         val client = AsyncHttpClient()
@@ -96,7 +102,7 @@ class ShowKajianViewModel : ViewModel() {
         val params = RequestParams()
         params.put("read", "1")
         params.put("ustadz_mode", "1")
-        params.put("ustadz_id", "admin") // replace admin with Ustadz ID
+        params.put("ustadz_id", credential.getCredential().username) // replace admin with Ustadz ID
         params.put("kajian", id)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {
@@ -109,6 +115,7 @@ class ShowKajianViewModel : ViewModel() {
                 with (kajianJsonObject) {
                     val title = this.getString("kajian_title")
                     val ustadzName = this.getString("ustadz_name")
+                    val mosqueId = this.getString("mosque_id")
                     val mosqueName = this.getString("mosque_name")
                     val address = this.getString("address")
                     val category = this.getString("place")
@@ -128,6 +135,7 @@ class ShowKajianViewModel : ViewModel() {
                     resultMap["id"] = id
                     resultMap["title"] = title
                     resultMap["ustadz_name"] = ustadzName
+                    resultMap["mosque_id"] = mosqueId
                     resultMap["mosque_name"] = mosqueName
                     resultMap["address"] = address
                     resultMap["category"] = category
@@ -136,6 +144,7 @@ class ShowKajianViewModel : ViewModel() {
                     resultMap["img_resource"] = imgResource
                     resultMap["date_announce"] = dateAnnounceFormatted
                     resultMap["date_due"] = dateDueFormatted
+                    resultMap["date_due_unformatted"] = dateDue
                     mData.postValue(resultMap)
                 }
             }

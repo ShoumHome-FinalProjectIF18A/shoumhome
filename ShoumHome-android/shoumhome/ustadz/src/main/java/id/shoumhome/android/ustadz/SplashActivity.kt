@@ -33,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
                 true -> {
                     if (!sharedPreferences!!.getString("username", "null").equals("null") ||
                             !sharedPreferences!!.getString("password", "").equals("")) {
-                        val home = Intent(this@SplashActivity, MainActivity::class.java)
+                        val home = Intent(this@SplashActivity, LoginActivity::class.java)
                         startActivity(home)
                     } else {
 //                        val login = Intent(this@SplashActivity, LayarUtamaActivity::class.java)

@@ -8,13 +8,15 @@ import androidx.fragment.app.FragmentPagerAdapter
 import id.shoumhome.android.ustadz.R
 import id.shoumhome.android.ustadz.fragments.ArticlesFragment
 import id.shoumhome.android.ustadz.fragments.KajianFragment
+import id.shoumhome.android.ustadz.fragments.MosqueListFragment
 
 class MainPagerAdapter(private val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     @StringRes
     private val TAB_TITLES = intArrayOf(
             R.string.tab_article,
-            R.string.tab_kajian
+            R.string.tab_kajian,
+            R.string.tab_mosque
     )
 
     override fun getPageTitle(position: Int): CharSequence? {
@@ -26,10 +28,11 @@ class MainPagerAdapter(private val context: Context, fm: FragmentManager) : Frag
         when (position) {
             0 -> fragment = ArticlesFragment()
             1 -> fragment = KajianFragment()
+            2 -> fragment = MosqueListFragment()
         }
         return fragment as Fragment
     }
 
-    override fun getCount(): Int = 2
+    override fun getCount(): Int = 3
 
 }

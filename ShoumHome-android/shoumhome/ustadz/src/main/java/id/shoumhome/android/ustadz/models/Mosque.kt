@@ -8,6 +8,5 @@ data class Mosque (
         var id: Int = 0,
         var mosqueName: String? = null,
         var latLng: String? = null,
-        var address: String? = null,
-        var isFilteredByUstadz: Boolean ?= false
+        var address: String? = null
 ): Parcelable

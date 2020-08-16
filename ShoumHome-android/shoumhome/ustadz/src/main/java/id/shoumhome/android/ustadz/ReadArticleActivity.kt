@@ -142,7 +142,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
             R.id.menuDelete -> {
                 val alert = AlertDialog.Builder(this)
                 alert.setTitle(resources.getString(R.string.sure))
-                        .setMessage(resources.getString(R.string.delete_message) + " $title?")
+                        .setMessage(resources.getString(R.string.delete_article_message) + " $title?")
                         .setPositiveButton(resources.getString(R.string.yes)) { dialogInterface, i ->
                             deleteArticle()
                         }
@@ -166,7 +166,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
         client.delete(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
                 Toast.makeText(this@ReadArticleActivity, resources.getString(R.string.delete_success_message), Toast.LENGTH_SHORT).show()
-                this@ReadArticleActivity.setResult(RESULT_DELETE)
+                this@ReadArticleActivity.setResult(RESULT_DELETE, Intent())
                 finish()
             }
 
@@ -227,7 +227,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == AddUpdateArticleActivity.RESULT_UPDATE) {
+        if (resultCode == RESULT_OK && requestCode == AddUpdateArticleActivity.RESULT_UPDATE) {
             errorMessage.visibility = View.GONE
             progressMessage.visibility = View.VISIBLE
             GlobalScope.launch(Dispatchers.Main) {

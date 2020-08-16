@@ -65,7 +65,7 @@
     <string name="title_must_fill">Judul Artikel tidak boleh kosong!</string>
     <string name="content_must_fill">Isi Artikel wajib terisi!</string>
     <string name="sure">Yakin?</string>
-    <string name="delete_message">"Yakin Anda ingin menghapus artikel "</string>
+    <string name="delete_article_message">"Yakin Anda ingin menghapus artikel "</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="delete_success_message">Berhasil menghapus artikel!</string>
@@ -87,7 +87,7 @@
     <string name="search">Cari</string>
     <string name="choose_mosque">Pilih Masjid</string>
     <string name="search_mosque">Cari masjid…</string>
-    <string name="mosque_note">Catatan: Masjid yang muncul disini hanyalah masjid yang sudah didaftarkan ke akun ini!</string>
+    <string name="mosque_note">Catatan: Masjid yang muncul disini hanyalah masjid yang sudah didaftarkan oleh ShoumHome!</string>
     <string name="back">Kembali</string>
     <string name="kajian_address_empty">Alamat wajib diisi!</string>
     <string name="kajian_yt_link_empty">URL Youtube wajib diisi!</string>
@@ -100,9 +100,25 @@
     <string name="choose_date_due">Tentukan Tanggal Pelaksanaan</string>
     <string name="kajian_due_empty">Mohon tentukan tanggal pelaksanaan dan waktu pelaksanaan!</string>
     <string name="add_kajian_success">Berhasil menyimpan kajian terbaru!</string>
+    <string name="file_permission_denied">Izin akses berkas ditolak! Mohon berikan izin akses membaca berkas eksternal untuk memilih gambar yang akan diunggah!</string>
+    <string name="delete_kajian_message">Yakin ingin menghapus kajian berjudul</string>
+    <string name="delete_kajian_success_message">Berhasil menghapus kajian!</string>
     <string-array name="kajian_category_entries">
         <item>Di Tempat</item>
         <item>Video</item>
         <item>Siaran Langsung/Live Streaming</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_mosque">MASJID</string>
+    <string name="add_mosque">Tambah Masjid</string>
+    <string name="choose_action_mosque">Pilih aksi yang akan Anda lakukan untuk masjid ini.</string>
+    <string name="view_on_maps">Lihat di Maps</string>
+    <string name="progress_add_mosque">"Mohon menunggu, kami sedang mendaftarkan masjid baru: "</string>
+    <string name="add_mosque_success">"Berhasil menambahkan masjid baru ke dalam akun Anda, "</string>
+    <string name="add_mosque_failed">"Gagal menambahkan masjid "</string>
+    <string name="delete_mosque_confirm">"Yakin ingin menghapus masjid "</string>
+    <string name="update_kajian_success">Modifikasi kajian sukses!</string>
+    <string name="delete_mosque_success">"Berhasil menghapus masjid "</string>
+    <string name="delete_mosque_failed">"Gagal menghapus masjid "</string>
 </resources>

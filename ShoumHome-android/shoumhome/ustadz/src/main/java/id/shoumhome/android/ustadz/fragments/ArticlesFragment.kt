@@ -1,5 +1,6 @@
 package id.shoumhome.android.ustadz.fragments
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -109,11 +110,10 @@ class ArticlesFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
         when (resultCode) {
             AddUpdateArticleActivity.RESULT_SAVE -> fetchArticles()
             ReadArticleActivity.RESULT_DELETE -> fetchArticles()
         }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

@@ -1,6 +1,7 @@
 package id.shoumhome.android.ustadz
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -47,7 +48,7 @@ class AddUpdateArticleActivity : AppCompatActivity() {
         content = bundle?.getString(EXTRA_ARTICLE_CONTENT, "")
 
         var titleWindow = ""
-        if (id == "") {
+        if (id.isNullOrEmpty()) {
             titleWindow = resources.getString(R.string.add_article)
             edtArticleTitle.text.clear()
             edtArticleContent.text.clear()
@@ -87,7 +88,7 @@ class AddUpdateArticleActivity : AppCompatActivity() {
     }
 
     private fun saveArticle() {
-        if (id == "") {
+        if (id.isNullOrEmpty()) {
             isProgress = true
 
             // simpan artikel baru
@@ -131,7 +132,7 @@ class AddUpdateArticleActivity : AppCompatActivity() {
                     errorMessage.visibility = View.GONE
                     Toast.makeText(this@AddUpdateArticleActivity, resources.getString(R.string.save_success), Toast.LENGTH_SHORT).show()
 
-                    this@AddUpdateArticleActivity.setResult(RESULT_SAVE)
+                    this@AddUpdateArticleActivity.setResult(RESULT_OK)
                     finish()
                 }
 
@@ -184,7 +185,7 @@ class AddUpdateArticleActivity : AppCompatActivity() {
                     errorMessage.visibility = View.GONE
                     Toast.makeText(this@AddUpdateArticleActivity, resources.getString(R.string.update_success), Toast.LENGTH_SHORT).show()
 
-                    this@AddUpdateArticleActivity.setResult(RESULT_UPDATE)
+                    this@AddUpdateArticleActivity.setResult(RESULT_OK)
                     finish()
                 }
 

@@ -7,9 +7,12 @@ import kotlinx.android.parcel.Parcelize
 data class Kajian(
         var id: String? = null,
         var title: String? = null,
-        var mosque: String? = null,
+        var mosqueId: String? = null,
+        var mosqueName: String? = null,
         var place: String? = null,
         var address: String? = null,
         var date: String? = null,
-        var imgResource: String? = null
+        var description: String? = null,
+        var imgResource: String? = null,
+        var ytLink: String? = null
 ) : Parcelable
