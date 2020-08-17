@@ -23,7 +23,6 @@ class ReadArticleActivity : AppCompatActivity() {
         const val EXTRA_ARTICLE_ID = "extra_article_id"
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_article)

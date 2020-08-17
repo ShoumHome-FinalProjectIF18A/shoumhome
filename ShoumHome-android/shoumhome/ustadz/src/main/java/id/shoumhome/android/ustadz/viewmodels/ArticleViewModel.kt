@@ -59,6 +59,7 @@ class ArticleViewModel : ViewModel() {
                         article.id = this.getString("id")
                         article.title = this.getString("title")
                         article.content = this.getString("content")
+
                         article.hasImg = this.getString("has_img")!!.toBoolean()
 
                         if (article.hasImg) {

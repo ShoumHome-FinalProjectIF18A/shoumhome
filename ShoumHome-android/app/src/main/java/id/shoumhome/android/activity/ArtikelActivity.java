@@ -10,24 +10,29 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import id.shoumhome.android.R;
 import id.shoumhome.android.adapters.ListArtikelAdapter;
+import id.shoumhome.android.models.Article;
+import id.shoumhome.android.viewmodels.ArticleViewModel;
+import id.shoumhome.android.viewmodels.ReadArticleViewModel;
+
+import static id.shoumhome.android.activity.ReadArticleActivity.EXTRA_ARTICLE_ID;
 
 public class ArtikelActivity extends AppCompatActivity {
-    ArrayList<String> mId =new ArrayList<>();
-    ArrayList<String> mImageJudul =new ArrayList<>();
-    ArrayList<String> mJudul =new ArrayList<>();
-    ArrayList<String> mRingkasan =new ArrayList<>();
-    ArrayList<String> mImageLike =new ArrayList<>();
-    ArrayList<String> mlike =new ArrayList<>();
-    ArrayList<String> mtanggal =new ArrayList<>();
-    ArrayList<String> mustad =new ArrayList<>();
+    ArrayList<Article> mArticle = new ArrayList<>();
+    String id = "";
     private NotificationChannel v;
+    ArticleViewModel articleViewModel;
+    ListArtikelAdapter listArtikelAdapter = new ListArtikelAdapter(this);
+    RecyclerView recDataArtikel;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -36,19 +41,17 @@ public class ArtikelActivity extends AppCompatActivity {
                 super.onBackPressed();
                 break;
             case R.id.I_Judul:
-
                 break;
         }
         return true;
     }
-
-
 
     @Override
     protected void  onCreate(Bundle savedInstancesState){
         super.onCreate(savedInstancesState);
         setContentView(R.layout.activity_artikel__islami);
 
+        recDataArtikel = findViewById(R.id.recDataArtikel);
         // fungsi Toolbar dan ActionBar(back pd artikel)
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
@@ -56,48 +59,25 @@ public class ArtikelActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(getResources().getString(R.string.read_article));
 
+        recDataArtikel.setLayoutManager(new LinearLayoutManager(this));
+        recDataArtikel.setAdapter(listArtikelAdapter);
 
+        articleViewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory())
+                .get(ArticleViewModel.class);
+        articleViewModel.getArticle().observe(this, new Observer<ArrayList<Article>>() {
+            @Override
+            public void onChanged(ArrayList<Article> it) {
+               if (it != null){
+                   listArtikelAdapter.setArticle(it);
+               }
+            }
+        });
 
-
-
-        setTitle("Artikel Islami");
-        mId.add("2");
-        mImageJudul.add("https://ypiaflash.com/muslim.or.id/wp-content/uploads/2010/08/sedekah-ajib-810x500.jpg");
-        mJudul.add("Dahsyatnya Sedekah di Bulan Ramadhan");
-        mRingkasan.add("Salah satu pintu yang dibuka oleh Allah untuk meraih keuntungan besar dari bulan Ramadhan adalah melalui sedekah. Islam sering menganjurkan umatnya untuk banyak bersedekah. Dan bulan Ramadhan, amalan ini menjadi lebih dianjurkan lagi. Dan demikianlah sepatutnya akhlak seorang mukmin, yaitu dermawan. Allah dan Rasul-Nya memerintahkan bahkan memberi contoh kepada umat Islam untuk menjadi orang yang dermawan serta pemurah ");
-        mImageLike.add("https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.iconarchive.com%2Fshow%2Foutline-icons-by-iconsmind%2FLike-2-icon.html&psig=AOvVaw2QR12bKnOHcUNfOLpHMB4w&ust=1590729464881000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOC20p_n1ekCFQAAAAAdAAAAABAg");
-        mlike.add("5 like");
-        mtanggal.add("20 Mei 2020");
-        mustad.add("Ustadz Yulian Purnama, S.Kom.");
-
-        mId.add(" ");
-        mImageJudul.add("https://ypiaflash.com/muslim.or.id/wp-content/uploads/2010/08/sedekah-ajib-810x500.jpg");
-        mJudul.add("Dahsyatnya Sedekah di Bulan Ramadhan");
-        mRingkasan.add("Salah satu pintu yang dibuka oleh Allah untuk meraih keuntungan besar dari bulan Ramadhan adalah melalui sedekah. Islam sering menganjurkan umatnya untuk banyak bersedekah. Dan bulan Ramadhan, amalan ini menjadi lebih dianjurkan lagi. Dan demikianlah sepatutnya akhlak seorang mukmin, yaitu dermawan. Allah dan Rasul-Nya memerintahkan bahkan memberi contoh kepada umat Islam untuk menjadi orang yang dermawan serta pemurah ");
-        mImageLike.add("https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.iconarchive.com%2Fshow%2Foutline-icons-by-iconsmind%2FLike-2-icon.html&psig=AOvVaw2QR12bKnOHcUNfOLpHMB4w&ust=1590729464881000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOC20p_n1ekCFQAAAAAdAAAAABAg");
-        mlike.add("10like");
-        mtanggal.add("20 Mei 2020");
-        mustad.add("Ustadz Yulian Purnama, S.Kom.");
-
-        mId.add(" ");
-        mImageJudul.add("https://ypiaflash.com/muslim.or.id/wp-content/uploads/2010/08/sedekah-ajib-810x500.jpg");
-        mJudul.add("Dahsyatnya Sedekah di Bulan Ramadhan");
-        mRingkasan.add("Salah satu pintu yang dibuka oleh Allah untuk meraih keuntungan besar dari bulan Ramadhan adalah melalui sedekah. Islam sering menganjurkan umatnya untuk banyak bersedekah. Dan bulan Ramadhan, amalan ini menjadi lebih dianjurkan lagi. Dan demikianlah sepatutnya akhlak seorang mukmin, yaitu dermawan. Allah dan Rasul-Nya memerintahkan bahkan memberi contoh kepada umat Islam untuk menjadi orang yang dermawan serta pemurah ");
-        mImageLike.add("https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.iconarchive.com%2Fshow%2Foutline-icons-by-iconsmind%2FLike-2-icon.html&psig=AOvVaw2QR12bKnOHcUNfOLpHMB4w&ust=1590729464881000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOC20p_n1ekCFQAAAAAdAAAAABAg");
-        mlike.add("200like");
-        mtanggal.add("20 Mei 2020");
-        mustad.add("Ustadz Yulian Purnama, S.Kom.");
-
-        mId.add(" ");
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recDataArtikel);
-        ListArtikelAdapter adapter=new ListArtikelAdapter(this, mId, mImageJudul, mJudul, mRingkasan, mlike, mtanggal, mustad);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        articleViewModel.setArticleAsync(this, listArtikelAdapter, "");
     }
 
-
-
-    }
+}
 

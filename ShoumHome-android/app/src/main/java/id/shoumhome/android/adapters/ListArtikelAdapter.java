@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,32 +18,25 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import id.shoumhome.android.R;
-import id.shoumhome.android.activity.ArtikelActivity;
-import id.shoumhome.android.activity.LoginActivity;
 import id.shoumhome.android.activity.ReadArticleActivity;
+import id.shoumhome.android.models.Article;
 
 public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.Myartikel> {
 
-    public ListArtikelAdapter(Context context,ArrayList<String> mId, ArrayList<String> mImageJudul, ArrayList<String> mJudul, ArrayList<String> mRingkasan, ArrayList<String> mlike, ArrayList<String> mtanggal, ArrayList<String> mustad) {
+    ArrayList<Article> mArticle = new ArrayList<Article>();
+
+    public ListArtikelAdapter(Context context) {
         this.context = context;
-        this.mId = mId ;
-        this.mImageJudul = mImageJudul;
-        this.mJudul = mJudul;
-        this.mRingkasan = mRingkasan;
-        this.mlike = mlike;
-        this.mtanggal = mtanggal;
-        this.mustad = mustad;
     }
 
     private Context context;
-    ArrayList<String>mId =new ArrayList<>();
-    ArrayList<String> mImageJudul =new ArrayList<>();
-    ArrayList<String> mJudul =new ArrayList<>();
-    ArrayList<String> mRingkasan =new ArrayList<>();
-    ArrayList<String> mlike =new ArrayList<>();
-    ArrayList<String> mtanggal =new ArrayList<>();
-    ArrayList<String> mustad =new ArrayList<>();
 
+    public void setArticle(ArrayList<Article> mArticle) {
+        if (mArticle != null) this.mArticle.clear();
+        assert mArticle != null;
+        this.mArticle.addAll(mArticle);
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -56,18 +48,24 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final Myartikel holder, final int position) {
-        Glide.with(context).asBitmap().load(mImageJudul.get(position)).into(holder.IVjudul);
-        holder.TVjudul.setText(mJudul.get(position));
-        holder.TVringkasan.setText(mRingkasan.get(position));
-        holder.like.setText(mlike.get(position));
-        holder.TVtanggal.setText(mtanggal.get(position));
-        holder.TVustad.setText(mustad.get(position));
+        if(mArticle.get(position).getHasImg()) {
+            //jika gambar ada tampilkan
+            Glide.with(context).asBitmap().load(mArticle.get(position).getImgUrl()).into(holder.IVjudul);
+        }else{
+            //hilangkan tampilan gambar jika gambar tidak ada
+            //untuk ngilangin gambar jika gambar tidak ada langsung tampil atribut dibawahnya
+            holder.IVjudul.setVisibility(View.GONE);
+        }
+        holder.TVjudul.setText(mArticle.get(position).getTitle());
+        holder.TVringkasan.setText(mArticle.get(position).getContent());
+        holder.TVtanggal.setText(mArticle.get(position).getPost_date());
+        holder.TVustad.setText(mArticle.get(position).getUstadzName());
 
         holder.layout_list_artikel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent artikelIntent = new Intent(holder.itemView.getContext(), ReadArticleActivity.class);
-                artikelIntent.putExtra(ReadArticleActivity.EXTRA_ARTICLE_ID, mId.get(position));
+                artikelIntent.putExtra(ReadArticleActivity.EXTRA_ARTICLE_ID, mArticle.get(position).getId());
                 ((Activity) holder.itemView.getContext()).startActivity(artikelIntent);
             }
         });
@@ -76,7 +74,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
 
     @Override
     public int getItemCount() {
-        return mJudul.size();
+        return mArticle.size();
     }
 
     class Myartikel extends RecyclerView.ViewHolder{
