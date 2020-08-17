@@ -66,6 +66,7 @@
     <string name="by">oleh</string>
     <string name="post_picture">Post Picture</string>
     <string name="thumbnail">Thumbnail</string>
-    <string name="read_article">read_article</string>
+    <string name="read_article">Artikel Islami</string>
     <string name="server">https://dwichan.intermediaamikom.org/</string>
+    <string name="show_kajian">Kajian</string>
 </resources>

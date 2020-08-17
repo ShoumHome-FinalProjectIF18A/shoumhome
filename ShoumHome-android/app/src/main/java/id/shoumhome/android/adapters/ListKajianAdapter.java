@@ -29,7 +29,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
     public ListKajianAdapter(Context context) {
         this.context = context;
         }
-
+    ArrayList<Kajian> mKajian = new ArrayList<>();
     private Context context;
 
     public void setKajian(ArrayList<Kajian> mKajian) {
@@ -38,8 +38,6 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
         this.mKajian.addAll(mKajian);
         notifyDataSetChanged();
     }
-
-    ArrayList<Kajian> mKajian;
 
     @NonNull
     @Override
@@ -51,7 +49,15 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
-        Glide.with(context).asBitmap().load(mKajian.get(position).getImgResource()).into(holder.imageViewFoto);
+        if (mKajian.get(position).getPlace().equals("Di Tempat")) {
+            if (mKajian.get(position).getImgResource()!= null)
+                Glide.with(context).asBitmap().load(mKajian.get(position).getImgResource()).into(holder.imageViewFoto);
+            else
+                Glide.with(context).asBitmap().load(R.drawable.icon).into(holder.imageViewFoto);
+        } else {
+            Glide.with(context).asBitmap().load(mKajian.get(position).getImgResource()).into(holder.imageViewFoto);
+        }
+
         holder.TextViewJudul.setText(mKajian.get(position).getTitle());
         holder.TextViewUstad.setText(mKajian.get(position).getUstadzName());
         holder.TextViewMosque.setText(mKajian.get(position).getAddress());
@@ -71,7 +77,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
 
     @Override
     public int getItemCount() {
-        return mKajian.size();
+        return mKajian == null? 0 : mKajian.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder{

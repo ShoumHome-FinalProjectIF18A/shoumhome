@@ -53,6 +53,7 @@ class KajianViewModel : ViewModel() {
                     with(kajianJSONObject) {
                         kajian.id = this.getString("id")
                         kajian.title = this.getString("kajian_title")
+                        kajian.ustadzName = this.getString("ustadz_name")
                         kajian.place = this.getString("place")
                         kajian.address = this.getString("address")
                         kajian.mosque = this.getString("mosque_name")
@@ -105,6 +106,7 @@ class KajianViewModel : ViewModel() {
                     with(kajianJSONObject) {
                         kajian.id = this.getString("id")
                         kajian.title = this.getString("kajian_title")
+                        kajian.ustadzName = this.getString("ustadz_name")
                         kajian.place = this.getString("place")
                         kajian.address = this.getString("address")
                         kajian.mosque = this.getString("mosque_name")
