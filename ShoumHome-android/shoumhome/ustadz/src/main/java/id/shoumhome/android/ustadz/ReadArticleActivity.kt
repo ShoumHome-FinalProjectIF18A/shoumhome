@@ -39,6 +39,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_article)
+        svArticle.visibility = View.GONE
         progressMessage.visibility = View.VISIBLE
         errorMessage.visibility = View.GONE
 
@@ -73,6 +74,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
                 tvPostContent.text = it["content"].toString()
                 progressMessage.visibility = View.GONE
                 errorMessage.visibility = View.GONE
+                svArticle.visibility = View.VISIBLE
             } else {
                 progressMessage.visibility = View.GONE
                 errorMessage.visibility = View.VISIBLE
@@ -88,6 +90,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
 
         // pullToRefresh
         pullToRefresh.setOnRefreshListener {
+            svArticle.visibility = View.GONE
             pullToRefresh.isRefreshing = false
             errorMessage.visibility = View.GONE
             progressMessage.visibility = View.VISIBLE
@@ -112,6 +115,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
                     tvPostDate.text = it["post_date"].toString()
                     tvPostContent.text = it["content"].toString()
                     progressMessage.visibility = View.GONE
+                    svArticle.visibility = View.VISIBLE
                 } else {
                     progressMessage.visibility = View.GONE
                     errorMessage.visibility = View.VISIBLE
@@ -182,6 +186,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
         when (v.id) {
             R.id.btnRefresh -> {
                 // saat tombol refresh ditekan
+                svArticle.visibility = View.GONE
                 errorMessage.visibility = View.GONE
                 progressMessage.visibility = View.VISIBLE
                 GlobalScope.launch(Dispatchers.Main) {
@@ -205,6 +210,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
                         tvPostDate.text = it["post_date"].toString()
                         tvPostContent.text = it["content"].toString()
                         progressMessage.visibility = View.GONE
+                        svArticle.visibility = View.VISIBLE
                     } else {
                         progressMessage.visibility = View.GONE
                         errorMessage.visibility = View.VISIBLE
@@ -228,6 +234,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == RESULT_OK && requestCode == AddUpdateArticleActivity.RESULT_UPDATE) {
+            svArticle.visibility = View.GONE
             errorMessage.visibility = View.GONE
             progressMessage.visibility = View.VISIBLE
             GlobalScope.launch(Dispatchers.Main) {
@@ -251,6 +258,7 @@ class ReadArticleActivity : AppCompatActivity(), View.OnClickListener {
                     tvPostDate.text = it["post_date"].toString()
                     tvPostContent.text = it["content"].toString()
                     progressMessage.visibility = View.GONE
+                    svArticle.visibility = View.VISIBLE
                 } else {
                     progressMessage.visibility = View.GONE
                     errorMessage.visibility = View.VISIBLE

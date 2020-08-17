@@ -17,7 +17,6 @@ import id.shoumhome.android.ustadz.adapters.MosqueListAdapter
 import id.shoumhome.android.ustadz.models.Mosque
 import id.shoumhome.android.ustadz.preferences.CredentialPreference
 import org.json.JSONObject
-import kotlin.collections.ArrayList
 
 class MosqueListViewModel : ViewModel() {
 

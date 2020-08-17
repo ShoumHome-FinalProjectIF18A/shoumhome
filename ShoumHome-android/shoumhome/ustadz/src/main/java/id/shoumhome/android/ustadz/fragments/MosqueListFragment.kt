@@ -1,6 +1,5 @@
 package id.shoumhome.android.ustadz.fragments
 
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -131,7 +130,7 @@ class MosqueListFragment : Fragment() {
                     params.put("id", mosqueId)
                     params.put("ustadz_id", ustadzId)
 
-                    client.post(api, params, object: AsyncHttpResponseHandler() {
+                    client.post(api, params, object : AsyncHttpResponseHandler() {
                         override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
                             Toast.makeText(context, resources.getString(R.string.add_mosque_success) + mosque.mosqueName, Toast.LENGTH_SHORT).show()
                             progressMessage.visibility = View.VISIBLE

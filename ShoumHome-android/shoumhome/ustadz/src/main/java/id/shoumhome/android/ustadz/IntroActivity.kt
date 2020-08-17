@@ -1,12 +1,15 @@
 package id.shoumhome.android.ustadz
 
 import android.Manifest
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.github.appintro.AppIntro2
 import com.github.appintro.AppIntroFragment
 import com.github.appintro.AppIntroPageTransformerType
@@ -22,7 +25,7 @@ class IntroActivity : AppIntro2() {
         addSlides()
         // Ask for required permission
         askForPermissions(
-                permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 slideNumber = 1, // first slide
                 required = true)
 
@@ -49,7 +52,7 @@ class IntroActivity : AppIntro2() {
         )
     }
 
-    private fun addSlides(): Unit {
+    private fun addSlides() {
         addSlide(AppIntroFragment.newInstance(
                 title = "Jalin hubungan bersama masyarakat",
                 description = """
@@ -63,7 +66,7 @@ class IntroActivity : AppIntro2() {
         addSlide(AppIntroFragment.newInstance(
                 title = "Membantu mereka yang tersesat!",
                 description = """
-                    Daftarkan masjid-masjid yang Anda kelola atau sering Anda kunjungi agar mereka tidak kehilangan arah menuju masjid dan juga agar mereka tau dimana saja Anda berdakwah dan beribadah!
+                    Daftarkan masjid-masjid yang Anda kelola atau sering Anda kunjungi agar mereka tau dimana saja Anda berdakwah!
                 """.trimIndent(),
                 titleColor = Color.BLACK,
                 imageDrawable = R.drawable.intro3,
@@ -74,25 +77,25 @@ class IntroActivity : AppIntro2() {
 
     override fun onUserDeniedPermission(permissionName: String) {
         // User pressed "Deny" on the permission dialog
-        Toast.makeText(applicationContext, "Maaf, Anda harus memberikan izin aplikasi ini untuk membaca lokasi!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "Maaf, Anda harus memberikan izin aplikasi ini untuk membaca berkas!", Toast.LENGTH_SHORT).show()
     }
 
     override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
         // Decide what to do when the user clicks on "Skip"
-        finish()
+        // finish()
     }
 
     override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
         // Decide what to do when the user clicks on "Done"
-//        val sp: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
-//        with (sp.edit()) {
-//            putBoolean("first", true)
-//            commit()
-//        }
-//        val home = Intent(this@IntroActivity, LayarUtamaActivity::class.java)
-//        startActivity(home)
-//        finish()
+        val sp: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        with(sp.edit()) {
+            putBoolean("first", true)
+            commit()
+        }
+        val home = Intent(this@IntroActivity, LoginActivity::class.java)
+        startActivity(home)
+        finish()
     }
 }

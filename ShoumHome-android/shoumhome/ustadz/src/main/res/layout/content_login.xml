@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp">
 
     <ImageView
@@ -12,12 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
+        android:contentDescription="@string/logo"
         android:src="@drawable/nama_slogan"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -53,18 +52,18 @@
             android:paddingRight="25dp">
 
             <EditText
-                android:id="@+id/etusername"
+                android:id="@+id/edtUsername"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/transparent"
                 android:hint="@string/username"
                 android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textSize="14sp"
-                android:inputType="text"
-                android:importantForAutofill="no" />
+                android:textSize="14sp" />
 
         </RelativeLayout>
 
@@ -77,18 +76,18 @@
             android:paddingRight="25dp">
 
             <EditText
-                android:id="@+id/etpassword"
+                android:id="@+id/edtPassword"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/transparent"
                 android:hint="@string/password"
                 android:imeOptions="actionDone"
+                android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textSize="14sp"
-                android:importantForAutofill="no" />
+                android:textSize="14sp" />
 
         </RelativeLayout>
 

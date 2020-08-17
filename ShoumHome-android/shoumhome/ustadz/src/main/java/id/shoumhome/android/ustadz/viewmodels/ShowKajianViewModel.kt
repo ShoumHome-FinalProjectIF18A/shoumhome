@@ -44,7 +44,7 @@ class ShowKajianViewModel : ViewModel() {
                 val list = resultObject.getJSONArray("data")
 
                 val kajianJsonObject = list.getJSONObject(0)
-                with (kajianJsonObject) {
+                with(kajianJsonObject) {
                     val title = this.getString("kajian_title")
                     val ustadzName = this.getString("ustadz_name")
                     val mosqueId = this.getString("mosque_id")
@@ -112,7 +112,7 @@ class ShowKajianViewModel : ViewModel() {
                 val list = resultObject.getJSONArray("data")
 
                 val kajianJsonObject = list.getJSONObject(0)
-                with (kajianJsonObject) {
+                with(kajianJsonObject) {
                     val title = this.getString("kajian_title")
                     val ustadzName = this.getString("ustadz_name")
                     val mosqueId = this.getString("mosque_id")

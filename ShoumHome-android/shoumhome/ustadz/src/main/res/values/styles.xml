@@ -8,4 +8,6 @@
 
     <style name="MosqueChooserDialog" parent="Theme.MaterialComponents.DayNight.Dialog" />
 
+    <style name="ChangePasswordDialog" parent="Theme.MaterialComponents.DayNight.Dialog" />
+
 </resources>

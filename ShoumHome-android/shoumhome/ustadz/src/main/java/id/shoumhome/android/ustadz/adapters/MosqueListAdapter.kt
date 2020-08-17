@@ -1,7 +1,6 @@
 package id.shoumhome.android.ustadz.adapters
 
 import android.app.Activity
-import android.content.DialogInterface
 import android.content.Intent
 import android.location.Geocoder
 import android.net.Uri
@@ -10,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.model.LatLng
 import com.loopj.android.http.AsyncHttpClient
@@ -24,7 +22,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class MosqueListAdapter: RecyclerView.Adapter<MosqueListAdapter.MosqueListViewHolder>() {
+class MosqueListAdapter : RecyclerView.Adapter<MosqueListAdapter.MosqueListViewHolder>() {
 
     private val mData = ArrayList<Mosque>()
 
@@ -46,7 +44,7 @@ class MosqueListAdapter: RecyclerView.Adapter<MosqueListAdapter.MosqueListViewHo
         holder.bind(mData[position], position)
     }
 
-    inner class MosqueListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class MosqueListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(mosque: Mosque, position: Int) {
             with(itemView) {
                 tvMosqueName.text = mosque.mosqueName
@@ -92,7 +90,7 @@ class MosqueListAdapter: RecyclerView.Adapter<MosqueListAdapter.MosqueListViewHo
                                             val ustadzId = credential.getCredential().username
                                             val api = resources.getString(R.string.server) + "api/mosques/${mosque.id}/$ustadzId"
                                             val client = AsyncHttpClient()
-                                            client.delete(api, object: AsyncHttpResponseHandler() {
+                                            client.delete(api, object : AsyncHttpResponseHandler() {
                                                 override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
                                                     mData.removeAt(position)
                                                     notifyDataSetChanged()

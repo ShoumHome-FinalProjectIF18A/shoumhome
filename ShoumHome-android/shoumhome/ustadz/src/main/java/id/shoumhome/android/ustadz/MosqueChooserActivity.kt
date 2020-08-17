@@ -2,12 +2,12 @@ package id.shoumhome.android.ustadz
 
 import android.app.SearchManager
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.Window
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
@@ -75,7 +75,7 @@ class MosqueChooserActivity : AppCompatActivity() {
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.queryHint = getString(R.string.search_mosque)
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 progressMessage.visibility = View.VISIBLE
                 mosqueChooserViewModel.setMosqueAsync(

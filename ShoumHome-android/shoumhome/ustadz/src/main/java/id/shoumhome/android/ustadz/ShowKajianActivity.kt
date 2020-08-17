@@ -41,6 +41,7 @@ class ShowKajianActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_kajian)
+        svKajian.visibility = View.GONE
         progressMessage.visibility = View.VISIBLE
         errorMessage.visibility = View.GONE
 
@@ -111,6 +112,7 @@ class ShowKajianActivity : AppCompatActivity(), View.OnClickListener {
                     imgThumbnail.visibility = View.GONE
                     btnPlay.visibility = View.GONE
                 }
+                svKajian.visibility = View.VISIBLE
             } else {
                 progressMessage.visibility = View.GONE
                 errorMessage.visibility = View.VISIBLE
@@ -126,10 +128,11 @@ class ShowKajianActivity : AppCompatActivity(), View.OnClickListener {
         // Pull-to-Refresh
         pullToRefresh.setOnRefreshListener {
             pullToRefresh.isRefreshing = false
+            svKajian.visibility = View.GONE
             progressMessage.visibility = View.VISIBLE
             errorMessage.visibility = View.GONE
-            GlobalScope.launch (Dispatchers.Main) {
-                val deferredKajian = async (Dispatchers.IO) {
+            GlobalScope.launch(Dispatchers.Main) {
+                val deferredKajian = async(Dispatchers.IO) {
                     showKajianViewModel.setKajian(applicationContext, id)
                 }
                 val it = deferredKajian.await()
@@ -186,6 +189,7 @@ class ShowKajianActivity : AppCompatActivity(), View.OnClickListener {
                         imgThumbnail.visibility = View.GONE
                         btnPlay.visibility = View.GONE
                     }
+                    svKajian.visibility = View.VISIBLE
                 } else {
                     progressMessage.visibility = View.GONE
                     errorMessage.visibility = View.VISIBLE
@@ -203,6 +207,7 @@ class ShowKajianActivity : AppCompatActivity(), View.OnClickListener {
         when (v.id) {
             R.id.btnRefresh -> {
                 // saat tombol Refresh ditekan
+                svKajian.visibility = View.GONE
                 pullToRefresh.isRefreshing = false
                 progressMessage.visibility = View.VISIBLE
                 errorMessage.visibility = View.GONE
@@ -264,6 +269,7 @@ class ShowKajianActivity : AppCompatActivity(), View.OnClickListener {
                             imgThumbnail.visibility = View.GONE
                             btnPlay.visibility = View.GONE
                         }
+                        svKajian.visibility = View.VISIBLE
                     } else {
                         progressMessage.visibility = View.GONE
                         errorMessage.visibility = View.VISIBLE

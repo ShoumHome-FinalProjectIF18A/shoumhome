@@ -1,7 +1,6 @@
 package id.shoumhome.android.ustadz
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -126,7 +125,7 @@ class AddUpdateArticleActivity : AppCompatActivity() {
             params.put("content", articleContent)
             params.put("ustadz_id", credential.getCredential().username)
 
-            client.post(url, params, object: AsyncHttpResponseHandler() {
+            client.post(url, params, object : AsyncHttpResponseHandler() {
                 override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
                     progressMessage.visibility = View.GONE
                     errorMessage.visibility = View.GONE
@@ -179,7 +178,7 @@ class AddUpdateArticleActivity : AppCompatActivity() {
             params.put("title", articleTitle)
             params.put("content", articleContent)
 
-            client.put(url, params, object: AsyncHttpResponseHandler() {
+            client.put(url, params, object : AsyncHttpResponseHandler() {
                 override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
                     progressMessage.visibility = View.GONE
                     errorMessage.visibility = View.GONE

@@ -36,6 +36,7 @@ class AddUpdateKajianActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val EXTRA_PARCEL_KAJIAN = "extra_parcel_kajian"
+
         // Return Value setelah keluar dari activity ini
         const val RESULT_SAVE = 130
         const val RESULT_UPDATE = 260
@@ -56,6 +57,7 @@ class AddUpdateKajianActivity : AppCompatActivity(), View.OnClickListener {
         kajian = Kajian()
         val bundle = intent.extras
         if (bundle != null) {
+            supportActionBar?.title = resources.getString(R.string.update_kajian)
             // tangkap datanya gan!
             val kajianParams = bundle.getParcelable<Kajian>(EXTRA_PARCEL_KAJIAN)!!
             isEditMode = true
@@ -125,7 +127,7 @@ class AddUpdateKajianActivity : AppCompatActivity(), View.OnClickListener {
         btnChooseKajianImage.setOnClickListener(this)
         btnRetryError.setOnClickListener(this)
         btnCancelError.setOnClickListener(this)
-        spKajianCategory.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+        spKajianCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 /* no-op */
             }

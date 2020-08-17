@@ -9,9 +9,14 @@
         android:allowBackup="true"
         android:icon="@drawable/intro3"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditIdentityActivity"></activity>
+        <activity
+            android:name=".EditPasswordActivity"
+            android:label="@string/change_password"
+            android:theme="@style/ChangePasswordDialog" />
+        <activity android:name=".SettingsActivity" />
         <activity
             android:name=".MosqueChooserActivity"
             android:theme="@style/MosqueChooserDialog" />
@@ -19,7 +24,10 @@
         <activity android:name=".AddUpdateArticleActivity" />
         <activity android:name=".ShowKajianActivity" />
         <activity android:name=".ReadArticleActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".IntroActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

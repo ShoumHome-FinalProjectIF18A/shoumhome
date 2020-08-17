@@ -1,6 +1,5 @@
 package id.shoumhome.android.ustadz.fragments
 
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,6 +47,7 @@ class ArticlesFragment : Fragment() {
         rv_articles.layoutManager = LinearLayoutManager(context)
         rv_articles.adapter = articleAdapter
 
+        pullToRefresh.visibility = View.GONE
         pullToRefresh.setOnRefreshListener {
             GlobalScope.launch(Dispatchers.Main) {
                 val deferredStatus = async(Dispatchers.IO) {
@@ -79,6 +79,7 @@ class ArticlesFragment : Fragment() {
         articleViewModel.getArticle().observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 articleAdapter.setData(it)
+                pullToRefresh.visibility = View.VISIBLE
                 progressMessage.visibility = View.GONE
             }
         })
@@ -91,6 +92,7 @@ class ArticlesFragment : Fragment() {
     }
 
     private fun fetchArticles() {
+        pullToRefresh.visibility = View.GONE
         progressMessage.visibility = View.VISIBLE
         GlobalScope.launch(Dispatchers.Main) {
             val deferredStatus = async(Dispatchers.IO) {
@@ -99,10 +101,12 @@ class ArticlesFragment : Fragment() {
             }
             val status = deferredStatus.await()
             if (status != null) {
+                pullToRefresh.visibility = View.VISIBLE
                 progressMessage.visibility = View.GONE
                 val parse = JSONObject(status)
                 Toast.makeText(context, parse.getString("message"), Toast.LENGTH_SHORT).show()
             } else {
+                pullToRefresh.visibility = View.VISIBLE
                 progressMessage.visibility = View.GONE
                 articleAdapter.notifyDataSetChanged()
             }
