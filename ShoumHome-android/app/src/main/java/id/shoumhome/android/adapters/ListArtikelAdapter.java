@@ -60,7 +60,6 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
         holder.TVringkasan.setText(mArticle.get(position).getContent());
         holder.TVtanggal.setText(mArticle.get(position).getPost_date());
         holder.TVustad.setText(mArticle.get(position).getUstadzName());
-
         holder.layout_list_artikel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
