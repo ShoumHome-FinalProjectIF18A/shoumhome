@@ -43,41 +43,43 @@
 
             <TextView
                 android:id="@+id/TextView_Ustadz"
-                android:layout_width="wrap_content"
+                android:layout_width="247dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/TextView_Judul"
-                android:layout_marginStart="113dp"
-                android:layout_marginLeft="113dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="4dp"
                 android:layout_toEndOf="@+id/Image_Judul"
                 android:layout_toRightOf="@+id/Image_Judul"
                 android:text="@string/example_ustads" />
 
             <TextView
-            android:id="@+id/TextView_Keterangan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/TextView_Ustadz"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/Image_Judul"
-            android:text="@string/example_keterangan"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/Image_Judul" />
+                android:id="@+id/TextView_Keterangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextView_Ustadz"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/Image_Judul"
+                android:layout_toRightOf="@+id/Image_Judul"
+                android:text="@string/example_keterangan" />
 
 
-        <TextView
-            android:id="@+id/TextView_Tanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/TextView_Judul"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="120dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="40dp"
-            android:text="@string/example_tanggal"
-            android:textSize="12dp" />
+            <TextView
+                android:id="@+id/TextView_Tanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextView_Judul"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="120dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginRight="28dp"
+                android:text="@string/example_tanggal"
+                android:textSize="12dp" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

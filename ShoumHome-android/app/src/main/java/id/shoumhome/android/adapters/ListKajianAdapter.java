@@ -21,19 +21,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import id.shoumhome.android.R;
 import id.shoumhome.android.activity.KajianActivity;
 import id.shoumhome.android.activity.LoginActivity;
-import id.shoumhome.android.activity.MoveKajian;
 import id.shoumhome.android.activity.ShowKajianActivity;
 
 public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.MyHolder>{
     private Context context;
+    ArrayList<String> mId = new ArrayList<>();
     ArrayList<String> mFoto = new ArrayList<>();
     ArrayList<String> mJudul = new ArrayList<>();
     ArrayList<String> mUstad = new ArrayList<>();
     ArrayList<String> mKeterangan = new ArrayList<>();
     ArrayList<String> mTanggal = new ArrayList<>();
 
-    public ListKajianAdapter(Context context, ArrayList<String> mFoto, ArrayList<String> mJudul, ArrayList<String> mUstad, ArrayList<String> mKeterangan, ArrayList<String> mTanggal) {
+    public ListKajianAdapter(Context context,ArrayList<String> mId, ArrayList<String> mFoto, ArrayList<String> mJudul, ArrayList<String> mUstad, ArrayList<String> mKeterangan, ArrayList<String> mTanggal) {
         this.context = context;
+        this.mId = mId;
         this.mFoto = mFoto;
         this.mJudul = mJudul;
         this.mUstad = mUstad;
@@ -62,6 +63,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
             @Override
             public void onClick(View view) {
                 Intent KajianIntent = new Intent(holder.itemView.getContext(), ShowKajianActivity.class);
+                KajianIntent.putExtra(ShowKajianActivity.EXTRA_KAJIAN_ID, mId.get(position));
                 ((Activity) holder.itemView.getContext()).startActivity(KajianIntent);
             }
         });

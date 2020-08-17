@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import id.shoumhome.android.R;
 import id.shoumhome.android.activity.ArtikelActivity;
 import id.shoumhome.android.activity.LoginActivity;
-import id.shoumhome.android.activity.MoveArticle;
 import id.shoumhome.android.activity.ReadArticleActivity;
 
 public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.Myartikel> {
