@@ -55,6 +55,4 @@ dependencies {
     implementation 'com.github.ahmedeltaher:Azan:3.0'
     implementation 'com.loopj.android:android-async-http:1.4.9'
     annotationProcessor 'androidx.recyclerview:recyclerview:1.1.0'
-
-
 }

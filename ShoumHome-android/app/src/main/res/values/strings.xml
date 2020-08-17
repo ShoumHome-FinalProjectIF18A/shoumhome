@@ -66,6 +66,6 @@
     <string name="by">oleh</string>
     <string name="post_picture">Post Picture</string>
     <string name="thumbnail">Thumbnail</string>
-    <string name="server">https://dwichan.intermediamaikom.org/</string>
     <string name="read_article">read_article</string>
+    <string name="server">https://dwichan.intermediaamikom.org/</string>
 </resources>
