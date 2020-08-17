@@ -33,11 +33,11 @@
 
             <TextView
                 android:id="@+id/TV_Judul"
-                android:layout_width="45dp"
-                android:layout_height="21dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/I_Judul"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="8dp"
                 android:text="Judul"
                 android:textSize="17dp"
@@ -90,12 +90,13 @@
 
             <TextView
                 android:id="@+id/TV_Tanggal"
-                android:layout_width="117dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/TV_Ringkasan"
-                android:layout_alignRight="@+id/TV_Ringkasan"
+                android:layout_alignEnd="@+id/TV_Ringkasan"
                 android:text="12 desember 2019"
-                android:textSize="12dp"
+                android:textAlignment="textEnd"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TV_Ringkasan" />
 
@@ -107,8 +108,8 @@
                 android:layout_alignEnd="@id/TV_Ringkasan"
                 android:layout_alignRight="@id/TV_Ringkasan"
                 android:layout_alignParentEnd="true"
-                android:gravity="right"
                 android:layout_toRightOf="@id/TV_Like"
+                android:gravity="right"
                 android:text="Oleh K.H.Abdul Somad"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
