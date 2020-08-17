@@ -48,7 +48,14 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final Myartikel holder, final int position) {
-        Glide.with(context).asBitmap().load(mArticle.get(position).getImgUrl()).into(holder.IVjudul);
+        if(mArticle.get(position).getHasImg()) {
+            //jika gambar ada tampilkan
+            Glide.with(context).asBitmap().load(mArticle.get(position).getImgUrl()).into(holder.IVjudul);
+        }else{
+            //hilangkan tampilan gambar jika gambar tidak ada
+            //untuk ngilangin gambar jika gambar tidak ada langsung tampil atribut dibawahnya
+            holder.IVjudul.setVisibility(View.GONE);
+        }
         holder.TVjudul.setText(mArticle.get(position).getTitle());
         holder.TVringkasan.setText(mArticle.get(position).getContent());
         holder.TVtanggal.setText(mArticle.get(position).getPost_date());

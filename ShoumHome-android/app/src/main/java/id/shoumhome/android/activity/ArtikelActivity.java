@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import id.shoumhome.android.R;
 import id.shoumhome.android.adapters.ListArtikelAdapter;
@@ -60,10 +61,6 @@ public class ArtikelActivity extends AppCompatActivity {
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.read_article));
-
-        // Ambil Bundle Value
-        Bundle bundle = getIntent().getExtras();
-        id = bundle.get(EXTRA_ARTICLE_ID).toString();
 
         recDataArtikel.setLayoutManager(new LinearLayoutManager(this));
         recDataArtikel.setAdapter(listArtikelAdapter);
