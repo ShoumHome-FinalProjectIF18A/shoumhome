@@ -22,24 +22,21 @@ import id.shoumhome.android.R;
 import id.shoumhome.android.activity.KajianActivity;
 import id.shoumhome.android.activity.LoginActivity;
 import id.shoumhome.android.activity.ShowKajianActivity;
+import id.shoumhome.android.models.Kajian;
 
 public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.MyHolder>{
-    private Context context;
-    ArrayList<String> mId = new ArrayList<>();
-    ArrayList<String> mFoto = new ArrayList<>();
-    ArrayList<String> mJudul = new ArrayList<>();
-    ArrayList<String> mUstad = new ArrayList<>();
-    ArrayList<String> mKeterangan = new ArrayList<>();
-    ArrayList<String> mTanggal = new ArrayList<>();
 
-    public ListKajianAdapter(Context context,ArrayList<String> mId, ArrayList<String> mFoto, ArrayList<String> mJudul, ArrayList<String> mUstad, ArrayList<String> mKeterangan, ArrayList<String> mTanggal) {
+    public ListKajianAdapter(Context context) {
         this.context = context;
-        this.mId = mId;
-        this.mFoto = mFoto;
-        this.mJudul = mJudul;
-        this.mUstad = mUstad;
-        this.mKeterangan = mKeterangan;
-        this.mTanggal = mTanggal;
+        }
+    ArrayList<Kajian> mKajian = new ArrayList<>();
+    private Context context;
+
+    public void setKajian(ArrayList<Kajian> mKajian) {
+        if (mKajian != null) this.mKajian.clear();
+        assert mKajian != null;
+        this.mKajian.addAll(mKajian);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -52,18 +49,27 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
-        Glide.with(context).asBitmap().load(mFoto.get(position)).into(holder.imageViewFoto);
-        holder.TextViewJudul.setText(mJudul.get(position));
-        holder.TextViewUstad.setText(mUstad.get(position));
-        holder.TextViewKeterangan.setText(mKeterangan.get(position));
-        holder.TextViewTanggal.setText(mTanggal.get(position));
+        if (mKajian.get(position).getPlace().equals("Di Tempat")) {
+            if (mKajian.get(position).getImgResource()!= null)
+                Glide.with(context).asBitmap().load(mKajian.get(position).getImgResource()).into(holder.imageViewFoto);
+            else
+                Glide.with(context).asBitmap().load(R.drawable.icon).into(holder.imageViewFoto);
+        } else {
+            Glide.with(context).asBitmap().load(mKajian.get(position).getImgResource()).into(holder.imageViewFoto);
+        }
+
+        holder.TextViewJudul.setText(mKajian.get(position).getTitle());
+        holder.TextViewUstad.setText(mKajian.get(position).getUstadzName());
+        holder.TextViewMosque.setText(mKajian.get(position).getAddress());
+        holder.TextViewKeterangan.setText(mKajian.get(position).getPlace());
+        holder.TextViewTanggal.setText(mKajian.get(position).getDate());
 
 
         holder.layout_data_kajian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent KajianIntent = new Intent(holder.itemView.getContext(), ShowKajianActivity.class);
-                KajianIntent.putExtra(ShowKajianActivity.EXTRA_KAJIAN_ID, mId.get(position));
+                KajianIntent.putExtra(ShowKajianActivity.EXTRA_KAJIAN_ID, mKajian.get(position).getId());
                 ((Activity) holder.itemView.getContext()).startActivity(KajianIntent);
             }
         });
@@ -71,13 +77,13 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
 
     @Override
     public int getItemCount() {
-        return mJudul.size();
+        return mKajian == null? 0 : mKajian.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder{
         View view;
         ImageView imageViewFoto;
-        TextView TextViewJudul,TextViewUstad,TextViewKeterangan,TextViewTanggal;
+        TextView TextViewJudul,TextViewUstad,TextViewMosque,TextViewKeterangan,TextViewTanggal;
         RelativeLayout layout_data_kajian;
 
         public MyHolder(@NonNull View itemView) {
@@ -86,6 +92,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
             imageViewFoto=itemView.findViewById(R.id.Image_Judul);
             TextViewJudul=itemView.findViewById(R.id.TextView_Judul);
             TextViewUstad=itemView.findViewById(R.id.TextView_Ustadz);
+            TextViewMosque=itemView.findViewById(R.id.TextView_Mosque);
             TextViewKeterangan=itemView.findViewById(R.id.TextView_Keterangan);
             TextViewTanggal=itemView.findViewById(R.id.TextView_Tanggal);
             layout_data_kajian=itemView.findViewById(R.id.layout_data_kajian);
