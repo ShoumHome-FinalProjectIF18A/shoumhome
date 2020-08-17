@@ -22,7 +22,7 @@ class CredentialPreference(context: Context) {
 
     fun setCredential(credential: Credential) {
         val editor = sharedPreference.edit()
-        with (editor) {
+        with(editor) {
             putString(USERNAME, credential.username)
             putString(PASSWORD, credential.password)
             apply()

@@ -31,8 +31,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/category" />
@@ -57,12 +57,12 @@
 
                 <EditText
                     android:id="@+id/edtKajianYtLink"
-                    android:background="@android:color/transparent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:hint="@string/youtube_link"
-                    android:inputType="text"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,12 +77,12 @@
 
                 <EditText
                     android:id="@+id/edtKajianAddress"
-                    android:background="@android:color/transparent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:hint="@string/address"
-                    android:inputType="textCapSentences|textMultiLine"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences|textMultiLine" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,9 +113,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/example_path"
-                    android:maxLines="1"
                     android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/example_path"
                     android:visibility="gone" />
 
             </RelativeLayout>
@@ -123,8 +123,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilKajianTitle"
@@ -133,12 +133,12 @@
 
                     <EditText
                         android:id="@+id/edtKajianTitle"
-                        android:background="@android:color/transparent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="@string/kajian_title"
-                        android:inputType="text"
-                        android:importantForAutofill="no" />
+                        android:importantForAutofill="no"
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,10 +166,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:maxLines="1"
                         android:ellipsize="end"
-                        android:textSize="16sp"
-                        android:text="@string/mosque_name_null" />
+                        android:maxLines="1"
+                        android:text="@string/mosque_name_null"
+                        android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/btnChooseMosque"
@@ -178,7 +178,7 @@
                         android:layout_alignParentEnd="true"
                         android:text="@string/choose"
                         tools:ignore="RelativeOverlap" />
-                    
+
                 </RelativeLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -187,12 +187,12 @@
 
                     <EditText
                         android:id="@+id/edtKajianDescription"
-                        android:background="@android:color/transparent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="@string/description"
-                        android:inputType="textCapSentences|textMultiLine"
-                        android:importantForAutofill="no" />
+                        android:importantForAutofill="no"
+                        android:inputType="textCapSentences|textMultiLine" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -202,13 +202,13 @@
 
                     <EditText
                         android:id="@+id/edtKajianDateDue"
-                        android:background="@android:color/transparent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:focusable="false"
                         android:hint="@string/date_due"
-                        android:inputType="none"
                         android:importantForAutofill="no"
-                        android:focusable="false" />
+                        android:inputType="none" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -219,9 +219,9 @@
 
                     <EditText
                         android:id="@+id/edtKajianTimeDue"
-                        android:background="@android:color/transparent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:focusable="false"
                         android:hint="@string/time_due"
                         android:importantForAutofill="no"
@@ -239,8 +239,8 @@
         android:id="@+id/progressMessage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
         android:alpha=".8"
+        android:background="@android:color/black"
         android:padding="16dp"
         android:visibility="gone">
 
@@ -248,20 +248,20 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
         <TextView
             android:id="@+id/tvProgressMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:layout_marginTop="16dp"
             android:text="@string/save_please_wait"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_below="@id/progressBar" />
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
 
@@ -269,8 +269,8 @@
         android:id="@+id/errorMessage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
         android:alpha=".8"
+        android:background="@android:color/black"
         android:padding="16dp"
         android:visibility="gone">
 
@@ -296,38 +296,38 @@
                 android:id="@+id/tvErrorMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/imgWarning"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:layout_marginTop="16dp"
                 android:text="@string/example_error_message"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_below="@id/imgWarning" />
+                android:textColor="@android:color/white" />
 
             <LinearLayout
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_below="@id/tvErrorMessage"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_below="@id/tvErrorMessage"
-                style="?android:attr/buttonBarStyle"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnCancelError"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/cancel" />
 
                 <Button
                     android:id="@+id/btnRetryError"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/retry" />
 
             </LinearLayout>

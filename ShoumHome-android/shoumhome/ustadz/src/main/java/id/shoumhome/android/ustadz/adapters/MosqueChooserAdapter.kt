@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_mosque.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MosqueChooserAdapter: RecyclerView.Adapter<MosqueChooserAdapter.MosqueChooserViewHolder>() {
+class MosqueChooserAdapter : RecyclerView.Adapter<MosqueChooserAdapter.MosqueChooserViewHolder>() {
 
     private val mData = ArrayList<Mosque>()
     private lateinit var mContext: Context
@@ -41,9 +41,9 @@ class MosqueChooserAdapter: RecyclerView.Adapter<MosqueChooserAdapter.MosqueChoo
         holder.bind(mData[position])
     }
 
-    inner class MosqueChooserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class MosqueChooserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(mosque: Mosque) {
-            with (itemView) {
+            with(itemView) {
                 tvMosqueName.text = mosque.mosqueName
                 if (mosque.address.isNullOrBlank()) {
                     val latLng = mosque.latLng!!
@@ -69,7 +69,7 @@ class MosqueChooserAdapter: RecyclerView.Adapter<MosqueChooserAdapter.MosqueChoo
             itemView.setOnClickListener {
                 val i = Intent()
                 i.putExtra(MosqueChooserActivity.EXTRA_MOSQUE_RESULT, mosque)
-                with (mContext as Activity) {
+                with(mContext as Activity) {
                     setResult(MosqueChooserActivity.REQUEST_MOSQUE, i)
                     finish()
                 }
