@@ -19,9 +19,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import id.shoumhome.android.R;
-import id.shoumhome.android.activity.KajianActivity;
-import id.shoumhome.android.activity.LoginActivity;
-import id.shoumhome.android.activity.MoveKajian;
 import id.shoumhome.android.activity.ShowKajianActivity;
 
 public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.MyHolder>{

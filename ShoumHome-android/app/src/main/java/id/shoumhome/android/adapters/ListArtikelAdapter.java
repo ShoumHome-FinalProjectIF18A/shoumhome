@@ -21,13 +21,13 @@ import java.util.ArrayList;
 import id.shoumhome.android.R;
 import id.shoumhome.android.activity.ArtikelActivity;
 import id.shoumhome.android.activity.LoginActivity;
-import id.shoumhome.android.activity.MoveArticle;
 import id.shoumhome.android.activity.ReadArticleActivity;
 
 public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.Myartikel> {
 
-    public ListArtikelAdapter(Context context, ArrayList<String> mImageJudul, ArrayList<String> mJudul, ArrayList<String> mRingkasan, ArrayList<String> mlike, ArrayList<String> mtanggal, ArrayList<String> mustad) {
+    public ListArtikelAdapter(Context context,ArrayList<String> mId, ArrayList<String> mImageJudul, ArrayList<String> mJudul, ArrayList<String> mRingkasan, ArrayList<String> mlike, ArrayList<String> mtanggal, ArrayList<String> mustad) {
         this.context = context;
+        this.mId = mId ;
         this.mImageJudul = mImageJudul;
         this.mJudul = mJudul;
         this.mRingkasan = mRingkasan;
@@ -37,6 +37,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
     }
 
     private Context context;
+    ArrayList<String>mId =new ArrayList<>();
     ArrayList<String> mImageJudul =new ArrayList<>();
     ArrayList<String> mJudul =new ArrayList<>();
     ArrayList<String> mRingkasan =new ArrayList<>();
@@ -54,7 +55,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final Myartikel holder, int position) {
+    public void onBindViewHolder(@NonNull final Myartikel holder, final int position) {
         Glide.with(context).asBitmap().load(mImageJudul.get(position)).into(holder.IVjudul);
         holder.TVjudul.setText(mJudul.get(position));
         holder.TVringkasan.setText(mRingkasan.get(position));
@@ -66,6 +67,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
             @Override
             public void onClick(View v) {
                 Intent artikelIntent = new Intent(holder.itemView.getContext(), ReadArticleActivity.class);
+                artikelIntent.putExtra(ReadArticleActivity.EXTRA_ARTICLE_ID, mId.get(position));
                 ((Activity) holder.itemView.getContext()).startActivity(artikelIntent);
             }
         });
@@ -94,6 +96,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
             like=itemView.findViewById(R.id.TV_Like);
             layout_list_artikel=itemView.findViewById(R.id.layout_list_artikel);
         }
+
 
     }
 }
