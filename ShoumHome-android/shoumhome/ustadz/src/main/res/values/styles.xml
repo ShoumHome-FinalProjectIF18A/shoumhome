@@ -10,4 +10,6 @@
 
     <style name="ChangePasswordDialog" parent="Theme.MaterialComponents.DayNight.Dialog" />
 
+    <style name="ChangeIdentityDialog" parent="Theme.MaterialComponents.DayNight.Dialog" />
+
 </resources>

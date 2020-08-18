@@ -5,7 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Ustadz(
-        var id: String? = null,
         var name: String? = null,
         var phone: String? = null,
         var address: String? = null,

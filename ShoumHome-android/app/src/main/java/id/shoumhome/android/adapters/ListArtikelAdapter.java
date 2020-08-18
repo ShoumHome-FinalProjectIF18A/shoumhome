@@ -23,7 +23,7 @@ import id.shoumhome.android.models.Article;
 
 public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.Myartikel> {
 
-    ArrayList<Article> mArticle = new ArrayList<Article>();
+    ArrayList<Article> mArticle = new ArrayList<>();
 
     public ListArtikelAdapter(Context context) {
         this.context = context;
@@ -42,8 +42,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
     @Override
     public Myartikel onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_artikel,parent,false);
-        Myartikel holder=new Myartikel(view);
-       return holder;
+        return new Myartikel(view);
     }
 
     @Override
@@ -76,10 +75,10 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
         return mArticle.size();
     }
 
-    class Myartikel extends RecyclerView.ViewHolder{
+    static class Myartikel extends RecyclerView.ViewHolder{
         View view;
         ImageView IVjudul;
-        TextView TVjudul,TVringkasan, TVustad, TVtanggal, like;
+        TextView TVjudul,TVringkasan, TVustad, TVtanggal;
         RelativeLayout layout_list_artikel;
 
         public Myartikel(@NonNull View itemView) {
@@ -90,7 +89,6 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
             TVringkasan=itemView.findViewById(R.id.TV_Ringkasan);
             TVustad=itemView.findViewById(R.id.TV_Ustadz);
             TVtanggal=itemView.findViewById(R.id.TV_Tanggal);
-            like=itemView.findViewById(R.id.TV_Like);
             layout_list_artikel=itemView.findViewById(R.id.layout_list_artikel);
         }
 

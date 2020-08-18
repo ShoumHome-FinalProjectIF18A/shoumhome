@@ -93,6 +93,7 @@
             android:name=".activity.MainActivity"
             android:icon="@drawable/icon"
             android:label="@string/title_activity_main" />
+        <activity android:name=".activity.AboutActivity" />
     </application>
 
 </manifest>

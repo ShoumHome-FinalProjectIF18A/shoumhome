@@ -33,6 +33,8 @@ class MosqueChooserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE) // menghilangkan default title
         setContentView(R.layout.activity_mosque_chooser)
+        setFinishOnTouchOutside(false)
+
         progressMessage.visibility = View.VISIBLE
 
         val bundle = intent.extras!!

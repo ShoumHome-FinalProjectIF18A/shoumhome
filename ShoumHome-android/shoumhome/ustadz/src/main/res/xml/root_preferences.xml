@@ -21,14 +21,19 @@
         app:title="@string/account_header">
 
         <Preference
+            android:icon="@drawable/ic_baseline_person_24"
+            android:key="changeIdentity"
+            android:title="@string/change_identity" />
+
+        <Preference
             android:icon="@drawable/ic_baseline_vpn_key_24"
             android:key="changePassword"
-            android:title="Ubah Password" />
+            android:title="@string/change_password" />
 
         <Preference
             android:icon="@drawable/ic_baseline_exit_to_app_24"
             android:key="logout"
-            android:title="Keluar dari ShoumHome" />
+            android:title="@string/logout" />
 
     </PreferenceCategory>
 

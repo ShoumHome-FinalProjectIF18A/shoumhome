@@ -9,18 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-
-import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
 import id.shoumhome.android.R;
-import id.shoumhome.android.activity.KajianActivity;
-import id.shoumhome.android.activity.LoginActivity;
 import id.shoumhome.android.activity.ShowKajianActivity;
 import id.shoumhome.android.models.Kajian;
 
@@ -43,13 +41,12 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_data_kajian,parent,false);
-        MyHolder holder= new MyHolder(view);
-        return holder;
+        return new MyHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
-        if (mKajian.get(position).getPlace().equals("Di Tempat")) {
+        if (Objects.equals(mKajian.get(position).getPlace(), "Di Tempat")) {
             if (mKajian.get(position).getImgResource()!= null)
                 Glide.with(context).asBitmap().load(mKajian.get(position).getImgResource()).into(holder.imageViewFoto);
             else
@@ -60,10 +57,9 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
 
         holder.TextViewJudul.setText(mKajian.get(position).getTitle());
         holder.TextViewUstad.setText(mKajian.get(position).getUstadzName());
-        holder.TextViewMosque.setText(mKajian.get(position).getAddress());
+        holder.TextViewMosque.setText((Objects.equals(mKajian.get(position).getAddress(), "null")) ? mKajian.get(position).getMosque() : mKajian.get(position).getAddress());
         holder.TextViewKeterangan.setText(mKajian.get(position).getPlace());
         holder.TextViewTanggal.setText(mKajian.get(position).getDate());
-
 
         holder.layout_data_kajian.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +76,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
         return mKajian == null? 0 : mKajian.size();
     }
 
-    class MyHolder extends RecyclerView.ViewHolder{
+    static class MyHolder extends RecyclerView.ViewHolder{
         View view;
         ImageView imageViewFoto;
         TextView TextViewJudul,TextViewUstad,TextViewMosque,TextViewKeterangan,TextViewTanggal;
