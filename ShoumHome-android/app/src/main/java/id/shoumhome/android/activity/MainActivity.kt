@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -73,9 +74,17 @@ class MainActivity : AppCompatActivity() {
         txtEmail?.text = session?.email
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menuAbout) {
+            val i = Intent(this, AboutActivity::class.java)
+            startActivity(i)
+        }
+        return true
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main, menu);
+        menuInflater.inflate(R.menu.menu_main, menu);
         return true
     }
 

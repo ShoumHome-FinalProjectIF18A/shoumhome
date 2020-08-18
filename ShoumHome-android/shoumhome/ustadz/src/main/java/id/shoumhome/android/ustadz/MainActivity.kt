@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
                 val i = Intent(this, SettingsActivity::class.java)
                 startActivity(i)
             }
+            R.id.menuAbout -> {
+                val i = Intent(this, AboutActivity::class.java)
+                startActivity(i)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

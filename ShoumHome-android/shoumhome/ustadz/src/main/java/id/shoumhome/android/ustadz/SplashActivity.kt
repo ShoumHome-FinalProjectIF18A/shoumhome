@@ -33,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
         setActTheme()
         val credentialPreference = CredentialPreference(this)
         super.onCreate(savedInstanceState)
-        val waktuLoad = 4000
+        val waktuLoad = 2000
         setContentView(R.layout.activity_splash)
         progressBar.visibility = View.GONE
         val version = findViewById<TextView>(R.id.version)
@@ -63,7 +63,7 @@ class SplashActivity : AppCompatActivity() {
 
                                 val i = Intent(this@SplashActivity, MainActivity::class.java)
                                 startActivity(i)
-                                finish()
+                                this@SplashActivity.finish()
                             }
 
                             override fun onFailure(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?, error: Throwable?) {
@@ -80,21 +80,21 @@ class SplashActivity : AppCompatActivity() {
                                 }
                                 val login = Intent(this@SplashActivity, LoginActivity::class.java)
                                 startActivity(login)
-                                finish()
+                                this@SplashActivity.finish()
                             }
                         })
                     } else {
                         val login = Intent(this@SplashActivity, LoginActivity::class.java)
                         startActivity(login)
+                        this@SplashActivity.finish()
                     }
                 }
                 false -> {
                     val intro = Intent(this@SplashActivity, IntroActivity::class.java)
                     startActivity(intro)
+                    this@SplashActivity.finish()
                 }
             }
-
-            finish()
         }, waktuLoad.toLong())
     }
 }
