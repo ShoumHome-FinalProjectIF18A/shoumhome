@@ -10,8 +10,7 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp">
 
-
-<androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv_item_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +41,8 @@
             android:maxLines="1"
             android:text="@string/example_kajian_title"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="?android:textColorPrimary"/>
 
             <TextView
                 android:id="@+id/TextView_Ustadz"
@@ -68,7 +68,6 @@
                 android:maxLines="1"
                 android:text="Masjid Fatimatuzzahra" />
 
-
             <TextView
                 android:id="@+id/TextView_Keterangan"
                 android:layout_width="wrap_content"
@@ -82,10 +81,8 @@
                 android:id="@+id/TextView_Tanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TextView_Keterangan"
+                android:layout_below="@id/TextView_Mosque"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="-17dp"
-                android:layout_marginEnd="16dp"
                 android:text="@string/example_tanggal" />
         </RelativeLayout>
 

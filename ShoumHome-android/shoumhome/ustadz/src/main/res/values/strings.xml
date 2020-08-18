@@ -173,4 +173,5 @@
     <string name="visit_my_github">Kunjungi Profil GitHub Saya</string>
     <string name="github">GitHub</string>
     <string name="please_wait">Mohon menunggu…</string>
+    <string name="failed_load_data">Maaf, kami mengalami kegagalan dalam mengambil informasi Anda!</string>
 </resources>

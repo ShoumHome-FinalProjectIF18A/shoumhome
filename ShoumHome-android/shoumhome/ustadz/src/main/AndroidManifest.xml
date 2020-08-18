@@ -11,7 +11,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditIdentityActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity
+            android:name=".EditIdentityActivity"
+            android:label="@string/change_identity"
+            android:theme="@style/ChangeIdentityDialog" />
         <activity
             android:name=".EditPasswordActivity"
             android:label="@string/change_password"

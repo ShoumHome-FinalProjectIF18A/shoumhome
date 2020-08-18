@@ -11,8 +11,15 @@ import androidx.appcompat.widget.Toolbar
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
+import com.loopj.android.http.AsyncHttpClient
+import com.loopj.android.http.AsyncHttpResponseHandler
+import cz.msebera.android.httpclient.Header
 import id.shoumhome.android.ustadz.models.Credential
+import id.shoumhome.android.ustadz.models.Ustadz
 import id.shoumhome.android.ustadz.preferences.CredentialPreference
+import org.json.JSONObject
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -45,6 +52,7 @@ class SettingsActivity : AppCompatActivity() {
 
             val theme = findPreference<ListPreference>("theme")
             val changePassword = findPreference<Preference>("changePassword")
+            val changeIdentity = findPreference<Preference>("changeIdentity")
             val logout = findPreference<Preference>("logout")
 
             theme?.setOnPreferenceChangeListener { preference, newValue ->
@@ -52,6 +60,33 @@ class SettingsActivity : AppCompatActivity() {
                     "dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     "light" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 }
+                true
+            }
+
+            changeIdentity?.setOnPreferenceClickListener {
+                val credentialPreference = CredentialPreference(requireContext())
+                Snackbar.make(requireView().rootView, resources.getString(R.string.please_wait), BaseTransientBottomBar.LENGTH_SHORT).show()
+                val api = resources.getString(R.string.server) + "api/ustadz/identity/${credentialPreference.getCredential().username}"
+                val client = AsyncHttpClient()
+                client.get(api, object: AsyncHttpResponseHandler() {
+                    override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
+                        val result = responseBody?.let { String(it) }
+                        val resultObject = JSONObject(result!!)
+                        val ustadz = Ustadz()
+                        ustadz.name = resultObject.getString("name")
+                        ustadz.address = resultObject.getString("address")
+                        ustadz.email = resultObject.getString("email")
+                        ustadz.phone = resultObject.getString("phone")
+                        ustadz.gender = resultObject.getString("gender").single()
+                        val i = Intent(context, EditIdentityActivity::class.java)
+                        i.putExtra(EditIdentityActivity.EXTRA_PARCEL_USTADZ, ustadz)
+                        startActivity(i)
+                    }
+
+                    override fun onFailure(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?, error: Throwable?) {
+                        Snackbar.make(requireView().rootView, resources.getString(R.string.failed_load_data), BaseTransientBottomBar.LENGTH_SHORT).show()
+                    }
+                })
                 true
             }
 
