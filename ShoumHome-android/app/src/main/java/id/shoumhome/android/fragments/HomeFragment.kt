@@ -12,10 +12,10 @@ import id.shoumhome.android.activity.AlarmManagerActivity
 import id.shoumhome.android.DataSessionHandler
 import id.shoumhome.android.R
 
-class BerandaFragment : Fragment() {
-    var session: DataSessionHandler? = null
+class HomeFragment : Fragment() {
+    private var session: DataSessionHandler? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_beranda, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

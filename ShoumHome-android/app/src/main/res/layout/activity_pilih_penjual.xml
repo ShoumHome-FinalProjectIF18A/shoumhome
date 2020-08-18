@@ -19,6 +19,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/fragment_lokasi" />
+    <include layout="@layout/content_location" />
 
 </LinearLayout>

@@ -7,19 +7,26 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="id.shoumhome.android.fragments.BerandaFragment"
+        android:name="id.shoumhome.android.fragments.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_beranda" />
+        tools:layout="@layout/fragment_home" />
 
     <activity
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_settings"
         android:label="@string/menu_settings"
         android:name="id.shoumhome.android.activity.SettingsActivity"
         tools:layout="@layout/activity_settings"/>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="id.shoumhome.android.fragments.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_downloaded_articles"
+        android:name="id.shoumhome.android.fragments.DownloadedArticleFragment"
+        android:label="@string/menu_downloaded_articles"
+        tools:layout="@layout/fragment_downloaded_article" />
+
+    <fragment
+        android:id="@+id/nav_saved_kajian"
+        android:name="id.shoumhome.android.fragments.SavedKajianFragment"
+        android:label="@string/menu_saved_kajian"
+        tools:layout="@layout/fragment_saved_kajian" />
+
 </navigation>
