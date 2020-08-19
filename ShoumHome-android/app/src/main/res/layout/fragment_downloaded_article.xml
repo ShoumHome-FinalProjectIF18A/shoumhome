@@ -7,7 +7,7 @@
     tools:context=".fragments.DownloadedArticleFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragment_articles"
+        android:id="@+id/rv_articles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

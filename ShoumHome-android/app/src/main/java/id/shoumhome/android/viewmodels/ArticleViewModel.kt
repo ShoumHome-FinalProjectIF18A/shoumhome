@@ -59,9 +59,9 @@ class ArticleViewModel : ViewModel() {
                         article.title = this.getString("title")
                         article.content = this.getString("content")
                         article.ustadzName = this.getString("ustadz_name")
-                        article.hasImg = this.getString("has_img")!!.toBoolean()
+                        article.hasImg = this.getString("has_img")
 
-                        if (article.hasImg) {
+                        if (article.hasImg == "1") {
                             val extension = this.getString("extension")
                             article.imgUrl = context.resources.getString(R.string.server) + "assets/articles/${article.id}.$extension"
                         }
@@ -117,9 +117,9 @@ class ArticleViewModel : ViewModel() {
                         article.title = this.getString("title")
                         article.content = this.getString("content")
                         article.ustadzName = this.getString("ustadz_name")
-                        article.hasImg = this.getString("has_img")!!.toBoolean()
+                        article.hasImg = this.getString("has_img")
 
-                        if (article.hasImg) {
+                        if (article.hasImg == "1") {
                             val extension = this.getString("extension")
                             article.imgUrl = context.resources.getString(R.string.server) + "assets/articles/${article.id}.$extension"
                         }

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import id.shoumhome.android.R;
 import id.shoumhome.android.activity.ReadArticleActivity;
@@ -47,7 +48,7 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final Myartikel holder, final int position) {
-        if(mArticle.get(position).getHasImg()) {
+        if(Objects.equals(mArticle.get(position).getHasImg(), "1")) {
             //jika gambar ada tampilkan
             Glide.with(context).asBitmap().load(mArticle.get(position).getImgUrl()).into(holder.IVjudul);
         }else{
@@ -75,23 +76,23 @@ public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.
         return mArticle.size();
     }
 
-    static class Myartikel extends RecyclerView.ViewHolder{
+
+    static class Myartikel extends RecyclerView.ViewHolder {
         View view;
         ImageView IVjudul;
-        TextView TVjudul,TVringkasan, TVustad, TVtanggal;
+        TextView TVjudul, TVringkasan, TVustad, TVtanggal;
         RelativeLayout layout_list_artikel;
 
         public Myartikel(@NonNull View itemView) {
             super(itemView);
             view = itemView;
-            IVjudul=itemView.findViewById(R.id.I_Judul);
-            TVjudul=itemView.findViewById(R.id.TV_Judul);
-            TVringkasan=itemView.findViewById(R.id.TV_Ringkasan);
-            TVustad=itemView.findViewById(R.id.TV_Ustadz);
-            TVtanggal=itemView.findViewById(R.id.TV_Tanggal);
-            layout_list_artikel=itemView.findViewById(R.id.layout_list_artikel);
+            IVjudul = itemView.findViewById(R.id.I_Judul);
+            TVjudul = itemView.findViewById(R.id.TV_Judul);
+            TVringkasan = itemView.findViewById(R.id.TV_Ringkasan);
+            TVustad = itemView.findViewById(R.id.TV_Ustadz);
+            TVtanggal = itemView.findViewById(R.id.TV_Tanggal);
+            layout_list_artikel = itemView.findViewById(R.id.layout_list_artikel);
         }
-
 
     }
 }

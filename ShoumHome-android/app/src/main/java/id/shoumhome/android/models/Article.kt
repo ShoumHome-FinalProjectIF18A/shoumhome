@@ -10,7 +10,7 @@ data class Article(
         var content: String? = null,
         var post_date: String? = null,
         var ustadzName: String? = null,
-        var hasImg: Boolean = false,
+        var hasImg: String? = null,
         var imgUrl: String? = null,
         var likes: Int = 0
 ) : Parcelable

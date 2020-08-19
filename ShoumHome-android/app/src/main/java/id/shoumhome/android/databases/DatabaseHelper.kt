@@ -4,7 +4,6 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.CONTENT
-import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.EXTENSION
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.HAS_IMG
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.ID
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.POST_DATE
@@ -25,7 +24,6 @@ SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
             $POST_DATE String,
             $CONTENT String,
             $HAS_IMG Boolean,
-            $EXTENSION text,
             $USTADZ_NAME varchar(15))
         """.trimIndent()
     }
