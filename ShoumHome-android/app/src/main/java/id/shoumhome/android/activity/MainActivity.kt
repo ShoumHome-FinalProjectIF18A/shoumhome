@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        val navigationView = findViewById<NavigationView>(R.id.nav_main)
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
         // Buat actionbar yang berisi toolbar
@@ -124,5 +124,8 @@ class MainActivity : AppCompatActivity() {
         val i = Intent(this@MainActivity, PilihPenjualActivity::class.java)
         startActivity(i)
     }
-    fun openLokasiMasjid(view: View) {}
+    fun openLokasiMasjid(view: View) {
+        val i = Intent(this, MosqueLocationActivity::class.java)
+        startActivity(i)
+    }
 }

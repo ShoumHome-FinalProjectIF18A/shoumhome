@@ -16,6 +16,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".activity.MosqueLocationActivity"></activity>
         <activity android:name=".activity.AlarmActivity" />
         <activity android:name=".activity.ReadArticleActivity" />
         <activity android:name=".activity.ShowKajianActivity" />

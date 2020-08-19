@@ -92,4 +92,6 @@
     <string name="example_about_address">1234 William Street, CA, United States 12204</string>
     <string name="visit_my_github">Kunjungi Profil GitHub Saya</string>
     <string name="github">GitHub</string>
+    <string name="mosque_location">Lokasi Masjid</string>
+    <string name="mosque_list">Daftar Masjid</string>
 </resources>
