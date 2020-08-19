@@ -75,6 +75,11 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
     public int getItemCount() {
         return mKajian == null? 0 : mKajian.size();
     }
+    public void removeItem(int position) {
+        this.mKajian.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position,mKajian.size());
+    }
 
     static class MyHolder extends RecyclerView.ViewHolder{
         View view;
@@ -93,5 +98,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
             TextViewTanggal=itemView.findViewById(R.id.TextView_Tanggal);
             layout_data_kajian=itemView.findViewById(R.id.layout_data_kajian);
         }
+
+
     }
 }
