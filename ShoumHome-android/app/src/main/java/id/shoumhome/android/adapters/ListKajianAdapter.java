@@ -93,5 +93,7 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
             TextViewTanggal=itemView.findViewById(R.id.TextView_Tanggal);
             layout_data_kajian=itemView.findViewById(R.id.layout_data_kajian);
         }
+
+
     }
 }
