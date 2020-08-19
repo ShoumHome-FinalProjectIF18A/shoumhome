@@ -1,6 +1,7 @@
 package id.shoumhome.android.activity
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -31,13 +32,11 @@ class ReadArticleActivity : AppCompatActivity() {
         val bundle = intent.extras
         id = bundle?.get(EXTRA_ARTICLE_ID).toString()
 
-
         // Toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = resources.getString(R.string.read_article)
-
 
         readArticleViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
                 .get(ReadArticleViewModel::class.java)
@@ -71,6 +70,11 @@ class ReadArticleActivity : AppCompatActivity() {
         })
 
         readArticleViewModel.setArticleAsync(this, id)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_artikel, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
 }

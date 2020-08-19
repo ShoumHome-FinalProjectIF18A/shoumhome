@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -94,5 +95,10 @@ class ShowKajianActivity : AppCompatActivity() {
             }
         })
         showKajianViewModel.setKajianAsync(this, id)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.manu_kajian, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }

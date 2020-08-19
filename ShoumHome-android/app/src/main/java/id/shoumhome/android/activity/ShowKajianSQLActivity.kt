@@ -1,6 +1,7 @@
 package id.shoumhome.android.activity
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import id.shoumhome.android.R
@@ -27,5 +28,9 @@ class ShowKajianSQLActivity:AppCompatActivity() {
         Glide.with(this)
                 .load(kajian.imgResource)
                 .into(imgThumbnail)
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.manu_kajian, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }

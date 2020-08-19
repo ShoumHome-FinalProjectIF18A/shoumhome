@@ -2,6 +2,7 @@ package id.shoumhome.android.activity
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import id.shoumhome.android.R
@@ -27,6 +28,11 @@ class ReadArticleSQLActivity: AppCompatActivity(){
                         .load(article.imgUrl)
                         .into(imgArticle)
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_artikel, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
 }
