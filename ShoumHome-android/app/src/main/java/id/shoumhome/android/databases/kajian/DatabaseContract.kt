@@ -9,7 +9,6 @@ object DatabaseContract {
         val ID = "ID"
         val KAJIAN_TITLE = "kajian_title"
         val USTADZ_NAME = "ustadz_name"
-        val MOSQUE_ID = "mosque_id"
         val MOSQUE_NAME = "mosque_name"
         val ADDRESS = "address"
         val PLACE = "place"

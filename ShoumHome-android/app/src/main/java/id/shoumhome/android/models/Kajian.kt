@@ -10,7 +10,10 @@ data class Kajian(
         var mosque: String? = null,
         var place: String? = null,
         var ustadzName: String? = null,
+        var description: String? = null,
         var address: String? = null,
+        var youtubelink: String? = null,
         var date: String? = null,
+        var dateAnnounce: String? = null,
         var imgResource: String? = null
 ) : Parcelable

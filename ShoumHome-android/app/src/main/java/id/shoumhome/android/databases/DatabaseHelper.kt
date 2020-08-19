@@ -17,7 +17,6 @@ import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Comp
 import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Companion.DESCRIPTION
 import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Companion.IMG_RESOURCE
 import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Companion.KAJIAN_TITLE
-import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Companion.MOSQUE_ID
 import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Companion.MOSQUE_NAME
 import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Companion.PLACE
 import id.shoumhome.android.databases.kajian.DatabaseContract.KajianColumns.Companion.TABLE_NAME_KAJIAN
@@ -45,13 +44,12 @@ SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
             $ID varchar(5) not null primary key,
             $KAJIAN_TITLE text,
             $USTADZ_NAME varchar(15),
-            $MOSQUE_ID varchar(5),
             $MOSQUE_NAME varchar(30),
             $ADDRESS String,
             $PLACE varchar(30),
             $YOUTUBE_LINK String,
             $DESCRIPTION String,
-            $IMG_RESOURCE Boolean,
+            $IMG_RESOURCE text,
             $DATE_ANNOUNCE String,
             $DATE_DUE String)
         """.trimIndent()

@@ -75,11 +75,6 @@ public class ListKajianAdapter extends RecyclerView.Adapter<ListKajianAdapter.My
     public int getItemCount() {
         return mKajian == null? 0 : mKajian.size();
     }
-    public void removeItem(int position) {
-        this.mKajian.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position,mKajian.size());
-    }
 
     static class MyHolder extends RecyclerView.ViewHolder{
         View view;
