@@ -26,6 +26,7 @@ class KajianSQLAdapter : RecyclerView.Adapter<KajianSQLAdapter.KajianSQLViewHold
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KajianSQLAdapter.KajianSQLViewHolder {
+        mcontext = parent.context
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.list_data_kajian, parent, false)
         return KajianSQLViewHolder(view)
