@@ -19,6 +19,6 @@ object DatabaseContract {
         val DATE_DUE = "date_due"
 
     }
-}
+    }
 
 }
