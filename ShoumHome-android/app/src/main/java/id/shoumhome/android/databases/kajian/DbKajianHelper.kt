@@ -16,6 +16,7 @@ class DbKajianHelper (context: Context) {
         private var INSTANCE: DbKajianHelper? = null
         private lateinit var database: SQLiteDatabase
 
+
         fun getInstance(context: Context): DbKajianHelper = INSTANCE ?: synchronized(this) {
             INSTANCE ?: DbKajianHelper(context)
         }

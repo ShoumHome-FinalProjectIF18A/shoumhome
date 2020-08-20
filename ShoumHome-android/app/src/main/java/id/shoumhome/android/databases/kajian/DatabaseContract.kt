@@ -6,7 +6,7 @@ object DatabaseContract {
     class KajianColumns : BaseColumns{
     companion object {
         const val TABLE_NAME_KAJIAN = "kajian"
-        val ID = "ID"
+        val ID = "id"
         val KAJIAN_TITLE = "kajian_title"
         val USTADZ_NAME = "ustadz_name"
         val MOSQUE_NAME = "mosque_name"

@@ -1,5 +1,6 @@
 package id.shoumhome.android.activity
 
+import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,21 +8,32 @@ import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import id.shoumhome.android.R
+import id.shoumhome.android.databases.kajian.DatabaseContract
+import id.shoumhome.android.databases.kajian.DbKajianHelper
+import id.shoumhome.android.databases.kajian.MappingHelper
+import id.shoumhome.android.models.Kajian
 import id.shoumhome.android.viewmodels.ShowKajianViewModel
 import kotlinx.android.synthetic.main.activity_show_kajian.*
 import kotlinx.android.synthetic.main.content_show_kajian.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import java.util.*
 
 class ShowKajianActivity : AppCompatActivity() {
     private lateinit var showKajianViewModel: ShowKajianViewModel
     private var id : String = ""
     private var remindered = false
+    private lateinit var dbKajianHelper: DbKajianHelper
+    private lateinit var kajian: Kajian
 
     companion object {
         const val EXTRA_KAJIAN_ID = "extra_kajian_id"
@@ -86,6 +98,18 @@ class ShowKajianActivity : AppCompatActivity() {
                     imgThumbnail.visibility = View.GONE
                     btnPlay.visibility = View.GONE
                 }
+                kajian = Kajian()
+                kajian.id = it["id"].toString()
+                kajian.title = it["title"].toString()
+                kajian.mosque = it["mosque_name"].toString()
+                kajian.place = it["category"].toString()
+                kajian.ustadzName = it["uztadz_name"].toString()
+                kajian.description = it["description"].toString()
+                kajian.address = it["address"].toString()
+                kajian.youtubelink = it["youtube"].toString()
+                kajian.date = it["date_due"].toString()
+                kajian.dateAnnounce = it["date_announce"].toString()
+                kajian.imgResource = it["img_resource"].toString()
             } else {
                 progressMessage.visibility = View.GONE
                 errorMessage.visibility = View.VISIBLE
@@ -97,8 +121,15 @@ class ShowKajianActivity : AppCompatActivity() {
             }
         })
         showKajianViewModel.setKajianAsync(this, id)
-        fabreminder.setOnClickListener{
-            if (remindered){
+        dbKajianHelper = DbKajianHelper.getInstance(this)
+        dbKajianHelper.open()
+        GlobalScope.launch(Dispatchers.Main) {
+            val deferredKajian = async(Dispatchers.IO){
+                val cursor = dbKajianHelper.queryById(id)
+                MappingHelper.mapCursorToArrayList(cursor)
+            }
+            val isReminder  = deferredKajian.await()
+            if (isReminder.size == 0){
                 remindered = false
                 fabreminder.setImageResource(R.drawable.ic_baseline_notifications_none_24)
             }else{
@@ -106,9 +137,32 @@ class ShowKajianActivity : AppCompatActivity() {
                 fabreminder.setImageResource(R.drawable.ic_baseline_notifications_active_24)
             }
         }
+        fabreminder.setOnClickListener{
+            if (remindered){
+                dbKajianHelper.deleteById(id)
+                remindered = false
+                fabreminder.setImageResource(R.drawable.ic_baseline_notifications_none_24)
+                Toast.makeText(this, "Pengingat Telah di NonAtifkan",Toast.LENGTH_LONG).show()
+            }else{
+                val values = ContentValues()
+                values.put(DatabaseContract.KajianColumns.ID, kajian.id)
+                values.put(DatabaseContract.KajianColumns.KAJIAN_TITLE, kajian.title)
+                values.put(DatabaseContract.KajianColumns.USTADZ_NAME, kajian.ustadzName)
+                values.put(DatabaseContract.KajianColumns.MOSQUE_NAME, kajian.mosque)
+                values.put(DatabaseContract.KajianColumns.ADDRESS, kajian.address)
+                values.put(DatabaseContract.KajianColumns.PLACE, kajian.place)
+                values.put(DatabaseContract.KajianColumns.YOUTUBE_LINK, kajian.youtubelink)
+                values.put(DatabaseContract.KajianColumns.DESCRIPTION, kajian.description)
+                values.put(DatabaseContract.KajianColumns.IMG_RESOURCE, kajian.imgResource)
+                values.put(DatabaseContract.KajianColumns.DATE_ANNOUNCE, kajian.dateAnnounce)
+                values.put(DatabaseContract.KajianColumns.DATE_DUE, kajian.date)
+                dbKajianHelper.insert(values)
+                remindered = true
+                fabreminder.setImageResource(R.drawable.ic_baseline_notifications_active_24)
+                Toast.makeText(this, "Pengingat Telah di Aktifkan",Toast.LENGTH_LONG).show()
+            }
+        }
     }
-
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             android.R.id.home -> super.onBackPressed()
