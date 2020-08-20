@@ -20,7 +20,7 @@ class ArticleSQLAdapter : RecyclerView.Adapter<ArticleSQLAdapter.ArticleSQLViewH
 
     fun setArticle(article: ArrayList<Article>){
         mArticle.clear()
-        mArticle.addAll(mArticle)
+        mArticle.addAll(article)
         notifyDataSetChanged()
     }
 
@@ -35,7 +35,6 @@ class ArticleSQLAdapter : RecyclerView.Adapter<ArticleSQLAdapter.ArticleSQLViewH
     override fun getItemCount(): Int = mArticle.size
 
     override fun onBindViewHolder(holder: ArticleSQLAdapter.ArticleSQLViewHolder, position: Int) {
-        TODO("Not yet implemented")
         holder.bind(mArticle[position])
     }
 
