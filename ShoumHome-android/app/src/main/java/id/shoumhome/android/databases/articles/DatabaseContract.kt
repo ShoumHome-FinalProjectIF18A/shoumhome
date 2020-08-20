@@ -12,6 +12,7 @@ object DatabaseContract {
             val CONTENT = "content"
             val HAS_IMG = "has_img"
             val USTADZ_NAME = "ustadz_name"
+            val IMGURL = "img_url"
         }
 
     }

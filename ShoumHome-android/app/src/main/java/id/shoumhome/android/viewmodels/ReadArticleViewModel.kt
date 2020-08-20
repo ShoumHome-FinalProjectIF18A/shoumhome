@@ -96,6 +96,7 @@ class ReadArticleViewModel : ViewModel() {
                 val hasImg = articleJSONObject.getString("has_img")!!.toBoolean()
                 val extension = articleJSONObject.getString("extension")
                 val content = articleJSONObject.getString("content")
+                val ustadzName = articleJSONObject.getString("ustadz_name")
 
                 val date = articleJSONObject.getString("post_date")
                 val datePost = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(date)!!
@@ -108,6 +109,7 @@ class ReadArticleViewModel : ViewModel() {
                 resultMap["extension"] = extension
                 resultMap["content"] = content
                 resultMap["post_date"] = datePostFormatted
+                resultMap["ustadz_name"] = ustadzName
                 resultMap["like"] = like
                 mData.postValue(resultMap)
             }

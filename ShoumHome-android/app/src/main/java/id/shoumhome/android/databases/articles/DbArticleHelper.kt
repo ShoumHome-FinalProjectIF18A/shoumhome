@@ -10,6 +10,8 @@ import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Co
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.TABLE_NAME_ARTICLES
 
 class DbArticleHelper (context: Context){
+
+
     companion object {
         private const val DATABASE_TABLE = TABLE_NAME_ARTICLES
         private lateinit var databaseHelper: DatabaseHelper
@@ -63,6 +65,6 @@ class DbArticleHelper (context: Context){
         return database.update(DATABASE_TABLE, values, "$ID = ?", arrayOf(id))
     }
     fun deleteById(id: String): Int {
-        return database.delete(DATABASE_TABLE, "$ID = '$id", null)
+        return database.delete(DATABASE_TABLE, "$ID = $id", null)
     }
 }
