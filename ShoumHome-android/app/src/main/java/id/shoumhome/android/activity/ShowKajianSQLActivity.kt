@@ -29,8 +29,4 @@ class ShowKajianSQLActivity:AppCompatActivity() {
                 .load(kajian.imgResource)
                 .into(imgThumbnail)
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.manu_kajian, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
 }
