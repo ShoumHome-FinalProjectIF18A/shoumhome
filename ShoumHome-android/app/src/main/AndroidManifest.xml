@@ -95,7 +95,9 @@
             android:icon="@drawable/icon"
             android:label="@string/title_activity_main" />
         <activity android:name=".activity.AboutActivity" />
-        <activity android:name=".activity.ShowKajianSQLActivity" />
+	<activity android:name=".activity.ShowKajianSQLActivity" />
+	<activity android:name=".activity.ReadArticleSQLActivity" />
+
     </application>
 
 </manifest>
