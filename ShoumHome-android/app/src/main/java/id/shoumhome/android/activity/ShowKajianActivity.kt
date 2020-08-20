@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -20,6 +21,7 @@ import java.util.*
 class ShowKajianActivity : AppCompatActivity() {
     private lateinit var showKajianViewModel: ShowKajianViewModel
     private var id : String = ""
+    private var remindered = false
 
     companion object {
         const val EXTRA_KAJIAN_ID = "extra_kajian_id"
@@ -97,8 +99,12 @@ class ShowKajianActivity : AppCompatActivity() {
         showKajianViewModel.setKajianAsync(this, id)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.manu_kajian, menu)
-        return super.onCreateOptionsMenu(menu)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> super.onBackPressed()
+
+        }
+        return super.onOptionsItemSelected(item)
     }
+
 }
