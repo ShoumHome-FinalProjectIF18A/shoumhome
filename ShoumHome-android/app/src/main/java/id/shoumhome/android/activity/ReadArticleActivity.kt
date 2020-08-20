@@ -72,6 +72,17 @@ class ReadArticleActivity : AppCompatActivity() {
         })
 
         readArticleViewModel.setArticleAsync(this, id)
+        fabDownload.setOnClickListener {
+            if(downloaded){
+                downloaded= false
+                fabDownload.setImageResource(R.drawable.ic_baseline_assignment_returned_24)
+            }else{
+                downloaded= true
+                fabDownload.setImageResource(R.drawable.ic_baseline_assignment_turned_in_24)
+
+
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
