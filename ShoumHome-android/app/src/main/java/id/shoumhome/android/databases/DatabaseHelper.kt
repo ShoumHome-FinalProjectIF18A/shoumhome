@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.CONTENT
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.HAS_IMG
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.ID
+import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.IMGURL
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.POST_DATE
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.TABLE_NAME_ARTICLES
 import id.shoumhome.android.databases.articles.DatabaseContract.ArticleColums.Companion.TITLE
@@ -31,25 +32,26 @@ SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
             CREATE TABLE $TABLE_NAME_ARTICLES(
             $ID varchar(5) not null primary key,
             $TITLE text,
-            $POST_DATE String,
-            $CONTENT String,
-            $HAS_IMG Boolean,
-            $USTADZ_NAME varchar(15))
+            $POST_DATE Text,
+            $CONTENT Text,
+            $HAS_IMG Int,
+            $USTADZ_NAME varchar(15),
+            $IMGURL Text)
         """.trimIndent()
 
         private val SQL_CREATE_NAME_KAJIAN = """
             CREATE TABLE $TABLE_NAME_KAJIAN(
             $ID varchar(5) not null primary key,
-            $KAJIAN_TITLE text,
+            $KAJIAN_TITLE Text,
             $USTADZ_NAME varchar(15),
             $MOSQUE_NAME varchar(30),
-            $ADDRESS String,
+            $ADDRESS Text,
             $PLACE varchar(30),
-            $YOUTUBE_LINK String,
-            $DESCRIPTION String,
-            $IMG_RESOURCE text,
-            $DATE_ANNOUNCE String,
-            $DATE_DUE String)
+            $YOUTUBE_LINK Text,
+            $DESCRIPTION Text,
+            $IMG_RESOURCE Text,
+            $DATE_ANNOUNCE Text,
+            $DATE_DUE Text)
         """.trimIndent()
     }
 
