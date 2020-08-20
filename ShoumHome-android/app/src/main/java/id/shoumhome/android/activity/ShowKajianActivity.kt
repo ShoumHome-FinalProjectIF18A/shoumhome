@@ -97,7 +97,17 @@ class ShowKajianActivity : AppCompatActivity() {
             }
         })
         showKajianViewModel.setKajianAsync(this, id)
+        fabreminder.setOnClickListener{
+            if (remindered){
+                remindered = false
+                fabreminder.setImageResource(R.drawable.ic_baseline_notifications_none_24)
+            }else{
+                remindered = true
+                fabreminder.setImageResource(R.drawable.ic_baseline_notifications_active_24)
+            }
+        }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
