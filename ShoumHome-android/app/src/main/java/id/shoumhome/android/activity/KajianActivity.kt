@@ -1,10 +1,14 @@
 package id.shoumhome.android.activity
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +28,7 @@ class KajianActivity : AppCompatActivity() {
     var id = ""
     private var kajianViewModel: KajianViewModel? = null
     private var listKajianAdapter = ListKajianAdapter(this)
+    private lateinit var searchView: SearchView
 
     //buat di ActionBar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -60,7 +65,7 @@ class KajianActivity : AppCompatActivity() {
         pullToRefresh.setOnRefreshListener {
             GlobalScope.launch (Dispatchers.Main) {
                 val deferredKajian = async (Dispatchers.IO) {
-                    kajianViewModel!!.setKajian(this@KajianActivity, "")
+                    kajianViewModel!!.setKajian(this@KajianActivity, searchView.query.toString())
                 }
                 val status = deferredKajian.await()
                 if (status != null) {
@@ -72,5 +77,42 @@ class KajianActivity : AppCompatActivity() {
                 pullToRefresh.isRefreshing = false
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_article_kajian_search, menu)
+
+        // SearchView start
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        searchView = menu?.findItem(R.id.search)?.actionView as SearchView
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.queryHint = getString(R.string.search_kajian)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                progressBar.visibility = View.VISIBLE
+                GlobalScope.launch (Dispatchers.Main) {
+                    val deferredKajian = async (Dispatchers.IO) {
+                        kajianViewModel!!.setKajian(this@KajianActivity, query)
+                    }
+                    val status = deferredKajian.await()
+                    if (status != null) {
+                        val parse = JSONObject(status)
+                        Toast.makeText(this@KajianActivity, parse.getString("message"), Toast.LENGTH_SHORT).show()
+                    } else {
+                        listKajianAdapter.notifyDataSetChanged()
+                    }
+                    progressBar.visibility = View.GONE
+                }
+                searchView.clearFocus()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                /* no-op */
+                return true
+            }
+        })
+        return true
     }
 }

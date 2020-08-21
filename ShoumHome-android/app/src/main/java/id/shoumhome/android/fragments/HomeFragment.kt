@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import id.shoumhome.android.activity.AlarmManagerActivity
 import id.shoumhome.android.DataSessionHandler
 import id.shoumhome.android.R
+import id.shoumhome.android.activity.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
     private var session: DataSessionHandler? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -28,6 +29,38 @@ class HomeFragment : Fragment() {
         btnAlarm?.setOnClickListener {
             val i = Intent(activity?.applicationContext, AlarmManagerActivity::class.java)
             startActivity(i)
+        }
+
+        // Button
+        btnFood.setOnClickListener(this)
+        btnArticle.setOnClickListener(this)
+        btnKajian.setOnClickListener(this)
+        btnMosqueLocation.setOnClickListener(this)
+        btnCalc.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btnFood -> {
+                val i = Intent(context, PilihPenjualActivity::class.java)
+                startActivity(i)
+            }
+            R.id.btnArticle -> {
+                val i = Intent(context, ArtikelActivity::class.java)
+                startActivity(i)
+            }
+            R.id.btnKajian -> {
+                val i = Intent(context, KajianActivity::class.java)
+                startActivity(i)
+            }
+            R.id.btnMosqueLocation -> {
+                val i = Intent(context, MosqueLocationActivity::class.java)
+                startActivity(i)
+            }
+            R.id.btnCalc -> {
+                val i = Intent(context, ZakatActivity::class.java)
+                startActivity(i)
+            }
         }
     }
 }

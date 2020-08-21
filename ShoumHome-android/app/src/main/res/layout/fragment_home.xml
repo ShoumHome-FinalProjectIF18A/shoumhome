@@ -29,48 +29,48 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btnFood"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:layout_margin="5dp"
                         android:layout_weight=".5"
                         android:background="@drawable/button_round_rec"
                         android:drawableTop="@drawable/makan_minum"
-                        android:onClick="openMakanMinum"
                         android:padding="15dp"
                         android:shadowColor="#000"
                         android:shadowRadius="1.0"
-                        android:text="Makan"
+                        android:text="@string/food"
                         android:textAllCaps="false" />
 
                     <Button
+                        android:id="@+id/btnArticle"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:layout_margin="5dp"
                         android:layout_weight=".5"
                         android:background="@drawable/button_round_rec"
                         android:drawableTop="@drawable/artikel"
-                        android:onClick="openArtikelIslami"
                         android:padding="15dp"
                         android:shadowColor="#000"
                         android:shadowRadius="1.0"
-                        android:text="Artikel"
+                        android:text="@string/article"
                         android:textAllCaps="false" />
 
                     <Button
+                        android:id="@+id/btnKajian"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:layout_margin="5dp"
                         android:layout_weight=".5"
                         android:background="@drawable/button_round_rec"
                         android:drawableTop="@drawable/kajian"
-                        android:onClick="openKajianOnline"
                         android:padding="15dp"
                         android:shadowColor="#000"
                         android:shadowRadius="1.0"
-                        android:text="Kajian"
+                        android:text="@string/kajian"
                         android:textAllCaps="false" />
 
                 </LinearLayout>
@@ -81,33 +81,33 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btnMosqueLocation"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:layout_margin="5dp"
                         android:layout_weight=".5"
                         android:background="@drawable/button_round_rec"
                         android:drawableTop="@drawable/kajian"
-                        android:onClick="openLokasiMasjid"
                         android:padding="15dp"
                         android:shadowColor="#000"
                         android:shadowRadius="1.0"
-                        android:text="Lok. Masjid"
+                        android:text="@string/mosque_location"
                         android:textAllCaps="false" />
 
                     <Button
+                        android:id="@+id/btnCalc"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:layout_margin="5dp"
                         android:layout_weight=".5"
                         android:background="@drawable/button_round_rec"
                         android:drawableTop="@drawable/kajian"
-                        android:onClick="openLokasiMasjid"
                         android:padding="15dp"
                         android:shadowColor="#000"
                         android:shadowRadius="1.0"
-                        android:text="Kalkulator"
+                        android:text="@string/calc"
                         android:textAllCaps="false" />
 
                 </LinearLayout>

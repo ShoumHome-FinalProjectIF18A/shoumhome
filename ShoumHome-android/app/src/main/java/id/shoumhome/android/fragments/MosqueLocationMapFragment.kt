@@ -30,8 +30,8 @@ class MosqueLocationMapFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val sp = PreferenceManager.getDefaultSharedPreferences(context)
         val geocoder = Geocoder(requireContext().applicationContext, Locale.getDefault())
-        val smf = requireActivity().supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-        smf.getMapAsync { googleMap ->
+        val smf = activity?.supportFragmentManager?.findFragmentById(R.id.map) as SupportMapFragment?
+        smf?.getMapAsync { googleMap ->
             mMap = googleMap
             mMap.mapType = sp.getString("map_type", "1")?.let { Integer.parseInt(it) }!!
         }

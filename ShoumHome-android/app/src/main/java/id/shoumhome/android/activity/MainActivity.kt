@@ -11,21 +11,22 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.preference.PreferenceManager
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import id.shoumhome.android.DataSessionHandler
 import id.shoumhome.android.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
     private var mAppBarConfiguration: AppBarConfiguration? = null
     private var doubleBackToExitPressedOnce = false
     private var session: DataSessionHandler? = null
+    private lateinit var drawer: DrawerLayout
 
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -44,19 +45,12 @@ class MainActivity : AppCompatActivity() {
         // Inisialisasi variabel
         session = intent.getParcelableExtra("session")
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+        drawer = findViewById(R.id.drawer_layout)
         val navigationView = findViewById<NavigationView>(R.id.nav_main)
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
         // Buat actionbar yang berisi toolbar
         setSupportActionBar(toolbar)
-
-        // Floating Action Button
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -75,16 +69,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menuAbout) {
-            val i = Intent(this, AboutActivity::class.java)
-            startActivity(i)
+        when(item.itemId) {
+            android.R.id.home -> drawer.openDrawer(GravityCompat.START)
+            R.id.menuAbout -> {
+                val i = Intent(this, AboutActivity::class.java)
+                startActivity(i)
+            }
         }
         return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu);
+        menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
@@ -97,10 +94,6 @@ class MainActivity : AppCompatActivity() {
         }
         // Ambil parameter dari data sebelumnya
 
-        // bug
-//        val txtUsername2: TextView = findViewById(R.id.txtNamaUser2)
-//        txtUsername2.text = session?.nama_lengkap?: ""
-
         super.onResume()
     }
 
@@ -108,24 +101,5 @@ class MainActivity : AppCompatActivity() {
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         return (NavigationUI.navigateUp(navController, mAppBarConfiguration!!)
                 || super.onSupportNavigateUp())
-    }
-
-    fun openKajianOnline(view: View?) {
-        val i = Intent(".KajianActivity")
-        startActivity(i)
-    }
-
-    fun openArtikelIslami(view: View?) {
-        val i = Intent(this, ArtikelActivity::class.java)
-        startActivity(i)
-    }
-
-    fun openMakanMinum(view: View?) {
-        val i = Intent(this@MainActivity, PilihPenjualActivity::class.java)
-        startActivity(i)
-    }
-    fun openLokasiMasjid(view: View) {
-        val i = Intent(this, MosqueLocationActivity::class.java)
-        startActivity(i)
     }
 }
