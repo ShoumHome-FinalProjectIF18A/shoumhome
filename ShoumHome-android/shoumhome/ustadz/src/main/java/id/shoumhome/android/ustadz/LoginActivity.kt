@@ -2,6 +2,8 @@ package id.shoumhome.android.ustadz
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +22,16 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        showPass.setOnClickListener {
+            if (showPass.isChecked) {
+                //Saat Checkbox dalam keadaan Checked, maka password akan di tampilkan
+                edtPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                //Jika tidak, maka password akan di sembuyikan
+                edtPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+        }
 
         btnLogin.setOnClickListener {
             // hide button, show loading
