@@ -1,13 +1,16 @@
 package id.shoumhome.android.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.shoumhome.android.R
+import id.shoumhome.android.activity.ShowKajianSQLActivity
 import id.shoumhome.android.adapters.KajianSQLAdapter
 import id.shoumhome.android.databases.kajian.DbKajianHelper
 import id.shoumhome.android.databases.kajian.MappingHelper
@@ -32,7 +35,6 @@ class SavedKajianFragment : Fragment() {
         dbKajianHelper.open()
 
         loadKajian()
-
     }
 
     private fun loadKajian() {
@@ -59,6 +61,11 @@ class SavedKajianFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_saved_kajian, container, false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadKajian()
     }
 
 }

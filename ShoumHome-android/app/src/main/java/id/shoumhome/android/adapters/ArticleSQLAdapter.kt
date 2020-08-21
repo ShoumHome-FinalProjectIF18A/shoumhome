@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import id.shoumhome.android.R
 import id.shoumhome.android.activity.ReadArticleSQLActivity
 import id.shoumhome.android.models.Article
-import kotlinx.android.synthetic.main.content_read_article.view.*
 import kotlinx.android.synthetic.main.list_artikel.view.*
 
 class ArticleSQLAdapter : RecyclerView.Adapter<ArticleSQLAdapter.ArticleSQLViewHolder>(){
@@ -51,16 +50,16 @@ class ArticleSQLAdapter : RecyclerView.Adapter<ArticleSQLAdapter.ArticleSQLViewH
                 val content = article.content
                 val postDate = article.post_date
                 val id = article.id
-                val nama_ustadz = article.ustadzName
+                val namaUstadz = article.ustadzName
 
                 //tvArticleId.text = id
                 TV_Judul.text = title
                 TV_Ringkasan.text = content
                 TV_Tanggal.text = postDate
-                TV_Ustadz.text = nama_ustadz
+                TV_Ustadz.text = namaUstadz
 
-                if (article.hasImg == "0"){
-                    imgArticle.visibility = View.GONE
+                if (article.hasImg == "false"){
+                    I_Judul.visibility = View.GONE
                 } else {
                     Glide.with(context)
                             .load(article.imgUrl)//model

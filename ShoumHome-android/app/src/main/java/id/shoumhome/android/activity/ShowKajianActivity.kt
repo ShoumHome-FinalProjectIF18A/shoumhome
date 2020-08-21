@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
@@ -37,6 +38,7 @@ class ShowKajianActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_KAJIAN_ID = "extra_kajian_id"
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,7 @@ class ShowKajianActivity : AppCompatActivity() {
 
         val bundle = intent.extras
         id = bundle?.get(EXTRA_KAJIAN_ID).toString()
+
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -103,10 +106,10 @@ class ShowKajianActivity : AppCompatActivity() {
                 kajian.title = it["title"].toString()
                 kajian.mosque = it["mosque_name"].toString()
                 kajian.place = it["category"].toString()
-                kajian.ustadzName = it["uztadz_name"].toString()
+                kajian.ustadzName = it["ustadz_name"].toString()
                 kajian.description = it["description"].toString()
                 kajian.address = it["address"].toString()
-                kajian.youtubelink = it["youtube"].toString()
+                kajian.youtubelink = it["youtube_link"].toString()
                 kajian.date = it["date_due"].toString()
                 kajian.dateAnnounce = it["date_announce"].toString()
                 kajian.imgResource = it["img_resource"].toString()
@@ -139,10 +142,19 @@ class ShowKajianActivity : AppCompatActivity() {
         }
         fabreminder.setOnClickListener{
             if (remindered){
-                dbKajianHelper.deleteById(id)
-                remindered = false
-                fabreminder.setImageResource(R.drawable.ic_baseline_notifications_none_24)
-                Toast.makeText(this, "Pengingat Telah di NonAtifkan",Toast.LENGTH_LONG).show()
+                val alert = AlertDialog.Builder(this)
+                alert.setTitle(resources.getString(R.string.sure))
+                alert.setMessage(resources.getString(R.string.remove_reminder_confirm))
+                alert.setPositiveButton(resources.getString(R.string.yes)) { _, _ ->
+                    dbKajianHelper.deleteById(id)
+                    remindered = false
+                    fabreminder.setImageResource(R.drawable.ic_baseline_notifications_none_24)
+                    Toast.makeText(this, "Pengingat Telah di NonAtifkan",Toast.LENGTH_LONG).show()
+                }
+                alert.setNegativeButton(resources.getString(R.string.no)) { _, _ ->
+                    /* no-op */
+                }
+                alert.create().show()
             }else{
                 val values = ContentValues()
                 values.put(DatabaseContract.KajianColumns.ID, kajian.id)
@@ -160,6 +172,81 @@ class ShowKajianActivity : AppCompatActivity() {
                 remindered = true
                 fabreminder.setImageResource(R.drawable.ic_baseline_notifications_active_24)
                 Toast.makeText(this, "Pengingat Telah di Aktifkan",Toast.LENGTH_LONG).show()
+            }
+        }
+        // Pull-to-Refresh
+        pullToRefresh.setOnRefreshListener {
+            pullToRefresh.isRefreshing = false
+            svKajian.visibility = View.GONE
+            progressMessage.visibility = View.VISIBLE
+            errorMessage.visibility = View.GONE
+            GlobalScope.launch(Dispatchers.Main) {
+                val deferredKajian = async(Dispatchers.IO) {
+                    showKajianViewModel.setKajian(applicationContext, id)
+                }
+                val it = deferredKajian.await()
+                if (it["status"] == true) {
+                    progressMessage.visibility = View.GONE
+                    errorMessage.visibility = View.GONE
+                    val title = it["title"].toString()
+                    val ustadzName = resources.getString(R.string.by) + " " + it["ustadz_name"].toString()
+                    val mosqueName = it["mosque_name"].toString()
+                    val address = it["address"].toString()
+                    val description = it["description"].toString()
+                    val dateAnnounce = resources.getString(R.string.timestamp_announce) + " " + it["date_announce"].toString()
+                    val dateDue = resources.getString(R.string.timestamp_due) + " " + it["date_due"]
+
+                    // write to model class
+                    kajian.id = it["id"].toString()
+                    kajian.title = it["title"].toString()
+                    kajian.mosque = it["mosque_name"].toString()
+                    kajian.place = it["category"].toString()
+                    kajian.youtubelink = it["youtube_link"].toString()
+                    kajian.description = it["description"].toString()
+                    kajian.address = it["address"].toString()
+                    kajian.imgResource = it["img_resource"].toString()
+                    kajian.date = it["date_due_unformatted"].toString()
+
+                    tvKajianTitle.text = title
+                    tvUstadzName.text = ustadzName
+                    tvDescription.text = description
+                    tvTimestampAnnounce.text = dateAnnounce
+                    tvTimestampDue.text = dateDue
+
+                    if (it["category"] == "Di Tempat") {
+                        btnPlay.visibility = View.GONE
+                        tvCategory.text = it["category"].toString()
+                        tvMosqueAddress.text = address
+                    } else {
+                        btnPlay.visibility = View.VISIBLE
+                        val category = it["category"].toString().toUpperCase(Locale.ROOT) + " - Courtesy of YouTube"
+                        tvCategory.text = category
+                        tvMosqueAddress.text = mosqueName
+                        val uri = it["youtube_link"].toString()
+                        btnPlay.setOnClickListener {
+                            val i = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                            startActivity(i)
+                        }
+                    }
+
+                    if (it["img_resource"] != null) {
+                        Glide.with(applicationContext)
+                                .load(it["img_resource"].toString())
+                                .into(imgThumbnail)
+                    } else {
+                        imgThumbnail.visibility = View.GONE
+                        btnPlay.visibility = View.GONE
+                    }
+                    svKajian.visibility = View.VISIBLE
+                } else {
+                    progressMessage.visibility = View.GONE
+                    errorMessage.visibility = View.VISIBLE
+                    val errorMessage = """
+                        Error!
+                        [${it["code"]}]: ${it["message"]}
+                    """.trimIndent()
+                    tvErrorMessage.text = errorMessage
+                }
             }
         }
     }

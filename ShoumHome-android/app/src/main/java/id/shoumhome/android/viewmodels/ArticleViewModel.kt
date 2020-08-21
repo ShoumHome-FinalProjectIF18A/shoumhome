@@ -39,7 +39,7 @@ class ArticleViewModel : ViewModel() {
         // Request Parameters
         val params = RequestParams()
         params.put("read", "0")
-        params.put("ustadz_mode", "1")
+        params.put("ustadz_mode", "0")
         params.put("query", searchQuery)
 
         client.get(url, params, object : AsyncHttpResponseHandler() {

@@ -17,7 +17,7 @@ object DeveloperData {
     )
     val nim: Array<String?> = arrayOf(
             "18.11.0004",
-            "18.11.017",
+            "18.11.0017",
             "18.11.0268"
     )
     val grade: Array<String?> = arrayOf(

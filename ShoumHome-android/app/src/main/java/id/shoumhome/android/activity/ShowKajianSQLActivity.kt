@@ -1,12 +1,15 @@
 package id.shoumhome.android.activity
 
 import android.content.ContentValues
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
 import id.shoumhome.android.R
 import id.shoumhome.android.databases.kajian.DatabaseContract
@@ -19,6 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import java.util.*
 
 class ShowKajianSQLActivity:AppCompatActivity() {
     private lateinit var kajian: Kajian
@@ -33,18 +37,41 @@ class ShowKajianSQLActivity:AppCompatActivity() {
         setContentView(R.layout.activity_show_kajian)
         progressMessage.visibility = View.GONE
         errorMessage.visibility = View.GONE
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Lihat Kajian"
+
         val bundle = intent.extras!!
-        kajian = bundle?.getParcelable<Kajian>(EXTRA_PARCEL_KAJIAN)!!
+        kajian = bundle.getParcelable(EXTRA_PARCEL_KAJIAN)!!
         tvKajianTitle.text = kajian.title
         tvMosqueAddress.text = kajian.mosque
         tvUstadzName.text = kajian.ustadzName
-        tvCategory.text = kajian.place
-        tvTimestampAnnounce.text = kajian.date
-        tvTimestampDue.text = kajian.dateAnnounce
+        val dateAnnounce = resources.getString(R.string.timestamp_announce) + " " + kajian.dateAnnounce
+        val dateDue = resources.getString(R.string.timestamp_due) + " " + kajian.date
+        tvTimestampAnnounce.text = dateAnnounce
+        tvTimestampDue.text = dateDue
         tvDescription.text = kajian.description
         Glide.with(this)
                 .load(kajian.imgResource)
                 .into(imgThumbnail)
+
+        if (kajian.place == "Di Tempat") {
+            btnPlay.visibility = View.GONE
+            tvCategory.text = kajian.place.toString()
+            tvMosqueAddress.text = kajian.address
+        } else {
+            btnPlay.visibility = View.VISIBLE
+            val category = kajian.place.toString().toUpperCase(Locale.ROOT) + " - Courtesy of YouTube"
+            tvCategory.text = category
+            tvMosqueAddress.text = kajian.mosque
+            val uri = kajian.youtubelink.toString()
+            btnPlay.setOnClickListener {
+                val i = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                startActivity(i)
+            }
+        }
 
         dbKajianHelper = DbKajianHelper.getInstance(this)
         dbKajianHelper.open()
@@ -65,10 +92,20 @@ class ShowKajianSQLActivity:AppCompatActivity() {
 
         fabreminder.setOnClickListener{
             if (remindered){
-                kajian.id?.let { it1 -> dbKajianHelper.deleteById(it1) }
-                remindered = false
-                fabreminder.setImageResource(R.drawable.ic_baseline_notifications_none_24)
-                Toast.makeText(this, "Pengingat Telah di NonAtifkan", Toast.LENGTH_LONG).show()
+                val alert = AlertDialog.Builder(this)
+                alert.setTitle(resources.getString(R.string.sure))
+                alert.setMessage(resources.getString(R.string.remove_reminder_confirm))
+                alert.setPositiveButton(resources.getString(R.string.yes)) { _, _ ->
+                    kajian.id?.let { it1 -> dbKajianHelper.deleteById(it1) }
+                    remindered = false
+                    fabreminder.setImageResource(R.drawable.ic_baseline_notifications_none_24)
+                    Toast.makeText(this, "Pengingat Telah di NonAtifkan",Toast.LENGTH_LONG).show()
+                    finish()
+                }
+                alert.setNegativeButton(resources.getString(R.string.no)) { _, _ ->
+                    /* no-op */
+                }
+                alert.create().show()
             }else{
                 val values = ContentValues()
                 values.put(DatabaseContract.KajianColumns.ID, kajian.id)
@@ -88,6 +125,8 @@ class ShowKajianSQLActivity:AppCompatActivity() {
                 Toast.makeText(this, "Pengingat Telah di Aktifkan", Toast.LENGTH_LONG).show()
             }
         }
+
+        pullToRefresh.setOnRefreshListener { pullToRefresh.isRefreshing = false }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){

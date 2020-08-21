@@ -94,4 +94,10 @@
     <string name="github">GitHub</string>
     <string name="mosque_location">Lokasi Masjid</string>
     <string name="mosque_list">Daftar Masjid</string>
+    <string name="nama_ustadz">ustadz abdul somad</string>
+    <string name="sure">Yakin?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="remove_reminder_confirm">Yakin ingin mematikan pengingat dari kajian ini?</string>
+    <string name="remove_article_confirm">Yakin ingin menghapus artikel ini?</string>
 </resources>

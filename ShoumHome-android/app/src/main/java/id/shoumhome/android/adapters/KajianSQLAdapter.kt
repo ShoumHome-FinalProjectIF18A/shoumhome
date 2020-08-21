@@ -35,7 +35,7 @@ class KajianSQLAdapter : RecyclerView.Adapter<KajianSQLAdapter.KajianSQLViewHold
     override fun getItemCount(): Int = mKajian.size
 
     override fun onBindViewHolder(holder: KajianSQLAdapter.KajianSQLViewHolder, position: Int) {
-        holder.bind(mKajian[position])
+        holder.bind(mKajian[position], position)
     }
 
     fun removeItem(position: Int) {
@@ -45,12 +45,12 @@ class KajianSQLAdapter : RecyclerView.Adapter<KajianSQLAdapter.KajianSQLViewHold
     }
 
     inner class KajianSQLViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(kajian: Kajian) {
+        fun bind(kajian: Kajian, position: Int) {
             with(itemView) {
-                val mosqueorAddres = if (kajian.place.equals("Di Tempat")) kajian.address else kajian.mosque
+                val mosqueorAddress = if (kajian.place.equals("Di Tempat")) kajian.address else kajian.mosque
                 TextView_Judul.text = kajian.title
                 TextView_Ustadz.text = kajian.ustadzName
-                TextView_Mosque.text = kajian.mosque
+                TextView_Mosque.text = mosqueorAddress
                 TextView_Keterangan.text = kajian.place
                 TextView_Tanggal.text = kajian.date
 
@@ -66,14 +66,11 @@ class KajianSQLAdapter : RecyclerView.Adapter<KajianSQLAdapter.KajianSQLViewHold
                             .into(Image_Judul)
                 }
 
-
                 setOnClickListener {
                     val i = Intent(context, ShowKajianSQLActivity::class.java)
                     i.putExtra(ShowKajianSQLActivity.EXTRA_PARCEL_KAJIAN, kajian)
                     (mcontext as Activity).startActivity(i)
-
                 }
-
             }
         }
     }

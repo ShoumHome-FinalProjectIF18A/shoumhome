@@ -24,7 +24,7 @@ import id.shoumhome.android.R
 
 class MainActivity : AppCompatActivity() {
     private var mAppBarConfiguration: AppBarConfiguration? = null
-    var doubleBackToExitPressedOnce = false
+    private var doubleBackToExitPressedOnce = false
     private var session: DataSessionHandler? = null
 
     override fun onBackPressed() {
