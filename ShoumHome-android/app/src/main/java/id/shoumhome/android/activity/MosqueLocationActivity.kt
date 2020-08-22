@@ -30,7 +30,7 @@ class MosqueLocationActivity : AppCompatActivity() {
         val mosqueLocationPagerAdapter = MosqueLocationPagerAdapter(this, supportFragmentManager)
         vpMosqueLocation.adapter = mosqueLocationPagerAdapter
         tlMosqueLocation.setupWithViewPager(vpMosqueLocation)
-//        tlMosqueLocation.getTabAt(0)?.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_location_city_24, theme)
+//        tlMosqueLocation.getTabAt(0)?.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_location_city_36, theme)
 //        tlMosqueLocation.getTabAt(1)?.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_list_24, theme)
     }
 

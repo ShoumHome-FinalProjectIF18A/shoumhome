@@ -52,7 +52,7 @@ class MosqueLocationMapFragment : Fragment() {
         //mosqueDetails.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
 
-        // FIXME: 22/08/2020 Marker pada Maps tidak muncul sama sekali :( 
+        // FIXME: 22/08/2020 Marker pada Maps tidak muncul sama sekali :(
         GlobalScope.launch (Dispatchers.Main) {
             val resultMap: ArrayList<MutableMap<String, String>> = arrayListOf()
             val api = resources.getString(R.string.server) + "api/mosques/user"
