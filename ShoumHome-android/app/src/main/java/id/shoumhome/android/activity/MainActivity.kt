@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            android.R.id.home -> drawer.openDrawer(GravityCompat.START)
+            android.R.id.home -> drawer.openDrawer(GravityCompat.START) // fix hamburger button
             R.id.menuAbout -> {
                 val i = Intent(this, AboutActivity::class.java)
                 startActivity(i)

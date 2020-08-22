@@ -106,4 +106,10 @@
     <string name="article">Artikel</string>
     <string name="kajian">Kajian</string>
     <string name="calc">Kalkulator</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="choose_action_mosque">Pilih aksi yang akan dilakukan dengan masjid ini.</string>
+    <string name="view_on_maps">Lihat di Google Maps</string>
+    <string name="cancel">Batalkan</string>
+    <string name="example_address">Jalan Jatisari 13</string>
+    <string name="search_mosque">Cari masjid…</string>
 </resources>

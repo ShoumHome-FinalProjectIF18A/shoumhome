@@ -15,8 +15,8 @@ class CredentialPreference(context: Context) {
 
     fun getCredential(): Credential {
         val credential = Credential()
-        credential.username = sharedPreference.getString(USERNAME, "admin")
-        credential.password = sharedPreference.getString(PASSWORD, "admin")
+        credential.username = sharedPreference.getString(USERNAME, "")
+        credential.password = sharedPreference.getString(PASSWORD, "")
         return credential
     }
 

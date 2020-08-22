@@ -24,6 +24,8 @@ class MosqueLocationActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = ""
+        supportActionBar?.elevation = 1f
 
         val mosqueLocationPagerAdapter = MosqueLocationPagerAdapter(this, supportFragmentManager)
         vpMosqueLocation.adapter = mosqueLocationPagerAdapter

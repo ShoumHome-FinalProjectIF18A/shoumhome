@@ -1,33 +1,37 @@
 package id.shoumhome.android.fragments
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import id.shoumhome.android.R
+import id.shoumhome.android.adapters.MosqueListAdapter
+import id.shoumhome.android.viewmodels.MosqueListViewModel
+import kotlinx.android.synthetic.main.fragment_mosque_list.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MosqueListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MosqueListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var mosqueListAdapter = MosqueListAdapter()
+    private lateinit var mosqueListViewModel: MosqueListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        setHasOptionsMenu(true)
+
+        mosqueListAdapter = MosqueListAdapter()
+        mosqueListAdapter.notifyDataSetChanged()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -36,23 +40,71 @@ class MosqueListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mosque_list, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MosqueListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                MosqueListFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recycler_view.layoutManager = LinearLayoutManager(context)
+        recycler_view.adapter = mosqueListAdapter
+
+        progressBar.visibility = View.VISIBLE
+
+        mosqueListViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+                .get(MosqueListViewModel::class.java)
+        mosqueListViewModel.getMosque().observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                mosqueListAdapter.setData(it)
+                progressBar.visibility = View.GONE
+            }
+        })
+        context?.let { mosqueListViewModel.setMosqueAsync(it, mosqueListAdapter, "") }
+
+        pullToRefresh.setOnRefreshListener {
+            GlobalScope.launch(Dispatchers.Main) {
+                val deferredStatus = async(Dispatchers.IO) {
+                    mosqueListViewModel.setMosque(requireActivity().applicationContext,
+                            "")
                 }
+                val status = deferredStatus.await()
+                if (status != null) {
+                    pullToRefresh.isRefreshing = false
+                    val parse = JSONObject(status)
+                    Toast.makeText(context, parse.getString("message"), Toast.LENGTH_SHORT).show()
+                } else {
+                    pullToRefresh.isRefreshing = false
+                    mosqueListAdapter.notifyDataSetChanged()
+                }
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_article_kajian_search, menu)
+
+        // SearchView start
+        val searchManager = context?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView = menu.findItem(R.id.search)?.actionView as SearchView
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
+        searchView.queryHint = getString(R.string.search_mosque)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                progressBar.visibility = View.VISIBLE
+                mosqueListViewModel.setMosqueAsync(
+                        requireContext(),
+                        mosqueListAdapter,
+                        query)
+                searchView.clearFocus()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                /* no-op */
+                return true
+            }
+        })
+        // SearchView end
+
+
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }
