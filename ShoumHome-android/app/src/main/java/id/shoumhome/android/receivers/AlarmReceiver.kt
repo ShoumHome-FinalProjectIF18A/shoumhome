@@ -14,10 +14,15 @@ class AlarmReceiver: BroadcastReceiver() {
     companion object {
         private val TAG = AlarmReceiver::class.java.simpleName
         const val EXTRA_MESSAGE = "extra_message"
-        private val ID_REPEATING = 101
+        private val ID_KAJIAN = 202
+        private val ID_SAHUR = 101
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
+
+    }
+
+    fun setKajianAlarm() {
 
     }
 
@@ -32,7 +37,7 @@ class AlarmReceiver: BroadcastReceiver() {
         calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeArray[0]))
         calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]) - durationBeforeImsak)
         calendar.set(Calendar.SECOND, 0)
-        val pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, 0)
+        val pendingIntent = PendingIntent.getBroadcast(context, ID_SAHUR, intent, 0)
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
 
         Log.d(TAG, "Alarm is set up to $time.")
@@ -42,7 +47,7 @@ class AlarmReceiver: BroadcastReceiver() {
     fun cancelAlarm(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, AlarmReceiver::class.java)
-        val requestCode = ID_REPEATING
+        val requestCode = ID_SAHUR
         val pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, 0)
         pendingIntent.cancel()
 
